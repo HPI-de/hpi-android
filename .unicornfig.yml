@@ -1,0 +1,7 @@
+---
+unicornVersion: "0.0.1"
+type: "ANDROID"
+name: "hpi-android"
+description: "The official HPI app for Android"
+version: "0.0.1"
+githubName: "HPI-de/hpi-android"
