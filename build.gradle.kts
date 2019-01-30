@@ -1,4 +1,13 @@
 buildscript {
+    extra.apply {
+        set("compileSdkVersion", 28)
+        set("minSdkVersion", 19)
+        set("targetSdkVersion", 28)
+
+        set("versionCode", 2)
+        set("versionName", "0.0.2")
+    }
+
     repositories {
         google()
         jcenter()

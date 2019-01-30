@@ -9,13 +9,16 @@ plugins {
 }
 
 android {
-    compileSdkVersion(28)
+    compileSdkVersion(rootProject.extra["compileSdkVersion"] as Int)
     defaultConfig {
         applicationId = "de.hpi.android"
-        minSdkVersion(19)
-        targetSdkVersion(28)
-        versionCode = 2
-        versionName = "0.2.0"
+
+        minSdkVersion(rootProject.extra["minSdkVersion"] as Int)
+        targetSdkVersion(rootProject.extra["targetSdkVersion"] as Int)
+
+        versionCode = rootProject.extra["versionCode"] as Int
+        versionName = rootProject.extra["versionName"] as String
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

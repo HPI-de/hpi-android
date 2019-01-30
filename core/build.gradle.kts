@@ -3,16 +3,20 @@ import org.jetbrains.kotlin.config.KotlinCompilerVersion
 
 plugins {
     id("com.android.library")
+
+    id("kotlin-android")
+    id("kotlin-android-extensions")
 }
 
 android {
-    compileSdkVersion(28)
+    compileSdkVersion(rootProject.extra["compileSdkVersion"] as Int)
 
     defaultConfig {
-        minSdkVersion(19)
-        targetSdkVersion(28)
-        versionCode = 2
-        versionName = "0.2.0"
+        minSdkVersion(rootProject.extra["minSdkVersion"] as Int)
+        targetSdkVersion(rootProject.extra["targetSdkVersion"] as Int)
+
+        versionCode = rootProject.extra["versionCode"] as Int
+        versionName = rootProject.extra["versionName"] as String
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
