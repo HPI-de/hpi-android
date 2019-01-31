@@ -1,4 +1,4 @@
-package de.hpi.android.core.presentation
+package de.hpi.android.core.presentation.base
 
 import android.app.Activity
 

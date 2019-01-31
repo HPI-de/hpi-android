@@ -41,8 +41,8 @@ dependencies {
     api("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0")
 
     // AndroidX
-    implementation("androidx.appcompat:appcompat:1.0.2")
-    implementation("androidx.core:core-ktx:1.1.0-alpha04")
+    api("androidx.appcompat:appcompat:1.0.2")
+    api("androidx.core:core-ktx:1.1.0-alpha04")
     api("androidx.annotation:annotation:1.0.1")
     // Architecture
     api("androidx.lifecycle:lifecycle-extensions:2.0.0")
