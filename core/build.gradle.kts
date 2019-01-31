@@ -40,6 +40,9 @@ dependencies {
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.0")
     api("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0")
 
+    // Logging
+    api ("com.jakewharton.timber:timber:4.7.1")
+
     // AndroidX
     api("androidx.appcompat:appcompat:1.0.2")
     api("androidx.core:core-ktx:1.1.0-alpha04")
