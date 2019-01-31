@@ -1,5 +1,6 @@
 import org.jetbrains.kotlin.config.KotlinCompilerVersion
 
+
 plugins {
     id("com.android.application")
 
@@ -10,6 +11,7 @@ plugins {
 
 android {
     compileSdkVersion(rootProject.extra["compileSdkVersion"] as Int)
+
     defaultConfig {
         applicationId = "de.hpi.android"
 
@@ -21,6 +23,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
@@ -31,8 +34,6 @@ android {
 
 dependencies {
     implementation(project(":core"))
-
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:${KotlinCompilerVersion.VERSION}")
 
     implementation("androidx.appcompat:appcompat:1.0.2")
     implementation("androidx.core:core-ktx:1.1.0-alpha04")
