@@ -41,7 +41,16 @@ dependencies {
     api("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0")
 
     // Logging
-    api ("com.jakewharton.timber:timber:4.7.1")
+    api("com.jakewharton.timber:timber:4.7.1")
+
+    // Network
+    api("com.squareup.retrofit2:retrofit:2.4.0")
+    api("com.squareup.okhttp3:okhttp:3.12.1")
+    api("com.squareup.retrofit2:converter-gson:2.4.0")
+    api("com.squareup.okhttp3:logging-interceptor:3.12.1")
+
+    // Data
+    api("com.google.code.gson:gson:2.8.5")
 
     // AndroidX
     api("androidx.appcompat:appcompat:1.0.2")
