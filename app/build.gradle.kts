@@ -1,4 +1,4 @@
-import org.jetbrains.kotlin.config.KotlinCompilerVersion
+import org.jetbrains.kotlin.gradle.dsl.Coroutines
 
 
 plugins {
@@ -9,9 +9,12 @@ plugins {
     id("kotlin-kapt")
 }
 
-android {
-    compileSdkVersion(rootProject.extra["compileSdkVersion"] as Int)
+kotlin.experimental.coroutines = Coroutines.ENABLE
 
+android {
+    dataBinding.isEnabled = true
+
+    compileSdkVersion(rootProject.extra["compileSdkVersion"] as Int)
     defaultConfig {
         applicationId = "de.hpi.android"
 
@@ -34,11 +37,5 @@ android {
 
 dependencies {
     implementation(project(":core"))
-
-    implementation("androidx.appcompat:appcompat:1.0.2")
-    implementation("androidx.core:core-ktx:1.1.0-alpha04")
-    implementation("androidx.constraintlayout:constraintlayout:1.1.3")
-    testImplementation("junit:junit:4.12")
-    androidTestImplementation("androidx.test:runner:1.1.1")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.1.1")
+    implementation(project(":resources"))
 }

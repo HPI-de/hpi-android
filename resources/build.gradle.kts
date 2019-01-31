@@ -1,5 +1,6 @@
 import org.jetbrains.kotlin.gradle.dsl.Coroutines
 
+
 plugins {
     id("com.android.library")
 
@@ -33,9 +34,5 @@ android {
 }
 
 dependencies {
-    implementation("androidx.appcompat:appcompat:1.0.2")
-    implementation("androidx.core:core-ktx:1.1.0-alpha04")
-    testImplementation("junit:junit:4.12")
-    androidTestImplementation("androidx.test:runner:1.1.1")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.1.1")
+    implementation(project(":core"))
 }
