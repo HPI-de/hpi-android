@@ -1,53 +1,49 @@
 package de.hpi.android.core.domain
 
-import androidx.lifecycle.MutableLiveData
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
-import timber.log.Timber
-import kotlin.coroutines.CoroutineContext
+import io.reactivex.*
+import io.reactivex.android.schedulers.AndroidSchedulers
 
-abstract class BaseUseCase<in P, R> : CoroutineScope {
-    private val job = Job()
-    override val coroutineContext: CoroutineContext
-        get() = job + Dispatchers.IO
+abstract class BaseUseCase<in P, R> {
+    protected abstract val subscribeScheduler: Scheduler
+    protected open val observeScheduler = AndroidSchedulers.mainThread()
 
+    operator fun invoke(params: P): Observable<Result<R>> =
+        executeObservable(params)
+            .subscribeOn(subscribeScheduler)
+            .observeOn(observeScheduler)
 
-    operator fun invoke(parameters: P, result: MutableLiveData<Result<R>>) {
-        try {
-            launch {
-                result.postValue(
-                    try {
-                        Result.Success(execute(parameters))
-                    } catch (e: Exception) {
-                        Timber.e(e)
-                        Result.Error(e)
-                    }
-                )
-            }
-        } catch (e: Exception) {
-            Timber.d(e)
-            result.postValue(Result.Error(e))
-        }
-    }
-
-    operator fun invoke(parameters: P): MutableLiveData<Result<R>> {
-        return MutableLiveData<Result<R>>().also {
-            this(parameters, it)
-        }
-    }
-
-
-    fun executeNow(parameters: P): Result<R> = try {
-        Result.Success(execute(parameters))
-    } catch (e: Exception) {
-        Result.Error(e)
-    }
-
-    @Throws(RuntimeException::class)
-    protected abstract fun execute(parameters: P): R
+    protected abstract fun executeObservable(params: P): Observable<Result<R>>
 }
 
-operator fun <R> BaseUseCase<Unit, R>.invoke() = this(Unit)
-operator fun <R> BaseUseCase<Unit, R>.invoke(result: MutableLiveData<Result<R>>) = this(Unit, result)
+operator fun <R, F> BaseUseCase<Unit, R>.invoke() = this(Unit)
+
+abstract class ObservableUseCase<in P, R> : BaseUseCase<P, R>() {
+    override fun executeObservable(params: P): Observable<Result<R>> =
+        execute(params)
+
+    protected abstract fun execute(params: P): Observable<Result<R>>
+}
+
+abstract class SingleUseCase<in P, R> : BaseUseCase<P, R>() {
+    override fun executeObservable(params: P): Observable<Result<R>> =
+        execute(params)
+            .toObservable()
+
+    protected abstract fun execute(params: P): Single<Result<R>>
+}
+
+abstract class CompletableUseCase<in P> : BaseUseCase<P, Unit>() {
+    override fun executeObservable(params: P): Observable<Result<Unit>> =
+        execute(params)
+            .toObservable<Result<Unit>>()
+
+    protected abstract fun execute(params: P): Completable
+}
+
+abstract class MaybeUseCase<in P, R> : BaseUseCase<P, R>() {
+    override fun executeObservable(params: P): Observable<Result<R>> =
+        execute(params)
+            .toObservable()
+
+    protected abstract fun execute(params: P): Maybe<Result<R>>
+}

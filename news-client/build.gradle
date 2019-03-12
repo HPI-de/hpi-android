@@ -25,7 +25,7 @@ dependencies {
   testCompile 'com.google.api:gax:1.42.0:testlib'
   compile 'com.google.api:gax-grpc:1.42.0'
   testCompile 'com.google.api:gax-grpc:1.42.0:testlib'
-  testCompile 'io.grpc:grpc-netty-shaded:1.19.0'
+  testCompile 'io.grpc:grpc-netty-shaded:1.18.0'
 //  testCompile 'io.grpc:grpc-stub:1.19.0'
   testCompile 'junit:junit:4.12'
   // Remove this line if you are bundling your proto-generated classes together with your client classes

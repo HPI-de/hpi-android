@@ -40,14 +40,18 @@ dependencies {
     // Logging
     api("com.jakewharton.timber:timber:4.7.1")
 
+    // ReactiveX
+    api("io.reactivex.rxjava2:rxjava:2.2.7")
+    api("io.reactivex.rxjava2:rxandroid:2.1.1")
+    api("io.reactivex.rxjava2:rxkotlin:2.3.0")
+
     // Network
-    api("com.squareup.retrofit2:retrofit:2.4.0")
-    api("com.squareup.okhttp3:okhttp:3.12.1")
-    api("com.squareup.retrofit2:converter-gson:2.4.0")
-    api("com.squareup.okhttp3:logging-interceptor:3.12.1")
+    api("io.grpc:grpc-okhttp:1.18.0")
+    api("io.grpc:grpc-stub:1.18.0")
 
     // Data
     api("com.google.code.gson:gson:2.8.5")
+    api("com.google.protobuf:protobuf-java:3.6.1")
 
     // AndroidX
     api("androidx.appcompat:appcompat:1.0.2")
@@ -55,6 +59,7 @@ dependencies {
     api("androidx.annotation:annotation:1.0.1")
     // Architecture
     api("androidx.lifecycle:lifecycle-extensions:2.0.0")
+    api("androidx.lifecycle:lifecycle-reactivestreams-ktx:2.0.0")
     kapt("androidx.lifecycle:lifecycle-compiler:2.0.0")
     // UI
     api("androidx.cardview:cardview:1.0.0")
