@@ -34,7 +34,6 @@ android {
 
 dependencies {
     implementation(project(":core"))
-    implementation(project(":post"))
 
     implementation("androidx.multidex:multidex:2.0.1")
 }
