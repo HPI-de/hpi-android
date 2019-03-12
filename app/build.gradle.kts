@@ -1,6 +1,3 @@
-import org.jetbrains.kotlin.gradle.dsl.Coroutines
-
-
 plugins {
     id("com.android.application")
 
@@ -8,8 +5,6 @@ plugins {
     id("kotlin-android-extensions")
     id("kotlin-kapt")
 }
-
-kotlin.experimental.coroutines = Coroutines.ENABLE
 
 android {
     dataBinding.isEnabled = true
