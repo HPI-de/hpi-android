@@ -1,0 +1,65 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+}
+
+apply plugin: 'java'
+
+description = 'GAPIC library for hpi-cloud-news-v1test'
+group = 'de.hpi.cloud'
+version = '0.0.1'
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+repositories {
+  mavenCentral()
+  mavenLocal()
+}
+
+compileJava.options.encoding = 'UTF-8'
+javadoc.options.encoding = 'UTF-8'
+
+dependencies {
+  compile 'com.google.api:gax:1.42.0'
+  testCompile 'com.google.api:gax:1.42.0:testlib'
+  compile 'com.google.api:gax-grpc:1.42.0'
+  testCompile 'com.google.api:gax-grpc:1.42.0:testlib'
+  testCompile 'io.grpc:grpc-netty-shaded:1.19.0'
+//  testCompile 'io.grpc:grpc-stub:1.19.0'
+  testCompile 'junit:junit:4.12'
+  // Remove this line if you are bundling your proto-generated classes together with your client classes
+//  compile project(':proto-hpi-cloud-news-v1test')
+  // Remove this line if you are bundling your proto-generated classes together with your client classes
+//  testCompile project(':grpc-hpi-cloud-news-v1test')
+}
+
+task smokeTest(type: Test) {
+  filter {
+    includeTestsMatching "*SmokeTest"
+    setFailOnNoMatchingTests false
+  }
+}
+
+test {
+  exclude "**/*SmokeTest*"
+}
+
+sourceSets {
+  main {
+    java {
+      srcDir 'src/main/java'
+    }
+  }
+}
+
+clean {
+  delete 'all-jars'
+}
+
+task allJars(type: Copy) {
+  dependsOn test, jar
+  into 'all-jars'
+  // Replace with `from configurations.testRuntime, jar` to include test dependencies
+  from configurations.runtime, jar
+}

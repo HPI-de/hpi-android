@@ -39,3 +39,9 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":post"))
 }
+
+configurations {
+    all {
+        exclude(group = "com.google.guava", module = "listenablefuture")
+    }
+}
