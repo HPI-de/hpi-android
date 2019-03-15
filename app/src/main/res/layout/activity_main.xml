@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/resources"
-        android:name="de.hpi.android.news.presentation.ArticlesFragment"
+        android:name="de.hpi.android.news.presentation.list.ArticleListFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

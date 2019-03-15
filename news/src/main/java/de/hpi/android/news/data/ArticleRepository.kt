@@ -11,6 +11,6 @@ object ArticleRepository : Repository<ArticleEntity>() {
     }
 
     override fun getAll(): Observable<Result<List<ArticleEntity>>> {
-        TODO("not implemented")
+        return NetworkNewsDataSource.getArticles()
     }
 }

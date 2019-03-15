@@ -15,7 +15,7 @@ abstract class BaseUseCase<in P, R> {
     protected abstract fun executeObservable(params: P): Observable<Result<R>>
 }
 
-operator fun <R, F> BaseUseCase<Unit, R>.invoke() = this(Unit)
+operator fun <R> BaseUseCase<Unit, R>.invoke() = this(Unit)
 
 abstract class ObservableUseCase<in P, R> : BaseUseCase<P, R>() {
     override fun executeObservable(params: P): Observable<Result<R>> =

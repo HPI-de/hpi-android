@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="de.hpi.android.news.presentation.ArticlesViewModel" />
+            type="de.hpi.android.news.presentation.detail.ArticleDetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

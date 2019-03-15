@@ -14,4 +14,10 @@ abstract class NetworkDataSource<Stub : AbstractStub<Stub>> {
                 Result.Success(mapper(it))
             }
             .startWith(Result.Loading())
+    fun <M : Message, E : Entity> clientCallList(call: () -> List<M>, mapper: (List<M>) -> List<E>): Observable<Result<List<E>>> =
+        Observable.fromCallable(call)
+            .map<Result<List<E>>> {
+                Result.Success(mapper(it))
+            }
+            .startWith(Result.Loading())
 }
