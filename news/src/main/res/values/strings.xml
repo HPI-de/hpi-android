@@ -1,0 +1,3 @@
+<resources>
+    <string name="news_list_item_sourceAndDateFormat">%1$s · %2$s</string>
+</resources>
