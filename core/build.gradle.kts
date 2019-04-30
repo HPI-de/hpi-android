@@ -32,6 +32,7 @@ android {
 }
 
 dependencies {
+    // Data & Domain Layer
     // Kotlin
     api("org.jetbrains.kotlin:kotlin-stdlib-jdk7:${KotlinCompilerVersion.VERSION}")
     api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.0")
@@ -57,15 +58,23 @@ dependencies {
     api("androidx.appcompat:appcompat:1.0.2")
     api("androidx.core:core-ktx:1.1.0-alpha04")
     api("androidx.annotation:annotation:1.0.1")
-    // Architecture
     api("androidx.lifecycle:lifecycle-extensions:2.0.0")
     api("androidx.lifecycle:lifecycle-reactivestreams-ktx:2.0.0")
     kapt("androidx.lifecycle:lifecycle-compiler:2.0.0")
-    // UI
+
+
+    // Presentation Layer
+    // Date and Time
+    api("com.jakewharton.threetenabp:threetenabp:1.2.0")
+
+    // Images
+    api("com.github.bumptech.glide:glide:4.9.0")
+
+    // AndroidX - UI
     api("androidx.cardview:cardview:1.0.0")
     api("androidx.recyclerview:recyclerview:1.0.0")
     api("androidx.constraintlayout:constraintlayout:1.1.3")
 
     // Material Design
-    api("com.google.android.material:material:1.0.0")
+    api("com.google.android.material:material:1.1.0-alpha05")
 }

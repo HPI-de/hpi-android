@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import de.hpi.android.core.presentation.base.BaseFragment
+import de.hpi.android.news.R
 import de.hpi.android.news.databinding.FragmentArticleListBinding
 import kotlinx.android.synthetic.main.fragment_article_list.*
 
@@ -33,10 +33,11 @@ class ArticleListFragment : BaseFragment<FragmentArticleListBinding, ArticleList
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        baseActivity.setSupportActionBar(view.findViewById(R.id.toolbar))
+
         recyclerView.also {
             it.adapter = adapter
             it.layoutManager = LinearLayoutManager(context)
-            it.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         }
         viewModel.articles.observe(this, Observer { articles ->
             adapter.items = articles ?: emptyList()
