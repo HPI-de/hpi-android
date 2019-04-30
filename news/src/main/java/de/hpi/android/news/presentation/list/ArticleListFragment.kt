@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import de.hpi.android.core.presentation.base.BaseFragment
+import de.hpi.android.core.utils.get
 import de.hpi.android.news.R
 import de.hpi.android.news.databinding.FragmentArticleListBinding
 import kotlinx.android.synthetic.main.fragment_article_list.*
@@ -17,7 +18,7 @@ class ArticleListFragment : BaseFragment<FragmentArticleListBinding, ArticleList
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(ArticleListViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(ArticleListViewModel::class)
     }
 
     override fun onCreateBinding(
