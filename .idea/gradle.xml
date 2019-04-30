@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/news" />
             <option value="$PROJECT_DIR$/news-client" />
+            <option value="$PROJECT_DIR$/news-client-new" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -8,4 +8,8 @@ import de.hpi.android.news.domain.GetArticleUseCase
 class ArticleDetailViewModel : BaseViewModel() {
     private val articleResult = GetArticleUseCase("1").asLiveData()
     val article = articleResult.data
+
+    fun onTest() {
+
+    }
 }

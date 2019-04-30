@@ -25,6 +25,9 @@ android {
     }
 
     buildTypes {
+        getByName("debug") {
+            applicationIdSuffix = ".debug"
+        }
         getByName("release") {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
@@ -44,3 +47,5 @@ configurations {
         exclude(group = "com.google.guava", module = "listenablefuture")
     }
 }
+
+apply(plugin = "com.google.gms.google-services")
