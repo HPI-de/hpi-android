@@ -20,6 +20,9 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel> : Fragment(
 
     protected lateinit var viewModel: VM
 
+    protected val baseActivity: BaseActivity
+        get() = requireActivity() as BaseActivity
+
     // region Lifecycle
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -30,6 +30,4 @@ android {
 
 dependencies {
     implementation(project(":core"))
-//    implementation(project(":news-client"))
-    implementation(project(":news-client-new"))
 }

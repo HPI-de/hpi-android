@@ -3,23 +3,16 @@ package de.hpi.android.news.domain
 import de.hpi.android.core.data.Id
 import de.hpi.android.core.domain.ObservableUseCase
 import de.hpi.android.core.domain.Result
-import de.hpi.android.news.data.ArticleEntity
+import de.hpi.android.news.data.Article
 import de.hpi.android.news.data.ArticleRepository
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
 
-object GetArticleUseCase : ObservableUseCase<GetArticleUseCase.Params, ArticleEntity>() {
-    data class Params(val username: String, val password: String)
+object GetArticleUseCase : ObservableUseCase<Id<Article>, Article>() {
 
     override val subscribeScheduler = Schedulers.io()
 
-    override fun execute(params: GetArticleUseCase.Params): Observable<Result<ArticleEntity>> {
-        val username = params.username.trim()
-        if (username.isEmpty()) {
-            return Observable.error(IllegalArgumentException("usename empty"))
-        }
-        val password = params.password
-        LoginRepository.login(username, password)
+    override fun execute(params: Id<Article>): Observable<Result<Article>> {
         return ArticleRepository.get(params)
     }
 }
