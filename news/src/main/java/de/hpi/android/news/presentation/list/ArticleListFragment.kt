@@ -18,7 +18,7 @@ class ArticleListFragment : BaseFragment<FragmentArticleListBinding, ArticleList
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(ArticleListViewModel::class)
+        viewModel = ViewModelProviders.of(this).get()
     }
 
     override fun onCreateBinding(
