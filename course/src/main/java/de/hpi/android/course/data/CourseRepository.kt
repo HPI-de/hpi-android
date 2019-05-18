@@ -24,6 +24,15 @@ object CourseRepository : Repository<Course>() {
             description = "Fortsetzung von Mathe 1",
             type = setOf(Course.Type.LECTURE, Course.Type.EXERCISE),
             lecturer = "Dr. Börner"
+        ),
+        Course(
+            id = "3",
+            series = "www",
+            semester = "ss2019",
+            description = "Grundlagen des Internetworking",
+            type = setOf(Course.Type.LECTURE, Course.Type.EXERCISE),
+            lecturer = "Prof. Meinel",
+            assistants = setOf("Leonard Marschke", "Christiane Hagedorn", "Matthias Bauer")
         )
     )
 

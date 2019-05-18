@@ -7,19 +7,31 @@
         <variable
                 name="course"
                 type="de.hpi.android.course.data.Course"/>
+        <variable
+                name="series"
+                type="de.hpi.android.course.data.CourseSeries"/>
     </data>
 
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingBottom="32dp">
+            android:paddingBottom="32dp"
+            android:elevation="@dimen/cardview_default_elevation"
+            android:background="@color/cardview_light_background">
 
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/title"
-                android:text="@{course.series}"/>
+                android:textSize="20dp"
+                android:text="@{series.title}"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/lecturer"
+                android:text="@{course.lecturer}"/>
 
     </LinearLayout>
     

@@ -4,8 +4,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import de.hpi.android.core.presentation.base.BaseViewHolder
 import de.hpi.android.core.presentation.base.BaseAdapter
+import de.hpi.android.core.utils.asLiveData
+import de.hpi.android.core.utils.data
 import de.hpi.android.course.data.Course
+import de.hpi.android.course.data.CourseSeries
+import de.hpi.android.course.data.CourseSeriesRepository
 import de.hpi.android.course.databinding.ItemCourseBinding
+import de.hpi.android.course.domain.GetCourseSeriesUseCase
 
 class CourseAdapter : BaseAdapter<Course, CourseAdapter.ViewHolder, ItemCourseBinding>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -20,6 +25,7 @@ class CourseAdapter : BaseAdapter<Course, CourseAdapter.ViewHolder, ItemCourseBi
     class ViewHolder(binding: ItemCourseBinding) : BaseViewHolder<Course, ItemCourseBinding>(binding) {
         override fun onItemSet() {
             binding.course = item
+            binding.series = CourseSeriesRepository.getDirectly(item.series)
         }
     }
 }

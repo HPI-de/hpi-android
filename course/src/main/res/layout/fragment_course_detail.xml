@@ -17,6 +17,12 @@
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.course.series}"/>
 
+        <TextView
+                android:layout_width="wrap_content"
+                android:background="@color/design_default_color_primary"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.series.title}"/>
+
         <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
