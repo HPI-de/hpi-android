@@ -8,10 +8,10 @@
 
         <variable
             name="article"
-            type="de.hpi.android.news.data.Article" />
+            type="de.hpi.android.news.domain.Article" />
         <!--<variable
             name="source"
-            type="de.hpi.android.news.data.Source" />-->
+            type="de.hpi.android.news.domain.Source" />-->
     </data>
 
     <LinearLayout

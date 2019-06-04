@@ -21,3 +21,11 @@ package de.hpi.android.core.utils
  */
 val <T> T.checkAllMatched: T
     get() = this
+
+
+fun <T1, T2> Pair<T1?, T2?>.takeIfNotNull(): Pair<T1, T2>? {
+    val (t1, t2) = this
+    t1 ?: return null
+    t2 ?: return null
+    return t1 to t2
+}

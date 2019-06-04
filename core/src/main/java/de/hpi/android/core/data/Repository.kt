@@ -1,15 +1,24 @@
 package de.hpi.android.core.data
 
 import de.hpi.android.core.domain.Result
+import de.hpi.android.core.domain.map
+import de.hpi.android.core.domain.merge
 import io.reactivex.Completable
 import io.reactivex.Observable
 
-abstract class Repository<E : Entity<E>> {
+abstract class Repository<E : Dto<E>> {
     abstract fun get(id: Id<E>): Observable<Result<E>>
     abstract fun getAll(): Observable<Result<List<E>>>
+
+    fun get(ids: Set<Id<E>>): Observable<Result<Set<E>>> {
+        return Observable.combineLatest(ids.map { get(it) }) { array ->
+            @Suppress("UNCHECKED_CAST")
+            (array as Array<Result<E>>).asList().merge().map { it.toSet() }
+        }
+    }
 }
 
-abstract class MutableRepository<E : Entity<E>> : Repository<E>() {
+abstract class MutableRepository<E : Dto<E>> : Repository<E>() {
     abstract fun create(entity: E): Observable<Id<E>>
     abstract fun update(entity: E): Completable
     abstract fun delete(id: Id<E>): Completable

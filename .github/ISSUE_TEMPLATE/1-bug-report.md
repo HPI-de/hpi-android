@@ -23,10 +23,6 @@ Please select the component label (C: abc) this bug is related to from the right
 4. See error
 
 
-**Expected behavior**
-<!-- A clear and concise description of what you expected to happen -->
-
-
 **Screenshots**
 <!-- If applicable, add screenshots to help explain your problem -->
 
@@ -37,8 +33,9 @@ Please select the component label (C: abc) this bug is related to from the right
 
 **Environment:**
 <!-- Please complete the following information -->
- - Device:  <!-- e.g. Samsung Galaxy S8+ -->
- - Android version:  <!-- e.g. Android 8.0.0 -->
+- Device:  <!-- e.g. Samsung Galaxy S8+ -->
+- Android version:  <!-- e.g. Android 8.0.0 -->
+- App version: <!-- e.g. 1.0.2 -->
 
 
 **Additional context**

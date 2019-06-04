@@ -8,7 +8,7 @@ import io.reactivex.BackpressureStrategy
 import io.reactivex.Observable
 import timber.log.Timber
 
-fun <T> Observable<Result<T>>.asLiveData(): LiveData<Result<T>> {
+fun <T : Any> Observable<Result<T>>.asLiveData(): LiveData<Result<T>> {
     val flowable = onErrorReturn {
         Timber.w(it)
         Result.Error(it)
@@ -17,7 +17,7 @@ fun <T> Observable<Result<T>>.asLiveData(): LiveData<Result<T>> {
     return LiveDataReactiveStreams.fromPublisher(flowable)
 }
 
-val <T> LiveData<Result<T>>.data: LiveData<T?>
+val <T : Any> LiveData<Result<T>>.data: LiveData<T?>
     get() = map {
         when (it) {
             is Result.Success -> it.data
