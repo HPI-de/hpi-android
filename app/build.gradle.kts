@@ -1,9 +1,14 @@
+val kotlin_version: String by extra
 plugins {
     id("com.android.application")
 
     id("kotlin-android")
     id("kotlin-android-extensions")
     id("kotlin-kapt")
+}
+apply {
+    plugin("kotlin-android")
+    plugin("kotlin-android-extensions")
 }
 
 android {
@@ -48,4 +53,7 @@ configurations {
     }
 }
 
-apply(plugin = "com.google.gms.google-services")
+//apply(plugin = "com.google.gms.google-services")
+repositories {
+    mavenCentral()
+}
