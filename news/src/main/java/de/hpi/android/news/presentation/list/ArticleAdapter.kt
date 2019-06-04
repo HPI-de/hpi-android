@@ -4,8 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import de.hpi.android.core.presentation.base.BaseAdapter
 import de.hpi.android.core.presentation.base.BaseViewHolder
-import de.hpi.android.news.data.Article
 import de.hpi.android.news.databinding.ItemArticleBinding
+import de.hpi.android.news.domain.Article
 
 class ArticleAdapter : BaseAdapter<Article, ArticleAdapter.ViewHolder, ItemArticleBinding>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

@@ -3,13 +3,15 @@ package de.hpi.android.news.data
 import de.hpi.android.core.data.Id
 import de.hpi.android.core.data.Repository
 import de.hpi.android.core.domain.Result
+import de.hpi.android.core.domain.error
+import de.hpi.android.core.domain.success
 import io.reactivex.Observable
 import org.threeten.bp.LocalDateTime
 import java.net.URL
 
-object ArticleRepository : Repository<Article>() {
+object ArticleRepository : Repository<ArticleDto>() {
     private val articles = listOf(
-        Article(
+        ArticleDto(
             id = "1",
             sourceId = "hpi",
             link = URL("https://hpi.de/news/jahrgaenge/2019/die-schul-cloud-fuer-brandenburg-bildungsministerin-britta-ernst-unterzeichnet-absichtserklaerung-zur-nutzung-der-hpi-schul-cloud.html"),
@@ -30,7 +32,7 @@ object ArticleRepository : Repository<Article>() {
             tags = emptySet(),
             cover = URL("https://hpi.de/fileadmin/user_upload/hpi/bilder/teaser_news/2019/HPI_Schul_Cloud_2019_1020x420.jpg")
         ),
-        Article(
+        ArticleDto(
             id = "2",
             sourceId = "hpi-mgzn",
             link = URL("https://hpimgzn.de/2019/von-wurmmehlkeksen-bis-hin-zu-kompostieranlagen/"),
@@ -65,22 +67,22 @@ object ArticleRepository : Repository<Article>() {
                         "Lilith.Diringer@student.hpi.de" +
                         "Malte.Barth@student.hpi.de
                     """.trimIndent(),
-            categories = setOf("Allgemein", "HPIklubs", "Nachhaltigkeitsklub"),
+            categories = setOf("allgemein", "klubs", "klubs/nachhaltigkeitsklub"),
             cover = URL("https://hpimgzn.de/wp-content/uploads/2018/12/photo_2018-12-16_20-19-43.jpg"),
             tags = setOf("nachhaltigkeitsklub", "essen", "selbstgemacht"),
             viewCount = 107
         )
     )
 
-    override fun get(id: Id<Article>): Observable<Result<Article>> {
+    override fun get(id: Id<ArticleDto>): Observable<Result<ArticleDto>> {
         val article = articles.firstOrNull { it.id == id }
         return Observable.just(
-            if (article == null) Result.Error(IllegalArgumentException("Article with ID $id was not found"))
-            else Result.Success(article)
+            article?.success()
+                ?: IllegalArgumentException("ArticleDto with ID $id was not found").error()
         )
     }
 
-    override fun getAll(): Observable<Result<List<Article>>> {
+    override fun getAll(): Observable<Result<List<ArticleDto>>> {
         return Observable.just(Result.Success(articles))
     }
 }
