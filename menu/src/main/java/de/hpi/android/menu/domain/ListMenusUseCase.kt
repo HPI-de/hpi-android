@@ -17,7 +17,7 @@ object ListMenusUseCase : ObservableUseCase<Unit, List<Menu>>() {
         return MenuRepository.getAll().flatMapResult { menus ->
             Observable.combineLatest(menus.map { Observable.just(it.success() as Result<MenuDto>).toMenuEntity() }) { array ->
                 @Suppress("UNCHECKED_CAST")
-                (array as Array<Result<Menu>>).asList().merge()
+                array.map { it as Result<Menu> } .merge()
             }
         }
     }
