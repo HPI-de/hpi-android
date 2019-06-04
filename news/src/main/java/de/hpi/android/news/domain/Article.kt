@@ -1,43 +1,25 @@
-package de.hpi.android.news.data
+package de.hpi.android.news.domain
 
-import de.hpi.android.core.data.Entity
 import de.hpi.android.core.data.Id
+import de.hpi.android.core.domain.Entity
 import org.threeten.bp.LocalDateTime
 import java.net.URL
 
 data class Article(
     override val id: Id<Article>,
-    val sourceId: Id<Source>,
+    val source: Source,
     val link: URL,
     val title: String,
     val authors: Set<String>,
     val date: LocalDateTime,
     val teaser: String,
     val content: String,
-    val categories: Set<Id<Category>>,
-    val tags: Set<Id<Tag>>,
+    val categories: Set<Category>,
+    val tags: Set<Tag>,
     val cover: URL,
     val coverCaption: String? = null,
     val viewCount: Int? = null
 ) : Entity<Article>
-
-data class Source(
-    override val id: Id<Source>,
-    val title: String,
-    val link: URL
-) : Entity<Source>
-
-data class Category(
-    override val id: Id<Category>,
-    val title: String,
-    val description: String
-) : Entity<Category>
-
-data class Tag(
-    override val id: Id<Tag>,
-    val title: String,
-    val articleCount: Int
-) : Entity<Tag>
 
 data class Comment(
     val id: String,
