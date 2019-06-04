@@ -1,0 +1,150 @@
+package de.hpi.android.menu.data
+
+import de.hpi.android.core.data.Id
+import de.hpi.android.core.data.Repository
+import de.hpi.android.core.domain.Result
+import de.hpi.android.core.domain.error
+import de.hpi.android.core.domain.success
+import io.reactivex.Observable
+import java.util.*
+
+object MenuRepository : Repository<MenuDto>() {
+    private val restaurants = listOf(
+        MenuDto(
+            id = "mensa1",
+            date = Date(),
+            restaurant = "mensa",
+            title = "Vegane Nudeln all' arrabbiata, dazu Reibekäse",
+            substitution = null,
+            price = 1.40f,
+            counter = "1",
+            labels = setOf(
+                LabelDto("chicken", "Huhn"),
+                LabelDto("beef", "Rind"),
+                LabelDto("vegetarian", "Vegetarisch")
+            )
+        ),
+        MenuDto(
+            id = "mensa2",
+            date = Date(),
+            restaurant = "mensa",
+            title = "Tandem Marburg: Kassler-Rippenspeer mit Honigkruste, Apfelweinsauerkraut und Kartoffelbrei",
+            substitution = null,
+            price = 2.00f,
+            counter = "2",
+            labels = setOf(
+                LabelDto("chicken", "Huhn"),
+                LabelDto("beef", "Rind"),
+                LabelDto("pork", "Schwein")
+            )
+        ),
+        MenuDto(
+            id = "mensa3",
+            date = Date(),
+            restaurant = "mensa",
+            title = "Rinderhacksteak mit Knoblauchdip und Peperoni-Schoten, dazu bunter CousCous-Salat oder griechiche Kartoffeln",
+            substitution = null,
+            price = 2.50f,
+            counter = "3",
+            labels = setOf(
+                LabelDto("chicken", "Huhn"),
+                LabelDto("beef", "Rind")
+            )
+        ),
+        MenuDto(
+            id = "mensa4",
+            date = Date(),
+            restaurant = "mensa",
+            title = "Brokkoli-Nuss-Ecke mit rustikalem Möhrengemüse und Schupfnudeln oder Kartoffeln",
+            substitution = null,
+            price = 2.50f,
+            counter = "4",
+            labels = setOf(
+                LabelDto("chicken", "Huhn"),
+                LabelDto("beef", "Rind"),
+                LabelDto("vegetarian", "Vegetarisch")
+            )
+        ),
+        MenuDto(
+            id = "mensaSoup",
+            date = Date(),
+            restaurant = "mensa",
+            title = "Tandem Marbug: Quer durch en Gadde (Gemüsecremesuppe)",
+            substitution = null,
+            price = 1.00f,
+            counter = "Tagessuppe",
+            labels = setOf(
+                LabelDto("chicken", "Huhn"),
+                LabelDto("beef", "Rind"),
+                LabelDto("vegetarian", "Vegetarisch")
+            )
+        ),
+        MenuDto(
+            id = "mensaNoodles",
+            date = Date(),
+            restaurant = "mensa",
+            title = "Nudeln mit veganer Tomatensauce oder Hackfleischsauce",
+            substitution = null,
+            price = 2.00f,
+            counter = "Nudeltheke",
+            labels = setOf(
+                LabelDto("chicken", "Huhn"),
+                LabelDto("beef", "Rind"),
+                LabelDto("pork", "Schwein")
+            )
+        ),
+        MenuDto(
+            id = "ulf1",
+            date = Date(),
+            restaurant = "ulf",
+            title = "Hühnerfrikassee mit Reis",
+            substitution = null,
+            price = 5.00f,
+            counter = "Theke",
+            labels = emptySet()
+        ),
+        MenuDto(
+            id = "ulf2",
+            date = Date(),
+            restaurant = "ulf",
+            title = "Nudelsalat mit einer Ruccolapesto und Mozzarella",
+            substitution = null,
+            price = 5.00f,
+            counter = "Theke",
+            labels = emptySet()
+        ),
+        MenuDto(
+            id = "ulf3",
+            date = Date(),
+            restaurant = "ulf",
+            title = "Nudelsalat mit einerTomatenpesto und Mozzarella",
+            substitution = null,
+            price = 5.00f,
+            counter = "Theke",
+            labels = emptySet()
+        ),
+        MenuDto(
+            id = "ulf4",
+            date = Date(),
+            restaurant = "ulf",
+            title = "Minestrone",
+            substitution = null,
+            price = 3.00f,
+            counter = "Theke",
+            labels = emptySet()
+        )
+
+    )
+
+    override fun get(id: Id<MenuDto>): Observable<Result<MenuDto>> {
+        val restaurant = restaurants.firstOrNull { it.id == id }
+        return Observable.just(
+            restaurant?.success()
+                ?: IllegalArgumentException("MenuDto with ID $id was not found").error()
+        )
+    }
+
+    override fun getAll(): Observable<Result<List<MenuDto>>> {
+        return Observable.just(Result.Success(restaurants))
+    }
+}
