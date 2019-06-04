@@ -18,11 +18,7 @@ object MenuRepository : Repository<MenuDto>() {
             substitution = null,
             price = 1.40f,
             counter = "1",
-            labels = setOf(
-                LabelDto("chicken", "Huhn"),
-                LabelDto("beef", "Rind"),
-                LabelDto("vegetarian", "Vegetarisch")
-            )
+            labels = setOf("chicken", "beef", "vegetarian")
         ),
         MenuDto(
             id = "mensa2",
@@ -32,11 +28,7 @@ object MenuRepository : Repository<MenuDto>() {
             substitution = null,
             price = 2.00f,
             counter = "2",
-            labels = setOf(
-                LabelDto("chicken", "Huhn"),
-                LabelDto("beef", "Rind"),
-                LabelDto("pork", "Schwein")
-            )
+            labels = setOf("chicken", "beef", "pork")
         ),
         MenuDto(
             id = "mensa3",
@@ -46,10 +38,7 @@ object MenuRepository : Repository<MenuDto>() {
             substitution = null,
             price = 2.50f,
             counter = "3",
-            labels = setOf(
-                LabelDto("chicken", "Huhn"),
-                LabelDto("beef", "Rind")
-            )
+            labels = setOf("chicken", "beef")
         ),
         MenuDto(
             id = "mensa4",
@@ -59,11 +48,7 @@ object MenuRepository : Repository<MenuDto>() {
             substitution = null,
             price = 2.50f,
             counter = "4",
-            labels = setOf(
-                LabelDto("chicken", "Huhn"),
-                LabelDto("beef", "Rind"),
-                LabelDto("vegetarian", "Vegetarisch")
-            )
+            labels = setOf("chicken", "beef", "vegetarian")
         ),
         MenuDto(
             id = "mensaSoup",
@@ -73,11 +58,7 @@ object MenuRepository : Repository<MenuDto>() {
             substitution = null,
             price = 1.00f,
             counter = "Tagessuppe",
-            labels = setOf(
-                LabelDto("chicken", "Huhn"),
-                LabelDto("beef", "Rind"),
-                LabelDto("vegetarian", "Vegetarisch")
-            )
+            labels = setOf("chicken", "beef", "vegetarian")
         ),
         MenuDto(
             id = "mensaNoodles",
@@ -87,11 +68,7 @@ object MenuRepository : Repository<MenuDto>() {
             substitution = null,
             price = 2.00f,
             counter = "Nudeltheke",
-            labels = setOf(
-                LabelDto("chicken", "Huhn"),
-                LabelDto("beef", "Rind"),
-                LabelDto("pork", "Schwein")
-            )
+            labels = setOf("chicken", "beef", "pork")
         ),
         MenuDto(
             id = "ulf1",

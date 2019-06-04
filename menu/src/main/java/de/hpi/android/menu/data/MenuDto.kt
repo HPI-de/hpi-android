@@ -13,10 +13,5 @@ data class MenuDto(
     val substitution: String?,
     val price: Float, // TODO
     val counter: String?,
-    val labels: Set<LabelDto>
+    val labels: Set<Id<LabelDto>>
 ): Dto<MenuDto>
-
-data class LabelDto(
-    override val id: String,
-    val title: String
-): Dto<LabelDto>
