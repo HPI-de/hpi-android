@@ -83,6 +83,6 @@ object ArticleRepository : Repository<ArticleDto>() {
     }
 
     override fun getAll(): Observable<Result<List<ArticleDto>>> {
-        return Observable.just(Result.Success(articles))
+        return Observable.just(articles.success())
     }
 }

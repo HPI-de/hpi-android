@@ -17,7 +17,7 @@ import io.reactivex.Observable
 @Suppress("UNCHECKED_CAST")
 fun <T1 : Any, T2 : Any> Observable<Result<T1>>.withRequired(factory: (T1) -> List<Observable<Result<T2>>>): Observable<Result<Pair<T1, List<T2>>>> {
     fun dataToList(res: Result<T1>, t1: T1): Observable<Pair<Result<T1>, List<Result<T2>>?>> =
-        Observable.combineLatest(factory(t1)) { res to it as List<Result<T2>> }
+        Observable.combineLatest(factory(t1)) { res to it.map { it as Result<T2> }}
 
     return flatMap { t1 ->
         when (t1) {

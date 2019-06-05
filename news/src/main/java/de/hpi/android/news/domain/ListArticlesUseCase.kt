@@ -11,9 +11,11 @@ object ListArticlesUseCase : ObservableUseCase<Unit, List<Article>>() {
 
     override fun execute(params: Unit): Observable<Result<List<Article>>> {
         return ArticleRepository.getAll().flatMapResult { articles ->
-            Observable.combineLatest(articles.map { Observable.just(it.success() as Result<ArticleDto>).toArticleEntity() }) { array ->
+            Observable.combineLatest(articles.map {
+                Observable.just(it.success() as Result<ArticleDto>).toArticleEntity()
+            }) { array ->
                 @Suppress("UNCHECKED_CAST")
-                (array as Array<Result<Article>>).asList().merge()
+                array.map { it as Result<Article> }.merge()
             }
         }
     }
