@@ -42,4 +42,4 @@ dependencies {
     implementation("androidx.multidex:multidex:2.0.1")
 }
 
-apply(plugin = "com.google.gms.google-services")
+//apply(plugin = "com.google.gms.google-services")
