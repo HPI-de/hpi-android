@@ -41,7 +41,7 @@ dependencies {
     // Data & Domain Layer
     // Kotlin
     api("org.jetbrains.kotlin:kotlin-stdlib-jdk7:${KotlinCompilerVersion.VERSION}")
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.0")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.1")
     api("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0")
 
     // Logging
@@ -62,8 +62,8 @@ dependencies {
 
     // AndroidX
     api("androidx.appcompat:appcompat:1.0.2")
-    api("androidx.core:core-ktx:1.1.0-alpha04")
-    api("androidx.annotation:annotation:1.0.1")
+    api("androidx.core:core-ktx:1.1.0-rc01")
+    api("androidx.annotation:annotation:1.1.0")
     api("androidx.lifecycle:lifecycle-extensions:2.0.0")
     api("androidx.lifecycle:lifecycle-reactivestreams-ktx:2.0.0")
     kapt("androidx.lifecycle:lifecycle-compiler:2.0.0")
@@ -82,7 +82,7 @@ dependencies {
     api("androidx.constraintlayout:constraintlayout:1.1.3")
 
     // Material Design
-    api("com.google.android.material:material:1.1.0-alpha05")
+    api("com.google.android.material:material:1.1.0-alpha07")
 }
 repositories {
     mavenCentral()
