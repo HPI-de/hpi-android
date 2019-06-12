@@ -1,28 +1,21 @@
 package de.hpi.android.course.data
 
+import de.hpi.android.core.data.Dto
 import de.hpi.android.core.data.Id
-import de.hpi.android.core.domain.Entity
 import java.net.URI
 
-data class Course(
+data class CourseDto(
     override val id: Id<Course>,
-    val series: CourseSeries,
-    val semester: Semester,
+    val series: Id<CourseSeries>,
+    val semester: Id<Semester>,
     val lecturer: String,
     val assistants: Set<String> = emptySet(),
     val description: String,
-    val type: Set<Type>,
+    val type: Set<Course.Type>,
     val website: URI? = null
-) : Entity<Course> {
-    enum class Type {
-        LECTURE,
-        SEMINAR,
-        BLOCK_SEMINAR,
-        EXERCISE
-    }
-}
+) : Dto<CourseDto>
 
-data class CourseSeries(
+data class CourseSeriesDto(
     override val id: Id<CourseSeries>,
     val title: String,
     val shortTitle: String,
@@ -30,10 +23,10 @@ data class CourseSeries(
     val ects: Int,
     val mandatory: Boolean,
     val language: String
-) : Entity<CourseSeries>
+) : Dto<CourseSeriesDto>
 
-data class Semester(
+data class SemesterDto(
     override val id: Id<Semester>,
     val term: String,
     val year: Int
-) : Entity<Semester>
+) : Dto<SemesterDto>

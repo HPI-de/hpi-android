@@ -3,12 +3,14 @@ package de.hpi.android.course.data
 import de.hpi.android.core.data.Id
 import de.hpi.android.core.data.Repository
 import de.hpi.android.core.domain.Result
+import de.hpi.android.core.domain.error
+import de.hpi.android.core.domain.success
 import io.reactivex.Observable
-import java.lang.IllegalArgumentException
+import kotlin.IllegalArgumentException
 
-object CourseSeriesRepository : Repository<CourseSeries>() {
+object CourseSeriesRepository : Repository<CourseSeriesDto>() {
     private val series = listOf(
-        CourseSeries(
+        CourseSeriesDto(
             id = "pt2",
             title = "Einführung in die Programmiertechnik II",
             shortTitle = "Programmiertechnik II",
@@ -17,7 +19,7 @@ object CourseSeriesRepository : Repository<CourseSeries>() {
             mandatory = true,
             language = "Deutsch"
         ),
-        CourseSeries(
+        CourseSeriesDto(
             id = "ma2",
             title = "Mathematik II",
             shortTitle = "Mathe II",
@@ -26,10 +28,10 @@ object CourseSeriesRepository : Repository<CourseSeries>() {
             mandatory = true,
             language = "Deutsch"
         ),
-        CourseSeries(
+        CourseSeriesDto(
             id = "www",
             title = "Internet- und WWW-Technologien",
-            shortTitle = "WWW-Technologien",
+            shortTitle = "Internet und WWW",
             abbreviation = "WWW",
             ects = 6,
             mandatory = false,
@@ -37,20 +39,15 @@ object CourseSeriesRepository : Repository<CourseSeries>() {
         )
     )
 
-    override fun get(id: Id<CourseSeries>): Observable<Result<CourseSeries>> {
+    override fun get(id: Id<CourseSeries>): Observable<Result<CourseSeriesDto>> {
         val series = series.firstOrNull {it.id == id}
         return Observable.just(
-            if (series == null) Result.Error(IllegalArgumentException("CourseSeries with ID $id was not found"))
-        else Result.Success(series)
+            series?.success()
+                ?: IllegalArgumentException("Course Series with ID $id could not be found").error()
         )
     }
 
-    //This is only a temporary workaround. With changes to the architecture, this method will be replaced.
-    fun getDirectly(id: Id<CourseSeries>): CourseSeries? {
-        return series.firstOrNull { it.id == id }
-    }
-
-    override fun getAll(): Observable<Result<List<CourseSeries>>> {
+    override fun getAll(): Observable<Result<List<CourseSeriesDto>>> {
         return Observable.just(Result.Success(series))
     }
 }

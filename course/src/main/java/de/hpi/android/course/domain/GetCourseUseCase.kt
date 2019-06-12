@@ -13,6 +13,6 @@ object GetCourseUseCase : ObservableUseCase<Id<Course>, Course>() {
     override val subscribeScheduler = Schedulers.io()
 
     override fun execute(params: Id<Course>): Observable<Result<Course>> {
-        return CourseRepository.get(params)
+        return CourseRepository.get(params).toCourseEntity()
     }
 }

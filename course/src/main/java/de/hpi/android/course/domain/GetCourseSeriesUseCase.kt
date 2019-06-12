@@ -8,11 +8,11 @@ import de.hpi.android.course.data.CourseSeriesRepository
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
 
-object GetCourseSeriesUseCase : ObservableUseCase<Id<CourseSeries>, CourseSeries>() {
+/*object GetCourseSeriesUseCase : ObservableUseCase<Id<CourseSeries>, CourseSeries>() {
 
     override val subscribeScheduler = Schedulers.io()
 
     override fun execute(params: Id<CourseSeries>): Observable<Result<CourseSeries>> {
         return CourseSeriesRepository.get(params)
     }
-}
+}*/
