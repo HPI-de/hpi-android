@@ -1,5 +1,6 @@
 package de.hpi.android.course.presentation.list
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import de.hpi.android.core.presentation.base.BaseViewHolder
@@ -21,6 +22,7 @@ class CourseAdapter : BaseAdapter<Course, CourseAdapter.ViewHolder, ItemCourseBi
         override fun onItemSet() {
             binding.course = item
             binding.series = item.series
+            Log.d("CourseAdapter", item.series.shortTitle)
         }
     }
 }

@@ -12,9 +12,11 @@ object ListCoursesUseCase : ObservableUseCase<Unit, List<Course>>() {
 
     override fun execute(params: Unit): Observable<Result<List<Course>>> {
         return CourseRepository.getAll().flatMapResult {courses ->
-            Observable.combineLatest(courses.map { Observable.just(it.success() as Result<CourseDto>).toCourseEntity() }) { array ->
+            Observable.combineLatest(courses.map {
+                Observable.just(it.success() as Result<CourseDto>).toCourseEntity()
+            }) { array ->
                 @Suppress("UNCHECKED_CAST")
-                (array as Array<Result<Course>>).asList().merge()
+                array.map { it as Result<Course> }.merge()
             }
         }
     }

@@ -9,7 +9,7 @@ class CourseDetailViewModel : BaseViewModel() {
     private val courseResult = GetCourseUseCase("www").asLiveData()
     val course = courseResult.data
     /*private val seriesResult = courseResult.value
-    val series = seriesResult.data*/
+    val series = seriesResult.series*/
 
     fun onTest() {
 

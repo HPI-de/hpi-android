@@ -3,6 +3,7 @@ package de.hpi.android.core.data
 import de.hpi.android.core.domain.Result
 import de.hpi.android.core.domain.map
 import de.hpi.android.core.domain.merge
+import de.hpi.android.core.domain.success
 import io.reactivex.Completable
 import io.reactivex.Observable
 
@@ -11,9 +12,10 @@ abstract class Repository<E : Dto<E>> {
     abstract fun getAll(): Observable<Result<List<E>>>
 
     fun get(ids: Set<Id<E>>): Observable<Result<Set<E>>> {
-        return Observable.combineLatest(ids.map { get(it) }) { array ->
+        return if (ids.isEmpty()) Observable.just(emptySet<E>().success())
+        else Observable.combineLatest(ids.map { get(it) }) { array ->
             @Suppress("UNCHECKED_CAST")
-            (array as Array<Result<E>>).asList().merge().map { it.toSet() }
+            array.map { it as Result<E> }.merge().map { it.toSet() }
         }
     }
 }
