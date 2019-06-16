@@ -29,6 +29,8 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
+
+    resourcePrefix("core_")
 }
 
 dependencies {

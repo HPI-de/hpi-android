@@ -26,6 +26,8 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
+
+    resourcePrefix("news_")
 }
 
 dependencies {
