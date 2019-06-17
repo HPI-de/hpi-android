@@ -3,6 +3,7 @@ package de.hpi.android.menu.presentation.list
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.google.android.material.chip.Chip
+import com.google.android.material.shape.ShapeAppearanceModel
 import de.hpi.android.core.presentation.base.BaseAdapter
 import de.hpi.android.core.presentation.base.BaseViewHolder
 import de.hpi.android.menu.databinding.ItemMenuBinding
@@ -21,13 +22,13 @@ class MenuAdapter : BaseAdapter<Menu, MenuAdapter.ViewHolder, ItemMenuBinding>()
 
     class ViewHolder(binding: ItemMenuBinding) : BaseViewHolder<Menu, ItemMenuBinding>(binding) {
         override fun onItemSet() {
+            binding.menuItem.setOnClickListener {  }
             binding.menu = item
             with (binding.labels) {
                 removeAllViews()
                 for (label in item.labels) {
                     val chip = Chip(context)
                     chip.chipIcon = context.getDrawable(android.R.drawable.ic_delete)
-                    chip.shapeAppearanceModel =
                     addView(chip)
                 }
             }
