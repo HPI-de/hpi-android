@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+                name="viewModel"
+                type="de.hpi.android.course.presentation.detail.CourseDetailViewModel"/>
+    </data>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+        <!--
+        <TextView
+                android:layout_width="wrap_content"
+                android:background="@color/design_default_color_primary"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.course.series}"/>
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:background="@color/design_default_color_primary"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.series.title}"/>
+                -->
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@android:color/holo_red_dark"
+                android:text="Test"
+                android:onClick="@{(view) -> viewModel.onTest()}"/>
+
+    </LinearLayout>
+
+</layout>

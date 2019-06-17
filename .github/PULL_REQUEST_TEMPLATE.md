@@ -7,7 +7,6 @@
 - Please enter the corresponding issue ID in the placeholder above.
 -->
 
-
 **Checklist**
 <!-- Please check if your PR fulfills the following requirements: -->
 
@@ -29,9 +28,3 @@
 | :------------: | :------------: |
 | <screenshot 1> | <screenshot 2> |
 -->
-
-
-<!-- Optional
-**Other information**
--->
-
