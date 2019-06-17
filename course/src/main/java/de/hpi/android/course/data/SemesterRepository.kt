@@ -11,12 +11,12 @@ object SemesterRepository : Repository<SemesterDto>() {
 
     private val semesters = listOf(
         SemesterDto(
-            id = "ws2018",
+            id = "2018ws",
             term = "winter",
             year = 2018
         ),
         SemesterDto(
-            id = "ss2019",
+            id = "2019ss",
             term = "summer",
             year = 2019
         )

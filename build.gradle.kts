@@ -1,6 +1,4 @@
 buildscript {
-    var kotlin_version: String by extra
-    kotlin_version = "1.3.31"
     extra.apply {
         set("compileSdkVersion", 28)
         set("minSdkVersion", 21)

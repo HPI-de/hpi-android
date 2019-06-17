@@ -62,6 +62,6 @@
             android:text="HPI · Today"
             android:textAppearance="?textAppearanceCaption" />
         <!--android:text="@{@string/news_list_item_sourceAndDateFormat(source.title, FormattingUtilsKt.formatDateTimeRelative(context, article.date))}"-->
-LinearLayout
+
     </LinearLayout>
 </layout>

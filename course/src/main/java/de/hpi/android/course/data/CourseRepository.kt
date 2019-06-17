@@ -5,32 +5,33 @@ import de.hpi.android.core.data.Repository
 import de.hpi.android.core.domain.Result
 import de.hpi.android.core.domain.error
 import de.hpi.android.core.domain.success
+import de.hpi.android.course.domain.Course
 import io.reactivex.Observable
 import kotlin.IllegalArgumentException
 
 object CourseRepository : Repository<CourseDto>() {
     private val courses = listOf(
         CourseDto(
-            id = "1",
+            id = "2019ss-pt2",
             series = "pt2",
-            semester = "ss2019",
+            semester = "2019ss",
             description = "Fortsetzung von PT 1",
             type = setOf(Course.Type.LECTURE, Course.Type.EXERCISE),
             lecturer = "Prof. Naumann",
             assistants = setOf("Tobias Bleifuß")
         ),
         CourseDto(
-            id = "2",
+            id = "2019ss-ma2",
             series = "ma2",
-            semester = "ss2019",
+            semester = "2019ss",
             description = "Fortsetzung von Mathe 1",
             type = setOf(Course.Type.LECTURE, Course.Type.EXERCISE),
             lecturer = "Dr. Börner"
         ),
         CourseDto(
-            id = "3",
+            id = "2019ss-www",
             series = "www",
-            semester = "ss2019",
+            semester = "2019ss",
             description = "Grundlagen des Internetworking",
             type = setOf(Course.Type.LECTURE, Course.Type.EXERCISE),
             lecturer = "Prof. Meinel",

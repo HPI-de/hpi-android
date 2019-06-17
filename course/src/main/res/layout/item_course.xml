@@ -1,47 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
-
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
-
-        <import type="de.hpi.android.core.utils.FormattingUtilsKt"/>
-
         <variable
-                name="course"
-                type="de.hpi.android.course.data.Course"/>
-
-        <variable
-                name="series"
-                type="de.hpi.android.course.data.CourseSeries"/>
+            name="course"
+            type="de.hpi.android.course.domain.Course" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <LinearLayout
-                android:layout_width="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/space_m">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingBottom="@dimen/space_m">
+                android:paddingStart="@dimen/space_m"
+                android:paddingTop="@dimen/space_m"
+                android:paddingEnd="@dimen/space_m"
+                android:text="@{course.series.shortTitle}"
+                android:textAppearance="?textAppearanceSubtitle1" />
 
             <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/title"
-                    android:textSize="20dp"
-                    android:paddingStart="@dimen/space_m"
-                    android:paddingTop="@dimen/space_m"
-                    android:text="@{series.shortTitle}"/>
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/lecturer"
-                    android:paddingStart="@dimen/space_m"
-                    android:text="@{course.lecturer}"/>
+                android:id="@+id/lecturer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/space_m"
+                android:paddingEnd="@dimen/space_m"
+                android:text="@{course.lecturer}" />
 
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
-
 </layout>

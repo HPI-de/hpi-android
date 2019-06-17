@@ -1,7 +1,6 @@
 package de.hpi.android.course.domain
 
 import de.hpi.android.core.domain.*
-import de.hpi.android.course.data.Course
 import de.hpi.android.course.data.CourseDto
 import de.hpi.android.course.data.CourseRepository
 import io.reactivex.Observable
