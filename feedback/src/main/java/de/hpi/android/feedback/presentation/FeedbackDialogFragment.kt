@@ -18,6 +18,8 @@ class FeedbackDialogFragment : BaseBottomSheepDialogFragment<DialogFeedbackBindi
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): DialogFeedbackBinding {
-        return DialogFeedbackBinding.inflate(inflater, container, false)
+        return DialogFeedbackBinding.inflate(inflater, container, false).also{
+            it.viewModel = viewModel
+        }
     }
 }

@@ -7,7 +7,7 @@ import java.io.File
 import java.net.URI
 
 data class FeedbackDto(
-    override val id: Id<FeedbackDto>,
+    override val id: Id<FeedbackDto> = "", // TODO: generate ID
     val message: String,
     val meta: Metadata
 ) : Dto<FeedbackDto> {
@@ -15,8 +15,9 @@ data class FeedbackDto(
     data class Metadata(
         val screenUri: URI,
         val author: String, // TODO: replace with User reference
-        val timestamp: ZonedDateTime,
         val screenshot: File? = null,
         val log: String? = null
-    )
+    ) {
+        val timestamp: ZonedDateTime = ZonedDateTime.now();
+    }
 }
