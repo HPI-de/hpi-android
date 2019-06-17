@@ -15,7 +15,7 @@ object MenuRepository : Repository<MenuDto>() {
             date = LocalDate.now(),
             restaurant = "mensa",
             title = "Vegane Nudeln all' arrabbiata, dazu Reibekäse",
-            substitution = null,
+            substitution = "andere Nudeln",
             price = 1.40f,
             counter = "1",
             labels = setOf("chicken", "beef", "vegetarian")
@@ -25,7 +25,7 @@ object MenuRepository : Repository<MenuDto>() {
             date = LocalDate.now(),
             restaurant = "mensa",
             title = "Tandem Marburg: Kassler-Rippenspeer mit Honigkruste, Apfelweinsauerkraut und Kartoffelbrei",
-            substitution = null,
+            substitution = "nur Honigkruste",
             price = 2.00f,
             counter = "2",
             labels = setOf("chicken", "beef", "pork")
@@ -45,7 +45,7 @@ object MenuRepository : Repository<MenuDto>() {
             date = LocalDate.now(),
             restaurant = "mensa",
             title = "Brokkoli-Nuss-Ecke mit rustikalem Möhrengemüse und Schupfnudeln oder Kartoffeln",
-            substitution = null,
+            substitution = "Blumenkohl-Marzipan-Kante mit feinem Karottenobst oder Schlöpfreis und Anti-Kartoffeln",
             price = 2.50f,
             counter = "4",
             labels = setOf("chicken", "beef", "vegetarian")
@@ -55,7 +55,7 @@ object MenuRepository : Repository<MenuDto>() {
             date = LocalDate.now(),
             restaurant = "mensa",
             title = "Tandem Marbug: Quer durch en Gadde (Gemüsecremesuppe)",
-            substitution = null,
+            substitution = "nur Brühe",
             price = 1.00f,
             counter = "Tagessuppe",
             labels = setOf("chicken", "beef", "vegetarian")
@@ -65,7 +65,7 @@ object MenuRepository : Repository<MenuDto>() {
             date = LocalDate.now(),
             restaurant = "mensa",
             title = "Nudeln mit veganer Tomatensauce oder Hackfleischsauce",
-            substitution = null,
+            substitution = "mehr Hack",
             price = 2.00f,
             counter = "Nudeltheke",
             labels = setOf("chicken", "beef", "pork")
