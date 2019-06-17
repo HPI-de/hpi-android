@@ -17,12 +17,15 @@ class MenuAdapter : BaseAdapter<Menu, MenuAdapter.ViewHolder, ItemMenuBinding>()
 
     override fun areItemsTheSame(old: Menu, new: Menu) = old.id == new.id
 
-    override fun areContentsTheSame(old: Menu, new: Menu) = old.title == new.title
+    override fun areContentsTheSame(old: Menu, new: Menu)
+            = old.title == new.title
+            && old.substitution == new.substitution
+            && old.labels == new.labels
+            && old.counter == new.counter
 
 
     class ViewHolder(binding: ItemMenuBinding) : BaseViewHolder<Menu, ItemMenuBinding>(binding) {
         override fun onItemSet() {
-            binding.menuItem.setOnClickListener {  }
             binding.menu = item
             with (binding.labels) {
                 removeAllViews()

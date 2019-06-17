@@ -1,7 +1,5 @@
 import org.jetbrains.kotlin.config.KotlinCompilerVersion
 
-val kotlin_version: String by extra
-
 
 plugins {
     id("com.android.library")
@@ -9,10 +7,6 @@ plugins {
     id("kotlin-android")
     id("kotlin-android-extensions")
     id("kotlin-kapt")
-}
-apply {
-    plugin("kotlin-android")
-    plugin("kotlin-android-extensions")
 }
 
 android {
@@ -83,7 +77,4 @@ dependencies {
 
     // Material Design
     api("com.google.android.material:material:1.1.0-alpha07")
-}
-repositories {
-    mavenCentral()
 }
