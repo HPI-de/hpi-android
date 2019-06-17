@@ -6,13 +6,13 @@ import de.hpi.android.core.domain.Result
 import de.hpi.android.core.domain.error
 import de.hpi.android.core.domain.success
 import io.reactivex.Observable
-import java.util.*
+import org.threeten.bp.LocalDate
 
 object MenuRepository : Repository<MenuDto>() {
     private val restaurants = listOf(
         MenuDto(
             id = "mensa1",
-            date = Date(),
+            date = LocalDate.now(),
             restaurant = "mensa",
             title = "Vegane Nudeln all' arrabbiata, dazu Reibekäse",
             substitution = null,
@@ -22,7 +22,7 @@ object MenuRepository : Repository<MenuDto>() {
         ),
         MenuDto(
             id = "mensa2",
-            date = Date(),
+            date = LocalDate.now(),
             restaurant = "mensa",
             title = "Tandem Marburg: Kassler-Rippenspeer mit Honigkruste, Apfelweinsauerkraut und Kartoffelbrei",
             substitution = null,
@@ -32,7 +32,7 @@ object MenuRepository : Repository<MenuDto>() {
         ),
         MenuDto(
             id = "mensa3",
-            date = Date(),
+            date = LocalDate.now(),
             restaurant = "mensa",
             title = "Rinderhacksteak mit Knoblauchdip und Peperoni-Schoten, dazu bunter CousCous-Salat oder griechiche Kartoffeln",
             substitution = null,
@@ -42,7 +42,7 @@ object MenuRepository : Repository<MenuDto>() {
         ),
         MenuDto(
             id = "mensa4",
-            date = Date(),
+            date = LocalDate.now(),
             restaurant = "mensa",
             title = "Brokkoli-Nuss-Ecke mit rustikalem Möhrengemüse und Schupfnudeln oder Kartoffeln",
             substitution = null,
@@ -52,7 +52,7 @@ object MenuRepository : Repository<MenuDto>() {
         ),
         MenuDto(
             id = "mensaSoup",
-            date = Date(),
+            date = LocalDate.now(),
             restaurant = "mensa",
             title = "Tandem Marbug: Quer durch en Gadde (Gemüsecremesuppe)",
             substitution = null,
@@ -62,7 +62,7 @@ object MenuRepository : Repository<MenuDto>() {
         ),
         MenuDto(
             id = "mensaNoodles",
-            date = Date(),
+            date = LocalDate.now(),
             restaurant = "mensa",
             title = "Nudeln mit veganer Tomatensauce oder Hackfleischsauce",
             substitution = null,
@@ -72,7 +72,7 @@ object MenuRepository : Repository<MenuDto>() {
         ),
         MenuDto(
             id = "ulf1",
-            date = Date(),
+            date = LocalDate.now(),
             restaurant = "ulf",
             title = "Hühnerfrikassee mit Reis",
             substitution = null,
@@ -82,7 +82,7 @@ object MenuRepository : Repository<MenuDto>() {
         ),
         MenuDto(
             id = "ulf2",
-            date = Date(),
+            date = LocalDate.now(),
             restaurant = "ulf",
             title = "Nudelsalat mit einer Ruccolapesto und Mozzarella",
             substitution = null,
@@ -92,7 +92,7 @@ object MenuRepository : Repository<MenuDto>() {
         ),
         MenuDto(
             id = "ulf3",
-            date = Date(),
+            date = LocalDate.now(),
             restaurant = "ulf",
             title = "Nudelsalat mit einerTomatenpesto und Mozzarella",
             substitution = null,
@@ -102,7 +102,7 @@ object MenuRepository : Repository<MenuDto>() {
         ),
         MenuDto(
             id = "ulf4",
-            date = Date(),
+            date = LocalDate.now(),
             restaurant = "ulf",
             title = "Minestrone",
             substitution = null,
