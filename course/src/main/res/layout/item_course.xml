@@ -7,35 +7,29 @@
             type="de.hpi.android.course.domain.Course" />
     </data>
 
-    <com.google.android.material.card.MaterialCardView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/list_item_height"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/space_m"
+        android:paddingBottom="@dimen/space_m">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingBottom="@dimen/space_m">
+            android:paddingStart="@dimen/space_m"
+            android:paddingEnd="@dimen/space_m"
+            android:text="@{course.series.shortTitle}"
+            android:textAppearance="?textAppearanceSubtitle1" />
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingStart="@dimen/space_m"
-                android:paddingTop="@dimen/space_m"
-                android:paddingEnd="@dimen/space_m"
-                android:text="@{course.series.shortTitle}"
-                android:textAppearance="?textAppearanceSubtitle1" />
+        <TextView
+            android:id="@+id/lecturer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/space_m"
+            android:paddingEnd="@dimen/space_m"
+            android:text="@{course.lecturer}" />
 
-            <TextView
-                android:id="@+id/lecturer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingStart="@dimen/space_m"
-                android:paddingEnd="@dimen/space_m"
-                android:text="@{course.lecturer}" />
-
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
 </layout>
