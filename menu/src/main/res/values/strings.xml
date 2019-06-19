@@ -1,2 +1,5 @@
 <resources>
+
+    <string name="menu_menu_alternative">alternative: %1$s</string>
+
 </resources>

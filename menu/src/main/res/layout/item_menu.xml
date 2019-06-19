@@ -17,7 +17,10 @@
         android:layout_height="wrap_content"
         android:background="?selectableItemBackground"
         android:orientation="horizontal"
-        android:padding="@dimen/space_m">
+        android:paddingStart="@dimen/space_m"
+        android:paddingTop="@dimen/space_s"
+        android:paddingEnd="@dimen/space_m"
+        android:paddingBottom="@dimen/space_s">
 
         <TextView
             android:id="@+id/counter"
@@ -25,8 +28,8 @@
             android:layout_height="wrap_content"
             android:text="@{menu.counter}"
             android:textAppearance="?textAppearanceHeadline6"
-            android:textStyle="normal"
             android:textColor="?colorOnSurfaceMediumEmphasis"
+            android:textStyle="normal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/title"
             tools:text="1" />
@@ -38,35 +41,35 @@
             android:layout_marginStart="@dimen/space_m"
             android:text="@{menu.title}"
             android:textAppearance="?textAppearanceSubtitle1"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/counter"
             app:layout_constraintEnd_toStartOf="@id/labels"
+            app:layout_constraintStart_toEndOf="@+id/counter"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="Panierte Jagdwurst mit veganer Paprikasauce" />
 
         <TextView
             android:id="@+id/substitution"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_s"
-            android:text="@{menu.substitution}"
+            android:layout_marginTop="@dimen/space_xs"
+            android:text="@{@string/menu_menu_alternative(menu.substitution)}"
             android:textAppearance="?textAppearanceBody1"
             android:textColor="?colorOnSurfaceMediumEmphasis"
-            app:layout_constraintTop_toBottomOf="@+id/title"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/title"
             app:layout_constraintEnd_toStartOf="@id/labels"
+            app:layout_constraintStart_toStartOf="@+id/title"
+            app:layout_constraintTop_toBottomOf="@+id/title"
             tools:text="alternativ: Tofusteak statt Jagdwurst" />
 
         <LinearLayout
             android:id="@+id/labels"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
             android:paddingStart="@dimen/space_s"
             android:paddingEnd="0dp"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/title" />
+            app:layout_constraintStart_toEndOf="@id/title"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
