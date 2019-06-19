@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="core_material_listItem_twoLine_height">64dp</dimen>
+
+</resources>
