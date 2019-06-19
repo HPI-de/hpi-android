@@ -7,7 +7,6 @@ import de.hpi.android.core.domain.error
 import de.hpi.android.core.domain.success
 import de.hpi.android.course.domain.Course
 import io.reactivex.Observable
-import kotlin.IllegalArgumentException
 
 object CourseRepository : Repository<CourseDto>() {
     private val courses = listOf(
@@ -17,7 +16,7 @@ object CourseRepository : Repository<CourseDto>() {
             semester = "2019ss",
             description = "Fortsetzung von PT 1",
             type = setOf(Course.Type.LECTURE, Course.Type.EXERCISE),
-            lecturer = "Prof. Naumann",
+            lecturer = "Prof. Dr. Felix Naumann",
             assistants = setOf("Tobias Bleifuß")
         ),
         CourseDto(
@@ -26,7 +25,7 @@ object CourseRepository : Repository<CourseDto>() {
             semester = "2019ss",
             description = "Fortsetzung von Mathe 1",
             type = setOf(Course.Type.LECTURE, Course.Type.EXERCISE),
-            lecturer = "Dr. Börner"
+            lecturer = "Dr. Ferdinand Börner"
         ),
         CourseDto(
             id = "2019ss-www",
@@ -34,13 +33,13 @@ object CourseRepository : Repository<CourseDto>() {
             semester = "2019ss",
             description = "Grundlagen des Internetworking",
             type = setOf(Course.Type.LECTURE, Course.Type.EXERCISE),
-            lecturer = "Prof. Meinel",
-            assistants = setOf("Leonard Marschke", "Christiane Hagedorn", "Matthias Bauer")
+            lecturer = "Prof. Dr. Christoph Meinel",
+            assistants = setOf("Matthias Bauer", "Christiane Hagedorn", "Leonard Marschke")
         )
     )
 
     override fun get(id: Id<Course>): Observable<Result<CourseDto>> {
-        val course = courses.firstOrNull{ it.id == id }
+        val course = courses.firstOrNull { it.id == id }
         return Observable.just(
             course?.success()
                 ?: IllegalArgumentException("Course with ID $id could not be found").error()

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
             name="course"
@@ -9,27 +10,28 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/list_item_height"
+        android:layout_height="@dimen/core_material_listItem_twoLine_height"
+        android:background="?selectableItemBackground"
+        android:gravity="center_vertical"
         android:orientation="vertical"
-        android:paddingTop="@dimen/space_m"
-        android:paddingBottom="@dimen/space_m">
+        android:paddingStart="@dimen/space_m"
+        android:paddingEnd="@dimen/space_m">
 
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/space_m"
-            android:paddingEnd="@dimen/space_m"
             android:text="@{course.series.shortTitle}"
-            android:textAppearance="?textAppearanceSubtitle1" />
+            android:textAppearance="?textAppearanceSubtitle1"
+            tools:text="Internet und WWW" />
 
         <TextView
             android:id="@+id/lecturer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/space_m"
-            android:paddingEnd="@dimen/space_m"
-            android:text="@{course.lecturer}" />
+            android:text="@{course.lecturer}"
+            android:textAppearance="?textAppearanceBody1"
+            tools:text="Prof. Dr. Christoph Meinel" />
 
     </LinearLayout>
 </layout>
