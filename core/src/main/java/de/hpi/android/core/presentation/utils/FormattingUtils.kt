@@ -1,4 +1,4 @@
-package de.hpi.android.core.utils
+package de.hpi.android.core.presentation.utils
 
 import android.content.Context
 import android.text.format.DateUtils

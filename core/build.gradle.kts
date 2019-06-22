@@ -1,4 +1,7 @@
+import com.android.build.gradle.ProguardFiles.getDefaultProguardFile
+import org.gradle.internal.impldep.com.amazonaws.PredefinedClientConfigurations.defaultConfig
 import org.jetbrains.kotlin.config.KotlinCompilerVersion
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
 
 
 plugins {
@@ -60,9 +63,9 @@ dependencies {
     api("androidx.appcompat:appcompat:1.0.2")
     api("androidx.core:core-ktx:1.1.0-rc01")
     api("androidx.annotation:annotation:1.1.0")
-    api("androidx.lifecycle:lifecycle-extensions:2.0.0")
-    api("androidx.lifecycle:lifecycle-reactivestreams-ktx:2.0.0")
-    kapt("androidx.lifecycle:lifecycle-compiler:2.0.0")
+    api("androidx.lifecycle:lifecycle-extensions:2.1.0-beta01")
+    api("androidx.lifecycle:lifecycle-reactivestreams-ktx:2.1.0-beta01")
+    kapt("androidx.lifecycle:lifecycle-compiler:2.1.0-beta01")
 
 
     // Presentation Layer
@@ -74,8 +77,10 @@ dependencies {
 
     // AndroidX - UI
     api("androidx.cardview:cardview:1.0.0")
-    api("androidx.recyclerview:recyclerview:1.0.0")
     api("androidx.constraintlayout:constraintlayout:1.1.3")
+    api("androidx.navigation:navigation-fragment-ktx:2.0.0")
+    api("androidx.navigation:navigation-ui-ktx:2.0.0")
+    api("androidx.recyclerview:recyclerview:1.0.0")
 
     // Material Design
     api("com.google.android.material:material:1.1.0-alpha07")

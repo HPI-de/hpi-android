@@ -4,10 +4,12 @@ import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.ImageView
+import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import androidx.databinding.BindingConversion
 import com.bumptech.glide.Glide
+import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import de.hpi.android.core.R
 import java.net.URL
@@ -46,3 +48,22 @@ fun ImageView.loadImage(
 // endregion
 
 // region ChipGroup
+data class ChipData(
+    val id: String,
+    val text: String,
+    @DrawableRes
+    val icon: Int = 0
+)
+
+@BindingAdapter(value = ["chips", "onChipClicked"], requireAll = false)
+fun ChipGroup.setChips(chips: List<ChipData>?, onChipClicked: ((String) -> Unit)?) {
+    removeAllViews()
+    for (chip in chips.orEmpty()) {
+        addView(Chip(context).apply {
+            text = chip.text
+            chipIcon = chip.icon.takeUnless { it == 0 }?.let { resources.getDrawable(it, context.theme) }
+            onChipClicked?.let { setOnClickListener { it(chip.id) } }
+        })
+    }
+}
+// endregion

@@ -41,31 +41,31 @@ object ArticleRepository : Repository<ArticleDto>() {
             date = LocalDateTime.of(2019, 2, 15, 18, 49, 8),
             teaser = "Am 16.12 hat der Nachhaltigkeitsklub seinen ersten Workshop angeboten. Von Bokashianlagenbau bis hin zur Herstellung selbstgemachter Weihnachtsgeschenke. Lest hier mehr.",
             content = """
-                        „Wollt ihr auch einmal Heuschrecken kosten?“ Diese Frage kursiert am 16.12. im HPI Hauptgebäude. Woher sie kommt? Aus Richtung der Teeküche, in der sich für den heutigen Tag eine Mischung aus Nachhaltigkeitsklubmitgliedern und externen Interessierten eingefunden hat. Welcher Anlass? Unser erster Nachhaltigkeitsworkshoptag." +
+                        „Wollt ihr auch einmal Heuschrecken kosten?“ Diese Frage kursiert am 16.12. im HPI Hauptgebäude. Woher sie kommt? Aus Richtung der Teeküche, in der sich für den heutigen Tag eine Mischung aus Nachhaltigkeitsklubmitgliedern und externen Interessierten eingefunden hat. Welcher Anlass? Unser erster Nachhaltigkeitsworkshoptag.
 
-                        "Warum muss man immer alles kaufen? Heute wollen wir selbst Hand anlegen. Und so geht es gleich mit den ersten selbst gemachten Müsliriegeln los. Schon bald wird das Erdgeschoss des Hauptgebäudes mit Müsliriegelduft durchströmt. Aus dem Ofen können wir nach einiger Backzeit nicht nur ansehnliche, sondern auch sehr leckere Müslischnitten entnehmen." +
+                        Warum muss man immer alles kaufen? Heute wollen wir selbst Hand anlegen. Und so geht es gleich mit den ersten selbst gemachten Müsliriegeln los. Schon bald wird das Erdgeschoss des Hauptgebäudes mit Müsliriegelduft durchströmt. Aus dem Ofen können wir nach einiger Backzeit nicht nur ansehnliche, sondern auch sehr leckere Müslischnitten entnehmen.
 
-                        "Die Nachwärme der Herdplatte, den wir zum Nüsserösten verwendet haben, nutzen wir gleich weiter, um etwas anderes zu rösten: Heuschrecken und Mehlwürmer, sowie Buffalowürmer. Als diese fertig sind, können wir diese etwas ungewöhnliche Proteinquelle verspeisen sowie die von einer Teilnehmerin mitgebrachten Buffalomehlkekse probieren. Interessant!" +
-
-
-                        "Natürlich gibt es zwischendurch auch etwas Leckeres zu essen – unter anderem Biogemüse." +
-                        "Der Workshop geht weiter mit der Herstellung von Badekugeln und Waschmittel, sowie dem Bau einer Bokashi-Anlage – einem Innenkomposter. Für alle, die Lust haben davon etwas nachzumachen gibt es die Anleitungen hier." +
+                        Die Nachwärme der Herdplatte, den wir zum Nüsserösten verwendet haben, nutzen wir gleich weiter, um etwas anderes zu rösten: Heuschrecken und Mehlwürmer, sowie Buffalowürmer. Als diese fertig sind, können wir diese etwas ungewöhnliche Proteinquelle verspeisen sowie die von einer Teilnehmerin mitgebrachten Buffalomehlkekse probieren. Interessant!
 
 
-                        "Einer dieser Innenkomposter steht inzwischen auch in der Teeküche für euch bereit. Ihr seid herzlich dazu eingeladen, eure Bioabfälle in diesem zu entsorgen und auch, ab in ca. zwei Wochen, wenn der erste Dünger entstanden sein sollte, euch daran zu bedienen – eure Küchenpflanzen werden sich freuen." +
+                        Natürlich gibt es zwischendurch auch etwas Leckeres zu essen – unter anderem Biogemüse.
+                        Der Workshop geht weiter mit der Herstellung von Badekugeln und Waschmittel, sowie dem Bau einer Bokashi-Anlage – einem Innenkomposter. Für alle, die Lust haben davon etwas nachzumachen gibt es die Anleitungen hier.
 
 
-                        "Bei der Herstellung unserer Kompostieranlagen hat uns die Kreativität gepackt." +
+                        Einer dieser Innenkomposter steht inzwischen auch in der Teeküche für euch bereit. Ihr seid herzlich dazu eingeladen, eure Bioabfälle in diesem zu entsorgen und auch, ab in ca. zwei Wochen, wenn der erste Dünger entstanden sein sollte, euch daran zu bedienen – eure Küchenpflanzen werden sich freuen.
+
+
+                        Bei der Herstellung unserer Kompostieranlagen hat uns die Kreativität gepackt.
 
 
 
-                        "Geplant ist es, auch in Zukunft, einmal monatlich einen Workshoptag anzubieten. Dabei werden wir Trinkschokoladensticks sowie vegane Milchalternativen selbst herstellen, Shampoo produzieren, das Stricken von Hausschuhen erlernen…" +
+                        Geplant ist es, auch in Zukunft, einmal monatlich einen Workshoptag anzubieten. Dabei werden wir Trinkschokoladensticks sowie vegane Milchalternativen selbst herstellen, Shampoo produzieren, das Stricken von Hausschuhen erlernen…
 
-                        "Besonders sollen diese Workshops als Austauschplattform und zum Ausprobieren von Alternativen dienen, sowie Freiräume zum Diskutieren bieten." +
+                        Besonders sollen diese Workshops als Austauschplattform und zum Ausprobieren von Alternativen dienen, sowie Freiräume zum Diskutieren bieten.
 
-                        "Kommt bei Ideen einfach auf uns zu oder schreibt uns an:" +
-                        "Lilith.Diringer@student.hpi.de" +
-                        "Malte.Barth@student.hpi.de
+                        Kommt bei Ideen einfach auf uns zu oder schreibt uns an:
+                        Lilith.Diringer@student.hpi.de
+                        Malte.Barth@student.hpi.de
                     """.trimIndent(),
             categories = setOf("allgemein", "klubs", "klubs/nachhaltigkeitsklub"),
             cover = URL("https://hpimgzn.de/wp-content/uploads/2018/12/photo_2018-12-16_20-19-43.jpg"),

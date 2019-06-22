@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextAppearance.Hpi.Overline" parent="TextAppearance.MaterialComponents.Overline">
+        <item name="android:textColor">?colorOnBackgroundMediumEmphasis</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Widget.Hpi.Chip.Action" parent="Widget.MaterialComponents.Chip.Action">
+        <item name="chipBackgroundColor">@android:color/transparent</item>
+        <item name="chipSurfaceColor">@android:color/transparent</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipStrokeColor">@color/brand_border</item>
+    </style>
+
+</resources>

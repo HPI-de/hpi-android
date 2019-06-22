@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import de.hpi.android.core.presentation.base.BaseFragment
 import de.hpi.android.news.R
@@ -13,7 +14,13 @@ import de.hpi.android.news.databinding.FragmentArticleListBinding
 import kotlinx.android.synthetic.main.fragment_article_list.*
 
 class ArticleListFragment : BaseFragment<FragmentArticleListBinding, ArticleListViewModel>() {
-    private val adapter by lazy { ArticleAdapter() }
+    private val adapter by lazy {
+        ArticleAdapter {
+            findNavController().navigate(
+                ArticleListFragmentDirections.newsActionArticleListToArticleDetail(it.id)
+            )
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

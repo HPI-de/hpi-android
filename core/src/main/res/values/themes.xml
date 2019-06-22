@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <style name="AppTheme.Base" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -24,6 +25,12 @@
         <item name="colorOnSurfaceMediumEmphasis">@color/material_text_secondary_dark</item>
         <item name="colorError">@color/brand_error</item>
         <item name="colorOnError">@color/material_text_primary_light</item>
+
+        <!-- Default Styles -->
+        <item name="chipStyle">@style/Widget.Hpi.Chip.Action</item>
+
+        <!-- Text -->
+        <item name="textAppearanceOverline">@style/TextAppearance.Hpi.Overline</item>
     </style>
 
     <style name="AppTheme" parent="AppTheme.Base" />
