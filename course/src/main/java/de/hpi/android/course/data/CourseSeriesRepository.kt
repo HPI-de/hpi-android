@@ -17,6 +17,7 @@ object CourseSeriesRepository : Repository<CourseSeriesDto>() {
             shortTitle = "Programmiertechnik II",
             abbreviation = "PT 2",
             ects = 6,
+            hoursPerWeek = 4,
             mandatory = true,
             language = "Deutsch"
         ),
@@ -26,6 +27,7 @@ object CourseSeriesRepository : Repository<CourseSeriesDto>() {
             shortTitle = "Mathe II",
             abbreviation = "MA 2",
             ects = 6,
+            hoursPerWeek = 4,
             mandatory = true,
             language = "Deutsch"
         ),
@@ -35,13 +37,14 @@ object CourseSeriesRepository : Repository<CourseSeriesDto>() {
             shortTitle = "Internet und WWW",
             abbreviation = "WWW",
             ects = 6,
+            hoursPerWeek = 4,
             mandatory = false,
             language = "Deutsch"
         )
     )
 
     override fun get(id: Id<CourseSeries>): Observable<Result<CourseSeriesDto>> {
-        val series = series.firstOrNull {it.id == id}
+        val series = series.firstOrNull { it.id == id }
         return Observable.just(
             series?.success()
                 ?: IllegalArgumentException("Course Series with ID $id could not be found").error()

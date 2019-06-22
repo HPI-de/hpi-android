@@ -5,7 +5,7 @@ import de.hpi.android.course.data.*
 import io.reactivex.Observable
 
 fun CourseSeriesDto.toCourseSeriesEntity(): Result<CourseSeries> {
-    return CourseSeries(id, title, shortTitle, abbreviation, ects, mandatory, language).success()
+    return CourseSeries(id, title, shortTitle, abbreviation, ects, hoursPerWeek, mandatory, language).success()
 }
 
 fun SemesterDto.toSemesterEntity(): Result<Semester> {
@@ -20,7 +20,6 @@ fun Observable<Result<CourseDto>>.toCourseEntity(): Observable<Result<Course>> {
             semester = semester,
             lecturer = lecturer,
             assistants = assistants,
-            description = description,
             type = type,
             website = website
         )
@@ -35,4 +34,18 @@ fun Observable<Result<CourseDto>>.toCourseEntity(): Observable<Result<Course>> {
         .mapResult { (course, courseSeries, semester) ->
             course.entity(courseSeries, semester).success()
         }
+}
+
+fun CourseDetailDto.toCourseDetailEntity(): Result<CourseDetail> {
+    return CourseDetail(
+        id = id,
+        teleTask = teleTask,
+        programs = programs,
+        description = description,
+        requirements = requirements,
+        learning = learning,
+        examination = examination,
+        dates = dates,
+        literature = literature
+    ).success()
 }
