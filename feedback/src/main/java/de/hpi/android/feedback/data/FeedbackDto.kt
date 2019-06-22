@@ -18,6 +18,6 @@ data class FeedbackDto(
         val screenshot: File? = null,
         val log: String? = null
     ) {
-        val timestamp: ZonedDateTime = ZonedDateTime.now();
+        val timestamp: ZonedDateTime = ZonedDateTime.now()
     }
 }
