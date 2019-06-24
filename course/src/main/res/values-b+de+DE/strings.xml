@@ -1,0 +1,20 @@
+<resources>
+    <string name="tele_task">Diese Vorlesung ist auf tele-TASK verfügbar</string>
+    <string name="lecturer">Dozent</string>
+    <string name="compulsory_module">Pflichtmodul</string>
+    <string name="ptional_module">optionales Modul</string>
+    <string name="ects">ECTS</string>
+    <string name="h_per_week">h/Woche</string>
+    <string name="lecture">Vorlesung</string>
+    <string name="seminar">Seminar</string>
+    <string name="block_seminar">Blockseminar</string>
+    <string name="exercise">Übung</string>
+    <string name="programs_mdoules">Studiengänge &amp; Module</string>
+    <string name="description">Beschreibung</string>
+    <string name="requirements">Voraussetzungen</string>
+    <string name="learning">Lern- und Lehrformen</string>
+    <string name="examination">Leistungserfassung</string>
+    <string name="dates">Termine</string>
+    <string name="literature">Literatur</string>
+    <string name="no_guarantee">Alle Angaben ohne Gewähr.</string>
+</resources>
