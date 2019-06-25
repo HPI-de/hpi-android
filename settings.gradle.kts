@@ -1,3 +1,3 @@
 rootProject.buildFileName = "build.gradle.kts"
 
-include(":app", ":core", ":course", ":menu", ":news")
+include(":app", ":core", ":course", ":feedback", ":menu", ":news")
