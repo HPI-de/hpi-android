@@ -10,7 +10,8 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/space_m">
 
         <LinearLayout
             android:id="@+id/restaurantCardContent"
@@ -19,15 +20,13 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/restaurantTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space_m"
+                android:text="@{restaurant.title}"
+                android:textAppearance="?textAppearanceHeadline6"
                 tools:text="Mensa" />
-
-            <include
-                layout="@layout/item_menu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
 
         </LinearLayout>
 
