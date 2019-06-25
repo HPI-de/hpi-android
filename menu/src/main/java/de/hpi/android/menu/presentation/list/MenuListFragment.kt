@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import de.hpi.android.core.presentation.base.BaseFragment
 import de.hpi.android.menu.R
 import de.hpi.android.menu.databinding.FragmentMenuListBinding
-import kotlinx.android.synthetic.main.fragment_menu_list.*
+import kotlinx.android.synthetic.main.menu_fragment_menu_list.*
 
 class MenuListFragment : BaseFragment<FragmentMenuListBinding, MenuListViewModel>() {
     private val adapter by lazy { MenuAdapter() }

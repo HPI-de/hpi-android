@@ -10,10 +10,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import de.hpi.android.core.presentation.base.BaseFragment
 import de.hpi.android.news.R
-import de.hpi.android.news.databinding.FragmentArticleListBinding
+import de.hpi.android.news.databinding.NewsFragmentArticleListBinding
 import kotlinx.android.synthetic.main.news_fragment_article_list.*
 
-class ArticleListFragment : BaseFragment<FragmentArticleListBinding, ArticleListViewModel>() {
+class ArticleListFragment : BaseFragment<NewsFragmentArticleListBinding, ArticleListViewModel>() {
     private val adapter by lazy {
         ArticleAdapter {
             findNavController().navigate(
@@ -31,8 +31,8 @@ class ArticleListFragment : BaseFragment<FragmentArticleListBinding, ArticleList
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): FragmentArticleListBinding {
-        return FragmentArticleListBinding.inflate(inflater, container, false).also {
+    ): NewsFragmentArticleListBinding {
+        return NewsFragmentArticleListBinding.inflate(inflater, container, false).also {
             it.viewModel = viewModel
         }
     }

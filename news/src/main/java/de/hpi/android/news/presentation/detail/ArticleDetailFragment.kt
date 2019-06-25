@@ -13,10 +13,10 @@ import de.hpi.android.core.presentation.base.BaseFragment
 import de.hpi.android.core.presentation.utils.formatDateTimeRelative
 import de.hpi.android.core.presentation.utils.viewModel
 import de.hpi.android.news.R
-import de.hpi.android.news.databinding.FragmentArticleDetailBinding
+import de.hpi.android.news.databinding.NewsFragmentArticleDetailBinding
 import kotlinx.android.synthetic.main.news_fragment_article_detail.*
 
-class ArticleDetailFragment : BaseFragment<FragmentArticleDetailBinding, ArticleDetailViewModel>() {
+class ArticleDetailFragment : BaseFragment<NewsFragmentArticleDetailBinding, ArticleDetailViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val args by navArgs<ArticleDetailFragmentArgs>()
@@ -27,8 +27,8 @@ class ArticleDetailFragment : BaseFragment<FragmentArticleDetailBinding, Article
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): FragmentArticleDetailBinding {
-        return FragmentArticleDetailBinding.inflate(inflater, container, false).also {
+    ): NewsFragmentArticleDetailBinding {
+        return NewsFragmentArticleDetailBinding.inflate(inflater, container, false).also {
             it.vm = viewModel
         }
     }

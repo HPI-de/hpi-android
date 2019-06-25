@@ -3,11 +3,11 @@
 
     <color name="core_brand_primary">@color/core_brand_hpiRed</color>
     <color name="core_brand_primaryVariant">#690221</color>
-    <color name="core_brand_onPrimary">@color/material_text_primary_light</color>
-    <color name="core_brand_onPrimaryMediumEmphasis">@color/material_text_secondary_light</color>
+    <color name="core_brand_onPrimary">@color/core_material_text_primary_light</color>
+    <color name="core_brand_onPrimaryMediumEmphasis">@color/core_material_text_secondary_light</color>
     <color name="core_brand_secondary">@color/core_brand_hpiOrange</color>
     <color name="core_brand_secondaryVariant">@color/core_brand_secondary</color>
-    <color name="core_brand_onSecondary">@color/material_text_primary_light</color>
+    <color name="core_brand_onSecondary">@color/core_material_text_primary_light</color>
 
     <color name="core_brand_background">#FAFAFA</color>
     <color name="core_brand_onBackgroundPrimary">@color/core_brand_primary</color>

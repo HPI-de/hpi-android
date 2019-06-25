@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import de.hpi.android.core.presentation.base.BaseFragment
 import de.hpi.android.course.R
 import de.hpi.android.course.databinding.FragmentCourseListBinding
-import kotlinx.android.synthetic.main.fragment_course_list.*
+import kotlinx.android.synthetic.main.course_fragment_course_list.*
 
 class CourseListFragment : BaseFragment<FragmentCourseListBinding, CourseListViewModel>() {
     private val adapter by lazy { CourseAdapter() }
