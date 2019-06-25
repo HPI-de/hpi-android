@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/resources"
-        android:name="de.hpi.android.news.presentation.list.ArticleListFragment"
+        android:name="de.hpi.android.menu.presentation.list.RestaurantsListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

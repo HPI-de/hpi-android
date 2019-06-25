@@ -6,14 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.LinearLayoutManager
 import de.hpi.android.core.presentation.base.BaseFragment
 import de.hpi.android.menu.R
-import de.hpi.android.menu.databinding.FragmentMenuListBinding
-import kotlinx.android.synthetic.main.fragment_menu_list.*
+import de.hpi.android.menu.databinding.FragmentRestaurantCardBinding
+import de.hpi.android.menu.databinding.FragmentRestaurantsListBinding
+import kotlinx.android.synthetic.main.fragment_restaurants_list.*
+import kotlinx.android.synthetic.main.item_restaurant_card.*
 
-class MenuListFragment : BaseFragment<FragmentMenuListBinding, MenuListViewModel>() {
-    private val adapter by lazy { MenuAdapter() }
+class RestaurantsListFragment : BaseFragment<FragmentRestaurantsListBinding, MenuListViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,8 +24,8 @@ class MenuListFragment : BaseFragment<FragmentMenuListBinding, MenuListViewModel
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): FragmentMenuListBinding {
-        return FragmentMenuListBinding.inflate(inflater, container, false).also {
+    ): FragmentRestaurantsListBinding {
+        return FragmentRestaurantsListBinding.inflate(inflater, container, false).also {
             it.viewModel = viewModel
         }
     }
@@ -35,12 +35,16 @@ class MenuListFragment : BaseFragment<FragmentMenuListBinding, MenuListViewModel
 
         baseActivity.setSupportActionBar(view.findViewById(R.id.toolbar))
 
-        recyclerView.also {
-            it.adapter = adapter
-            it.layoutManager = LinearLayoutManager(context)
-        }
         viewModel.menus.observe(this, Observer { menus ->
-            adapter.items = menus ?: emptyList()
+            restaurantsList.removeAllViews()
+            for ((restaurant, menusOfRestaurant) in menus?.groupBy { menu -> menu.restaurant }.orEmpty()) {
+                FragmentRestaurantCardBinding.inflate(LayoutInflater.from(context), restaurantsList, true).also {
+                    it.restaurant = restaurant
+                    for (menu in menusOfRestaurant) {
+                        restaurantCardContent.addView(MenuView())
+                    }
+                }
+            }
         })
     }
 }
