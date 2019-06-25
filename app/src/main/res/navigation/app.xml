@@ -5,6 +5,7 @@
     android:id="@+id/app"
     app:startDestination="@id/news">
 
+    <include app:graph="@navigation/course"/>
     <include app:graph="@navigation/news" />
 
 </navigation>

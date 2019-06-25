@@ -10,4 +10,7 @@
         android:icon="@drawable/news_icon"
         android:title="@string/news_title" />
 
+    <item
+        android:id=""
+
 </menu>
