@@ -43,23 +43,24 @@ class ArticleDetailFragment : BaseFragment<FragmentArticleDetailBinding, Article
             }
 
             val date = context!!.formatDateTimeRelative(article.date)
-            meta.text = when {
-                article.viewCount != null -> getString(
-                    R.string.news_detail_meta_viewCount,
-                    article.source.title,
-                    date,
-                    article.viewCount
-                ).toSpannable().apply {
-                    val index = indexOf('@')
-                    setSpan(
-                        ImageSpan(resources.getDrawable(R.drawable.ic_outline_remove_red_eye_24px, context!!.theme)),
-                        index,
-                        index + 1,
-                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-                    )
-                }
-                else -> getString(R.string.news_detail_meta, article.source.title, date)
+            meta.text = if (article.viewCount != null) getString(
+                R.string.news_detail_meta_viewCount,
+                article.source.title,
+                date,
+                article.viewCount
+            ).toSpannable().apply {
+                val index = indexOf('@')
+                setSpan(
+                    ImageSpan(context!!.getDrawable(R.drawable.ic_outline_remove_red_eye_24px)!!.apply {
+                        setBounds(0, 0, meta.lineHeight, meta.lineHeight)
+                        setTint(meta.currentTextColor)
+                    }),
+                    index,
+                    index + 1,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
             }
+            else getString(R.string.news_detail_meta, article.source.title, date)
         })
     }
 }

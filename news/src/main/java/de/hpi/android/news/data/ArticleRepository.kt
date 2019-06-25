@@ -69,7 +69,7 @@ object ArticleRepository : Repository<ArticleDto>() {
                     """.trimIndent(),
             categories = setOf("allgemein", "klubs", "klubs/nachhaltigkeitsklub"),
             cover = URL("https://hpimgzn.de/wp-content/uploads/2018/12/photo_2018-12-16_20-19-43.jpg"),
-            tags = setOf("nachhaltigkeitsklub", "essen", "selbstgemacht"),
+            tags = setOf("nachhaltigkeitsklub", "essen", "selbstgemacht", "nachhaltigkeit", "workshop"),
             viewCount = 107
         )
     )

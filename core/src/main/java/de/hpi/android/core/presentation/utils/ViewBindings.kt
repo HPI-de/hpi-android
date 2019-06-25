@@ -61,7 +61,7 @@ fun ChipGroup.setChips(chips: List<ChipData>?, onChipClicked: ((String) -> Unit)
     for (chip in chips.orEmpty()) {
         addView(Chip(context).apply {
             text = chip.text
-            chipIcon = chip.icon.takeUnless { it == 0 }?.let { resources.getDrawable(it, context.theme) }
+            chipIcon = chip.icon.takeUnless { it == 0 }?.let { context.getDrawable(it) }
             onChipClicked?.let { setOnClickListener { it(chip.id) } }
         })
     }

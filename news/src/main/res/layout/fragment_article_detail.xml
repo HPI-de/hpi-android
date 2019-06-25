@@ -68,6 +68,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/space_s"
+                    android:textAppearance="?textAppearanceCaption"
                     tools:text="01.03.2019 · HPImgzn ·" />
 
                 <TextView
@@ -93,12 +94,14 @@
                     android:id="@+id/authors"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_xs"
                     app:chips="@{vm.authorChips}" />
 
                 <TextView
                     android:id="@+id/categoriesHeading"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_m"
                     android:text="@{@plurals/news_detail_categories_header(vm.article.categories.size())}"
                     android:textAppearance="?textAppearanceOverline"
                     app:visible="@{vm.article.categories}"
@@ -108,12 +111,14 @@
                     android:id="@+id/categories"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_xs"
                     app:chips="@{vm.categoryChips}" />
 
                 <TextView
                     android:id="@+id/tagsHeading"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_m"
                     android:text="@{@plurals/news_detail_tags_header(vm.article.tags.size())}"
                     android:textAppearance="?textAppearanceOverline"
                     app:visible="@{vm.article.tags}"
@@ -123,13 +128,12 @@
                     android:id="@+id/tags"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_xs"
                     app:chips="@{vm.tagChips}" />
 
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
-
-
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

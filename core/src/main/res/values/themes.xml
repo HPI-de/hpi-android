@@ -28,6 +28,7 @@
 
         <!-- Default Styles -->
         <item name="chipStyle">@style/Widget.Hpi.Chip.Action</item>
+        <item name="chipGroupStyle">@style/Widget.Hpi.ChipGroup</item>
 
         <!-- Text -->
         <item name="textAppearanceOverline">@style/TextAppearance.Hpi.Overline</item>

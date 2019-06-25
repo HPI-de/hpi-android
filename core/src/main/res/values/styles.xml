@@ -12,5 +12,8 @@
         <item name="chipStrokeWidth">1dp</item>
         <item name="chipStrokeColor">@color/brand_border</item>
     </style>
+    <style name="Widget.Hpi.ChipGroup" parent="Widget.MaterialComponents.ChipGroup">
+        <item name="chipSpacing">@dimen/space_s</item>
+    </style>
 
 </resources>
