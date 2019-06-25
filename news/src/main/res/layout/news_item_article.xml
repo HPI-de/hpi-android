@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:background="?selectableItemBackground"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/space_l">
+        android:paddingBottom="@dimen/core_space_l">
 
         <ImageView
             android:layout_width="match_parent"
@@ -34,9 +34,9 @@
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/space_m"
-            android:layout_marginTop="@dimen/space_m"
-            android:layout_marginEnd="@dimen/space_m"
+            android:layout_marginStart="@dimen/core_space_m"
+            android:layout_marginTop="@dimen/core_space_m"
+            android:layout_marginEnd="@dimen/core_space_m"
             android:text="@{article.title}"
             android:textAppearance="?textAppearanceHeadline6"
             tools:text="Die Schul-Cloud für Brandenburg: Bildungsministerin Britta Ernst unterzeichnet Absichtserklärung zur Nutzung der HPI Schul-Cloud" />
@@ -45,9 +45,9 @@
             android:id="@+id/teaser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/space_m"
-            android:layout_marginTop="@dimen/space_s"
-            android:layout_marginEnd="@dimen/space_m"
+            android:layout_marginStart="@dimen/core_space_m"
+            android:layout_marginTop="@dimen/core_space_s"
+            android:layout_marginEnd="@dimen/core_space_m"
             android:text="@{article.teaser}"
             android:textAppearance="?textAppearanceBody1"
             tools:text="Künftig sollen viel mehr Schulen in Brandenburg die HPI Schul-Cloud nutzen können. …" />
@@ -56,9 +56,9 @@
             android:id="@+id/sourceAndDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/space_m"
-            android:layout_marginTop="@dimen/space_s"
-            android:layout_marginEnd="@dimen/space_m"
+            android:layout_marginStart="@dimen/core_space_m"
+            android:layout_marginTop="@dimen/core_space_s"
+            android:layout_marginEnd="@dimen/core_space_m"
             android:text="HPI · Today"
             android:textAppearance="?textAppearanceCaption" />
         <!--android:text="@{@string/news_list_item_sourceAndDateFormat(source.title, FormattingUtilsKt.formatDateTimeRelative(context, article.date))}"-->

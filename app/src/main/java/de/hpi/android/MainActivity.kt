@@ -6,6 +6,6 @@ import de.hpi.android.core.presentation.base.BaseActivity
 class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.app_activity_main)
     }
 }

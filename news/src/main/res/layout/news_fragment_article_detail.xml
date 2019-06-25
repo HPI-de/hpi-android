@@ -44,10 +44,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
-            android:paddingStart="@dimen/space_m"
-            android:paddingTop="@dimen/space_s"
-            android:paddingEnd="@dimen/space_m"
-            android:paddingBottom="@dimen/space_m"
+            android:paddingStart="@dimen/core_space_m"
+            android:paddingTop="@dimen/core_space_s"
+            android:paddingEnd="@dimen/core_space_m"
+            android:paddingBottom="@dimen/core_space_m"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <LinearLayout
@@ -67,7 +67,7 @@
                     android:id="@+id/meta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_s"
+                    android:layout_marginTop="@dimen/core_space_s"
                     android:textAppearance="?textAppearanceCaption"
                     tools:text="01.03.2019 · HPImgzn ·" />
 
@@ -75,7 +75,7 @@
                     android:id="@+id/content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_m"
+                    android:layout_marginTop="@dimen/core_space_m"
                     android:text="@{vm.article.content}"
                     tools:text="Seit 2016 entwickelt das Hasso-Plattner-Institut unter der Leitung von Professor Christoph Meinel zusammen mit dem nationalen Excellence-Schulnetzwerk MINT-EC und gefördert durch das Bundesministerium für Bildung und Forschung die HPI Schul-Cloud. Sie soll die technische Grundlage schaffen, dass Lehrkräfte und Schüler in jedem Unterrichtsfach auch moderne digitale Lehr- und Lerninhalte nutzen können, und zwar so einfach, wie Apps über Smartphones oder Tablets nutzbar sind. " />
 
@@ -84,7 +84,7 @@
                     android:id="@+id/authorsHeading"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_m"
+                    android:layout_marginTop="@dimen/core_space_m"
                     android:text="@{@plurals/news_detail_authors_header(vm.article.authors.size())}"
                     android:textAppearance="?textAppearanceOverline"
                     app:visible="@{vm.article.authors}"
@@ -94,14 +94,14 @@
                     android:id="@+id/authors"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_xs"
+                    android:layout_marginTop="@dimen/core_space_xs"
                     app:chips="@{vm.authorChips}" />
 
                 <TextView
                     android:id="@+id/categoriesHeading"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_m"
+                    android:layout_marginTop="@dimen/core_space_m"
                     android:text="@{@plurals/news_detail_categories_header(vm.article.categories.size())}"
                     android:textAppearance="?textAppearanceOverline"
                     app:visible="@{vm.article.categories}"
@@ -111,14 +111,14 @@
                     android:id="@+id/categories"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_xs"
+                    android:layout_marginTop="@dimen/core_space_xs"
                     app:chips="@{vm.categoryChips}" />
 
                 <TextView
                     android:id="@+id/tagsHeading"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_m"
+                    android:layout_marginTop="@dimen/core_space_m"
                     android:text="@{@plurals/news_detail_tags_header(vm.article.tags.size())}"
                     android:textAppearance="?textAppearanceOverline"
                     app:visible="@{vm.article.tags}"
@@ -128,7 +128,7 @@
                     android:id="@+id/tags"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/space_xs"
+                    android:layout_marginTop="@dimen/core_space_xs"
                     app:chips="@{vm.tagChips}" />
 
             </LinearLayout>

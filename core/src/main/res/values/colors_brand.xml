@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="brand_primary">@color/brand_hpiRed</color>
-    <color name="brand_primaryVariant">#690221</color>
-    <color name="brand_onPrimary">@color/material_text_primary_light</color>
-    <color name="brand_onPrimaryMediumEmphasis">@color/material_text_secondary_light</color>
-    <color name="brand_secondary">@color/brand_hpiOrange</color>
-    <color name="brand_secondaryVariant">@color/brand_secondary</color>
-    <color name="brand_onSecondary">@color/material_text_primary_light</color>
+    <color name="core_brand_primary">@color/core_brand_hpiRed</color>
+    <color name="core_brand_primaryVariant">#690221</color>
+    <color name="core_brand_onPrimary">@color/material_text_primary_light</color>
+    <color name="core_brand_onPrimaryMediumEmphasis">@color/material_text_secondary_light</color>
+    <color name="core_brand_secondary">@color/core_brand_hpiOrange</color>
+    <color name="core_brand_secondaryVariant">@color/core_brand_secondary</color>
+    <color name="core_brand_onSecondary">@color/material_text_primary_light</color>
 
-    <color name="brand_background">#FAFAFA</color>
-    <color name="brand_onBackgroundPrimary">@color/brand_primary</color>
-    <color name="brand_surface">#FFFFFF</color>
-    <color name="brand_error">#fd002f</color>
+    <color name="core_brand_background">#FAFAFA</color>
+    <color name="core_brand_onBackgroundPrimary">@color/core_brand_primary</color>
+    <color name="core_brand_surface">#FFFFFF</color>
+    <color name="core_brand_error">#fd002f</color>
 
 
-    <array name="brand_swipeRefreshColors">
-        <item>@color/brand_hpiRed</item>
-        <item>@color/brand_hpiOrange</item>
-        <item>@color/brand_hpiYellow</item>
+    <array name="core_brand_swipeRefreshColors">
+        <item>@color/core_brand_hpiRed</item>
+        <item>@color/core_brand_hpiOrange</item>
+        <item>@color/core_brand_hpiYellow</item>
     </array>
 
 
-    <color name="brand_hpiRed">#B10438</color>
-    <color name="brand_hpiOrange">#E2661D</color>
-    <color name="brand_hpiYellow">#F8A41B</color>
+    <color name="core_brand_hpiRed">#B10438</color>
+    <color name="core_brand_hpiOrange">#E2661D</color>
+    <color name="core_brand_hpiYellow">#F8A41B</color>
 
-    <color name="brand_border">#1F000000</color>
+    <color name="core_brand_border">#1F000000</color>
 
 </resources>

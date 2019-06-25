@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="TextAppearance.Hpi.Overline" parent="TextAppearance.MaterialComponents.Overline">
+    <style name="Core.TextAppearance.Hpi.Overline" parent="TextAppearance.MaterialComponents.Overline">
         <item name="android:textColor">?colorOnBackgroundMediumEmphasis</item>
         <item name="android:textStyle">bold</item>
     </style>
 
-    <style name="Widget.Hpi.Chip.Action" parent="Widget.MaterialComponents.Chip.Action">
+    <style name="Core.Widget.Hpi.Chip.Action" parent="Widget.MaterialComponents.Chip.Action">
         <item name="chipBackgroundColor">@android:color/transparent</item>
         <item name="chipSurfaceColor">@android:color/transparent</item>
         <item name="chipStrokeWidth">1dp</item>
-        <item name="chipStrokeColor">@color/brand_border</item>
+        <item name="chipStrokeColor">@color/core_brand_border</item>
     </style>
-    <style name="Widget.Hpi.ChipGroup" parent="Widget.MaterialComponents.ChipGroup">
-        <item name="chipSpacing">@dimen/space_s</item>
+    <style name="Core.Widget.Hpi.ChipGroup" parent="Widget.MaterialComponents.ChipGroup">
+        <item name="chipSpacing">@dimen/core_space_s</item>
     </style>
 
 </resources>

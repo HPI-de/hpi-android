@@ -14,7 +14,7 @@ import de.hpi.android.core.presentation.utils.formatDateTimeRelative
 import de.hpi.android.core.presentation.utils.viewModel
 import de.hpi.android.news.R
 import de.hpi.android.news.databinding.FragmentArticleDetailBinding
-import kotlinx.android.synthetic.main.fragment_article_detail.*
+import kotlinx.android.synthetic.main.news_fragment_article_detail.*
 
 class ArticleDetailFragment : BaseFragment<FragmentArticleDetailBinding, ArticleDetailViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,7 +51,7 @@ class ArticleDetailFragment : BaseFragment<FragmentArticleDetailBinding, Article
             ).toSpannable().apply {
                 val index = indexOf('@')
                 setSpan(
-                    ImageSpan(context!!.getDrawable(R.drawable.ic_outline_remove_red_eye_24px)!!.apply {
+                    ImageSpan(context!!.getDrawable(R.drawable.news_ic_outline_remove_red_eye_24px)!!.apply {
                         setBounds(0, 0, meta.lineHeight, meta.lineHeight)
                         setTint(meta.currentTextColor)
                     }),

@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import de.hpi.android.core.presentation.base.BaseFragment
 import de.hpi.android.news.R
 import de.hpi.android.news.databinding.FragmentArticleListBinding
-import kotlinx.android.synthetic.main.fragment_article_list.*
+import kotlinx.android.synthetic.main.news_fragment_article_list.*
 
 class ArticleListFragment : BaseFragment<FragmentArticleListBinding, ArticleListViewModel>() {
     private val adapter by lazy {
