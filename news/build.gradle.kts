@@ -1,9 +1,14 @@
+val kotlin_version: String by extra
 plugins {
     id("com.android.library")
 
     id("kotlin-android")
     id("kotlin-android-extensions")
     id("kotlin-kapt")
+}
+apply {
+    plugin("kotlin-android")
+    plugin("kotlin-android-extensions")
 }
 
 android {
@@ -30,4 +35,7 @@ android {
 
 dependencies {
     implementation(project(":core"))
+}
+repositories {
+    mavenCentral()
 }

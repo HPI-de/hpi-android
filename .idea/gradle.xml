@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <project version="4">
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/course" />
+            <option value="$PROJECT_DIR$/menu" />
             <option value="$PROJECT_DIR$/news" />
           </set>
         </option>

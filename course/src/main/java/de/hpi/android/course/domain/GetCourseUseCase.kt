@@ -8,7 +8,6 @@ import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
 
 object GetCourseUseCase : ObservableUseCase<Id<Course>, Course>() {
-
     override val subscribeScheduler = Schedulers.io()
 
     override fun execute(params: Id<Course>): Observable<Result<Course>> {
