@@ -39,7 +39,7 @@ android {
 
 dependencies {
     implementation(project(":core"))
-    implementation(project(":news"))
+    implementation(project(":course"))
 
     implementation("androidx.multidex:multidex:2.0.1")
 }

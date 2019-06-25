@@ -1,16 +1,9 @@
-val kotlin_version: String by extra
 plugins {
     id("com.android.library")
 
     id("kotlin-android")
     id("kotlin-android-extensions")
     id("kotlin-kapt")
-
-    id("androidx.navigation.safeargs.kotlin")
-}
-apply {
-    plugin("kotlin-android")
-    plugin("kotlin-android-extensions")
 }
 
 android {
@@ -33,13 +26,8 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
-
-    resourcePrefix("news_")
 }
 
 dependencies {
     implementation(project(":core"))
-}
-repositories {
-    mavenCentral()
 }
