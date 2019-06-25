@@ -43,7 +43,7 @@
             app:layout_constraintEnd_toStartOf="@id/labels"
             tools:text="Panierte Jagdwurst mit veganer Paprikasauce" />
 
-        <!--TODO: add something like android:visibility="@{menu.substitution == null ? View.GONE : View.VISIBLE}"-->
+        <!--TODO: add something like app:visible="@{menu.substitution}""-->
         <TextView
             android:id="@+id/substitution"
             android:layout_width="0dp"
