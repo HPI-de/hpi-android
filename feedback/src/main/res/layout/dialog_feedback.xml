@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="@dimen/space_m">
+        android:padding="@dimen/core_space_m">
 
         <TextView
             android:layout_width="match_parent"
@@ -23,8 +23,8 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_m"
-            android:layout_marginBottom="@dimen/space_m"
+            android:layout_marginTop="@dimen/core_space_m"
+            android:layout_marginBottom="@dimen/core_space_m"
             android:hint="@string/feedback_message_title">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/message"
