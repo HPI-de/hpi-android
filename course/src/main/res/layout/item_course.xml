@@ -21,6 +21,8 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:text="@{course.series.shortTitle}"
             android:textAppearance="?textAppearanceSubtitle1"
             tools:text="Internet und WWW" />
@@ -29,7 +31,10 @@
             android:id="@+id/lecturer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:text="@{course.lecturer}"
+            android:textColor="?colorOnBackgroundMediumEmphasis"
             android:textAppearance="?textAppearanceBody1"
             tools:text="Prof. Dr. Christoph Meinel" />
 
