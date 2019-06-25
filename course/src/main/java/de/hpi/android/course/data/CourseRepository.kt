@@ -15,7 +15,6 @@ object CourseRepository : Repository<CourseDto>() {
             series = "pt2",
             semester = "ss2019",
             description = "Fortsetzung von PT 1",
-            type = setOf(Course.Type.LECTURE, Course.Type.EXERCISE),
             lecturer = "Prof. Naumann",
             assistants = setOf("Tobias Bleifuß")
         ),
@@ -24,7 +23,7 @@ object CourseRepository : Repository<CourseDto>() {
             series = "ma2",
             semester = "ss2019",
             description = "Fortsetzung von Mathe 1",
-            type = setOf(Course.Type.LECTURE, Course.Type.EXERCISE),
+
             lecturer = "Dr. Börner"
         ),
         CourseDto(
@@ -32,7 +31,6 @@ object CourseRepository : Repository<CourseDto>() {
             series = "www",
             semester = "ss2019",
             description = "Grundlagen des Internetworking",
-            type = setOf(Course.Type.LECTURE, Course.Type.EXERCISE),
             lecturer = "Prof. Meinel",
             assistants = setOf("Leonard Marschke", "Christiane Hagedorn", "Matthias Bauer")
         )
