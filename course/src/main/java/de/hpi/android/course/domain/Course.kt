@@ -1,4 +1,4 @@
-package de.hpi.android.course.data
+package de.hpi.android.course.domain
 
 import de.hpi.android.core.data.Id
 import de.hpi.android.core.domain.Entity

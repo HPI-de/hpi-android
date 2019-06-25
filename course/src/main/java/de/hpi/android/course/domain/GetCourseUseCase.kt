@@ -3,7 +3,6 @@ package de.hpi.android.course.domain
 import de.hpi.android.core.data.Id
 import de.hpi.android.core.domain.ObservableUseCase
 import de.hpi.android.core.domain.Result
-import de.hpi.android.course.data.Course
 import de.hpi.android.course.data.CourseRepository
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers

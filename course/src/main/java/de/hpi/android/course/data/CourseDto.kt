@@ -2,6 +2,9 @@ package de.hpi.android.course.data
 
 import de.hpi.android.core.data.Dto
 import de.hpi.android.core.data.Id
+import de.hpi.android.course.domain.Course
+import de.hpi.android.course.domain.CourseSeries
+import de.hpi.android.course.domain.Semester
 import java.net.URI
 
 data class CourseDto(

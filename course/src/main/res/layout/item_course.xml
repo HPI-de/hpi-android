@@ -7,11 +7,11 @@
 
         <variable
                 name="course"
-                type="de.hpi.android.course.data.Course"/>
+                type="de.hpi.android.course.domain.Course"/>
 
         <variable
                 name="series"
-                type="de.hpi.android.course.data.CourseSeries"/>
+                type="de.hpi.android.course.domain.CourseSeries"/>
     </data>
 
     <com.google.android.material.card.MaterialCardView

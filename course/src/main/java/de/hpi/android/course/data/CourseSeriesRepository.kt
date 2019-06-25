@@ -5,6 +5,7 @@ import de.hpi.android.core.data.Repository
 import de.hpi.android.core.domain.Result
 import de.hpi.android.core.domain.error
 import de.hpi.android.core.domain.success
+import de.hpi.android.course.domain.CourseSeries
 import io.reactivex.Observable
 import kotlin.IllegalArgumentException
 

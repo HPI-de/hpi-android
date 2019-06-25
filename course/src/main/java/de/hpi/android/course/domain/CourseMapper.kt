@@ -1,11 +1,23 @@
 package de.hpi.android.course.domain
 
-import de.hpi.android.core.domain.*
+import de.hpi.android.core.domain.Result
+import de.hpi.android.core.domain.mapResult
+import de.hpi.android.core.domain.success
+import de.hpi.android.core.domain.withRequired2
 import de.hpi.android.course.data.*
 import io.reactivex.Observable
 
 fun CourseSeriesDto.toCourseSeriesEntity(): Result<CourseSeries> {
-    return CourseSeries(id, title, shortTitle, abbreviation, ects, mandatory, language, type).success()
+    return CourseSeries(
+        id,
+        title,
+        shortTitle,
+        abbreviation,
+        ects,
+        mandatory,
+        language,
+        type
+    ).success()
 }
 
 fun SemesterDto.toSemesterEntity(): Result<Semester> {

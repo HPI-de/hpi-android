@@ -7,9 +7,10 @@
     tools:context=".MainActivity">
 
     <fragment
-        android:id="@+id/resources"
-        android:name="de.hpi.android.course.presentation.list.CourseListFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+            android:id="@+id/resources"
+            android:name="de.hpi.android.course.presentation.courseseries.list.CourseSeriesListFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_course_series_list"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

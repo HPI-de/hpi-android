@@ -3,10 +3,10 @@ package de.hpi.android.course.presentation.list
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import de.hpi.android.core.presentation.base.BaseViewHolder
 import de.hpi.android.core.presentation.base.BaseAdapter
-import de.hpi.android.course.data.Course
+import de.hpi.android.core.presentation.base.BaseViewHolder
 import de.hpi.android.course.databinding.ItemCourseBinding
+import de.hpi.android.course.domain.Course
 
 class CourseAdapter : BaseAdapter<Course, CourseAdapter.ViewHolder, ItemCourseBinding>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
