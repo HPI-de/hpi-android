@@ -1,8 +1,9 @@
 <resources>
-    <string name="tele_task">This lecture is on tele-TASK</string>
-    <string name="lecturer">Lecturer</string>
+    <string name="on_tele_task">This lecture is on tele-TASK.</string>
+    <string name="not_on_tele_task">This lecture is not on tele-TASK.</string>
+    <string name="lecturer">Lecturer: </string>
     <string name="compulsory_module">Compulsory Module</string>
-    <string name="ptional_module">Optional Module</string>
+    <string name="optional_module">Optional Module</string>
     <string name="ects">ECTS</string>
     <string name="h_per_week">h/week</string>
     <string name="lecture">Lecture</string>
@@ -17,4 +18,5 @@
     <string name="dates">Dates</string>
     <string name="literature">Literature</string>
     <string name="no_guarantee">All statements without guarantee.</string>
+    <string name="report_error">REPORT AN ERROR</string>
 </resources>
