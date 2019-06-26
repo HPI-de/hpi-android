@@ -11,6 +11,15 @@
         android:title="@string/news_title" />
 
     <item
-        android:id=""
+        android:id="@+id/course_courseList"
+        android:checkable="true"
+        android:icon="@drawable/course_icon"
+        android:title="@string/course_title" />
+
+    <item
+        android:id="@+id/course_courseSeriesList"
+        android:checkable="true"
+        android:icon="@drawable/course_icon"
+        android:title="@string/course_courseSeries_title" />
 
 </menu>
