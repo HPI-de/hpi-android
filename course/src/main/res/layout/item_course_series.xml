@@ -31,8 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/details"
-            android:textColor="?colorOnBackgroundMediumEmphasis"
-            android:textAppearance="?textAppearanceBody1"
+            android:textAppearance="?textAppearanceCaption"
             android:maxLines="2"
             tools:text="6 ECTS · mandatory · lecture · exercise" />
 
