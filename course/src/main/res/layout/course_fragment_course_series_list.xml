@@ -14,7 +14,7 @@
         android:layout_height="match_parent">
 
         <include
-            layout="@layout/app_bar_top"
+            layout="@layout/core_app_bar_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:listitem="@layout/item_course_series" />
+            tools:listitem="@layout/course_item_course_series" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

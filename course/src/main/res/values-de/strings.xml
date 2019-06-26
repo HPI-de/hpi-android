@@ -4,4 +4,12 @@
     <string name="course_title">Kurse</string>
     <string name="course_courseSeries_title">Alle Kurse</string>
 
+    <string name="course_courseSeries_details">%1$d ECTS · %2$s · %3$s</string>
+    <string name="course_courseSeries_mandatory_true">Pflicht</string>
+    <string name="course_courseSeries_mandatory_false">Freiwillig</string>
+    <string name="course_courseSeries_type_lecture">Vorlesung</string>
+    <string name="course_courseSeries_type_seminar">Seminar</string>
+    <string name="course_courseSeries_type_blockSeminar">Blockseminar</string>
+    <string name="course_courseSeries_type_exercise">Übung</string>
+
 </resources>
