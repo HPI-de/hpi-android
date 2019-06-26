@@ -33,7 +33,12 @@ object CourseDetailRepository : Repository<CourseDetailDto>() {
                             "ISAE-Grundlagen", "ISAE-Vertiefung"
                         )
             ),
-            description = "Grundlagen des Internetworking"
+            description = "Grundlagen des Internetworking",
+            requirements = "keine",
+            learning = "Folien vorlesen",
+            examination = "Zwischen- und Endklausur",
+            dates = "Dienstag und Donnerstag",
+            literature = "Meinel's buch"
         )
     )
 
