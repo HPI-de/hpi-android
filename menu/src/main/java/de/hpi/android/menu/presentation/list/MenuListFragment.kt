@@ -5,27 +5,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import de.hpi.android.core.presentation.base.BaseFragment
+import de.hpi.android.core.presentation.utils.viewModel
 import de.hpi.android.menu.R
-import de.hpi.android.menu.databinding.FragmentMenuListBinding
-import kotlinx.android.synthetic.main.fragment_menu_list.*
+import de.hpi.android.menu.databinding.MenuFragmentMenuListBinding
+import kotlinx.android.synthetic.main.menu_fragment_menu_list.*
 
-class MenuListFragment : BaseFragment<FragmentMenuListBinding, MenuListViewModel>() {
+class MenuListFragment : BaseFragment<MenuFragmentMenuListBinding, MenuListViewModel>() {
     private val adapter by lazy { MenuAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MenuListViewModel::class.java)
+        viewModel = viewModel()
     }
 
     override fun onCreateBinding(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): FragmentMenuListBinding {
-        return FragmentMenuListBinding.inflate(inflater, container, false).also {
+    ): MenuFragmentMenuListBinding {
+        return MenuFragmentMenuListBinding.inflate(inflater, container, false).also {
             it.viewModel = viewModel
         }
     }
