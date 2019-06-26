@@ -1,36 +1,33 @@
 package de.hpi.android.feedback.presentation.utils
 
 import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.view.View
+import android.os.Build
+import android.os.Handler
+import android.view.PixelCopy
+import android.view.Window
 import java.io.File
 import java.io.IOException
+import kotlin.coroutines.suspendCoroutine
 
-fun View.createScreenshot(): Bitmap {
-    clearFocus()
-    isPressed = false
-
-    // https://stackoverflow.com/questions/2801116/converting-a-view-to-bitmap-without-displaying-it-in-android
-    val bitmap =
-        if (layoutParams == null || measuredHeight <= 0) {
-            val specWidth = View.MeasureSpec.makeMeasureSpec(0 /* any */, View.MeasureSpec.UNSPECIFIED)
-            measure(specWidth, specWidth)
-            Bitmap.createBitmap(
-                measuredWidth, measuredHeight,
-                Bitmap.Config.ARGB_8888
-            )
-        } else {
-            Bitmap.createBitmap(
-                layoutParams.width, layoutParams.height,
-                Bitmap.Config.ARGB_8888
-            )
+suspend fun Window.createScreenshot(): Bitmap {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        suspendCoroutine { cont ->
+            val bitmap = Bitmap.createBitmap(decorView.width, decorView.height, Bitmap.Config.ARGB_8888)
+            PixelCopy.request(this, bitmap, { copyResult: Int ->
+                cont.resumeWith(
+                    if (copyResult == PixelCopy.SUCCESS)
+                        Result.success(bitmap)
+                    else Result.failure(Exception("Error taking screenshot, error code: $copyResult"))
+                )
+            }, Handler())
         }
-
-    val canvas = Canvas(bitmap)
-    layout(this.left, this.top, this.right, this.bottom)
-    background?.draw(canvas)
-    draw(canvas)
-    return bitmap
+    } else {
+        val view = decorView.rootView
+        view.isDrawingCacheEnabled = true
+        val bitmap = Bitmap.createBitmap(view.drawingCache)
+        view.isDrawingCacheEnabled = false
+        bitmap
+    }
 }
 
 /**
