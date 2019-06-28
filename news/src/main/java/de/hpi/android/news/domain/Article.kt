@@ -10,14 +10,14 @@ data class Article(
     val source: Source,
     val link: URL,
     val title: String,
-    val authors: Set<String>,
     val date: LocalDateTime,
+    val authors: Set<String>,
+    val cover: URL,
+    val coverAlt: String? = null,
     val teaser: String,
     val content: String,
     val categories: Set<Category>,
     val tags: Set<Tag>,
-    val cover: URL,
-    val coverCaption: String? = null,
     val viewCount: Int? = null
 ) : Entity<Article>
 

@@ -10,14 +10,14 @@ data class ArticleDto(
     val sourceId: Id<SourceDto>,
     val link: URL,
     val title: String,
-    val authors: Set<String>,
     val date: LocalDateTime,
+    val authors: Set<String>,
+    val cover: URL,
+    val coverAlt: String? = null,
     val teaser: String,
     val content: String,
     val categories: Set<Id<CategoryDto>>,
     val tags: Set<Id<TagDto>>,
-    val cover: URL,
-    val coverCaption: String? = null,
     val viewCount: Int? = null
 ) : Dto<ArticleDto>
 

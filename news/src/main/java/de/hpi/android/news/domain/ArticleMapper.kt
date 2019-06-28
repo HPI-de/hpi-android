@@ -30,7 +30,7 @@ fun Observable<Result<ArticleDto>>.toArticleEntity(): Observable<Result<Article>
             categories = categories,
             tags = tags,
             cover = cover,
-            coverCaption = coverCaption,
+            coverAlt = coverAlt,
             viewCount = viewCount
         )
     }
