@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
-        <import type="de.hpi.android.core.utils.FormattingUtilsKt" />
+        <import type="de.hpi.android.core.presentation.utils.FormattingUtilsKt" />
 
         <variable
             name="menu"
@@ -17,10 +17,10 @@
         android:layout_height="wrap_content"
         android:background="?selectableItemBackground"
         android:orientation="horizontal"
-        android:paddingStart="@dimen/space_m"
-        android:paddingTop="@dimen/space_s"
-        android:paddingEnd="@dimen/space_m"
-        android:paddingBottom="@dimen/space_s">
+        android:paddingStart="@dimen/core_space_m"
+        android:paddingTop="@dimen/core_space_s"
+        android:paddingEnd="@dimen/core_space_m"
+        android:paddingBottom="@dimen/core_space_s">
 
         <TextView
             android:id="@+id/counter"
@@ -38,7 +38,7 @@
             android:id="@+id/title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/space_m"
+            android:layout_marginStart="@dimen/core_space_m"
             android:text="@{menu.title}"
             android:textAppearance="?textAppearanceSubtitle1"
             app:layout_constraintEnd_toStartOf="@id/labels"
@@ -50,7 +50,7 @@
             android:id="@+id/substitution"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/space_xs"
+            android:layout_marginTop="@dimen/core_space_xs"
             android:text="@{@string/menu_menu_alternative(menu.substitution)}"
             android:textAppearance="?textAppearanceBody1"
             android:textColor="?colorOnSurfaceMediumEmphasis"
@@ -65,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingStart="@dimen/space_s"
+            android:paddingStart="@dimen/core_space_s"
             android:paddingEnd="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/title"
