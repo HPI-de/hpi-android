@@ -6,9 +6,11 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import de.hpi.android.core.presentation.base.BaseBottomSheepDialogFragment
 import de.hpi.android.feedback.databinding.DialogFeedbackBinding
+import de.hpi.android.feedback.presentation.utils.asTemporaryFile
 import de.hpi.android.feedback.presentation.utils.createScreenshot
 import kotlinx.coroutines.launch
 import timber.log.Timber
+import java.io.IOException
 import java.net.URI
 
 class FeedbackDialogFragment : BaseBottomSheepDialogFragment<DialogFeedbackBinding, FeedbackViewModel>() {
@@ -18,8 +20,10 @@ class FeedbackDialogFragment : BaseBottomSheepDialogFragment<DialogFeedbackBindi
         viewModel.referringScreen = URI.create(activity?.toString())
         launch {
             try {
-                viewModel.screenshot = activity?.window?.createScreenshot()
-            } catch (e: Exception) {
+                viewModel.screenshot = activity?.window
+                    ?.createScreenshot()
+                    ?.asTemporaryFile()
+            } catch (e: IOException) {
                 Timber.w(e, "Error taking screenshot for feedback")
             }
         }
@@ -30,8 +34,14 @@ class FeedbackDialogFragment : BaseBottomSheepDialogFragment<DialogFeedbackBindi
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): DialogFeedbackBinding {
-        return DialogFeedbackBinding.inflate(inflater, container, false).also {
-            it.viewModel = viewModel
+        return DialogFeedbackBinding.inflate(inflater, container, false)
+            .also { it.viewModel = viewModel }
         }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (viewModel.screenshot != null)
+            if (!viewModel.screenshot!!.delete())
+                Timber.w("Deleting screenshot file failed")
     }
 }

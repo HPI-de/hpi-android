@@ -9,6 +9,11 @@ import java.io.File
 import java.io.IOException
 import kotlin.coroutines.suspendCoroutine
 
+
+/**
+ * @throws IOException - in case of failure to take screenshot
+ */
+@Suppress("DEPRECATION")
 suspend fun Window.createScreenshot(): Bitmap {
     return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
         suspendCoroutine { cont ->
@@ -17,7 +22,8 @@ suspend fun Window.createScreenshot(): Bitmap {
                 cont.resumeWith(
                     if (copyResult == PixelCopy.SUCCESS)
                         Result.success(bitmap)
-                    else Result.failure(Exception("Error taking screenshot, error code: $copyResult"))
+                    else
+                        Result.failure(IOException("Failed to take screenshot, result code: $copyResult"))
                 )
             }, Handler())
         }
@@ -31,11 +37,11 @@ suspend fun Window.createScreenshot(): Bitmap {
 }
 
 /**
- * @throws IOException - in case of input/output error
+ * @throws IOException - in case of file writing error
  */
 fun Bitmap.asTemporaryFile(): File {
-    val file = createTempFile(suffix = ".png")
+    val file = createTempFile(suffix = ".png", prefix = "feedback_screenshot_")
+    // -> %userprofile%\Documents\AndroidStudio\DeviceExplorer\emulator-5554\data\user\0\de.hpi.android.debug\cache\feedback_screenshot_*.png
     this.compress(Bitmap.CompressFormat.PNG, 100, file.outputStream())
-    // -> %userprofile%\Documents\AndroidStudio\DeviceExplorer\emulator-5554\data\user\0\de.hpi.android.debug\cache
     return file
 }
