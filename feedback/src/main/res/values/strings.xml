@@ -1,9 +1,11 @@
 <resources>
+
     <string name="feedback_title">Feedback</string>
-    <string name="feedback_message_title">Feedback message</string>
-    <string name="feedback_include_user">Include user name</string>
-    <string name="feedback_include_debug_data">Include logs and screenshots</string>
+    <string name="feedback_message">Feedback message</string>
+    <string name="feedback_includeUser">Include user name</string>
+    <string name="feedback_includeDebugData">Include logs and screenshots</string>
     <string name="feedback_send">Send</string>
-    <string name="feedback_sending_successful">Successfully sent feedback</string>
-    <string name="feedback_sending_failed">Failed to send feedback</string>
+    <string name="feedback_send_successful">Successfully sent feedback</string>
+    <string name="feedback_send_error">Failed to send feedback. Please try again</string>
+
 </resources>

@@ -40,5 +40,4 @@ object FeedbackRepository : MutableRepository<FeedbackDto>() {
     override fun delete(id: Id<FeedbackDto>): Completable {
         throw UnsupportedOperationException();
     }
-
 }

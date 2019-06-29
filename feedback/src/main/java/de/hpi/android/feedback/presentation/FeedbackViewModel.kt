@@ -14,7 +14,6 @@ import java.net.URI
 import java.util.concurrent.TimeUnit
 
 class FeedbackViewModel : BaseViewModel() {
-
     var referringScreen: URI = URI.create("/")
     var screenshot: File? = null
     var log: List<String>? = null
@@ -30,9 +29,9 @@ class FeedbackViewModel : BaseViewModel() {
                     message = message,
                     meta = FeedbackDto.Metadata(
                         screenUri = referringScreen,
-                        author = if (includeUser) "User#123" else "Anonymous User",
-                        screenshot = if (includeDebugData) screenshot else null,
-                        log = if (includeDebugData) log.orEmpty() else emptyList()
+                        author = "User#123".takeIf { includeUser }, // TODO: use actual username/ID
+                        screenshot = screenshot?.takeIf { includeDebugData },
+                        log = log?.takeIf { includeDebugData }
                     )
                 )
             )
@@ -46,7 +45,7 @@ class FeedbackViewModel : BaseViewModel() {
             .delay(5, TimeUnit.SECONDS)
             .subscribeBy(
                 onSuccess = {
-                    Timber.i("Feedback received as id=$it")
+                    Timber.i("Feedback sent with ID $it")
                     launch {
                         isSent.setValue(true)
                     }
@@ -64,12 +63,8 @@ class FeedbackViewModel : BaseViewModel() {
     override fun onCleared() {
         super.onCleared()
         sendingDisposable?.dispose()
-        clearScreenshotFile()
-    }
 
-    private fun clearScreenshotFile() {
-        if (screenshot != null)
-            if (!screenshot!!.delete())
-                Timber.w("Deleting screenshot file failed")
+        if (screenshot?.delete() == false)
+            Timber.w("Deleting screenshot file failed")
     }
 }

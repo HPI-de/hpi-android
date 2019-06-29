@@ -9,7 +9,6 @@ import java.io.File
 import java.io.IOException
 import kotlin.coroutines.suspendCoroutine
 
-
 /**
  * @throws IOException - in case of failure to take screenshot
  */
@@ -39,22 +38,20 @@ suspend fun Window.createScreenshot(): Bitmap {
 /**
  * @throws IOException - in case of file writing error
  */
-fun Bitmap.asTemporaryFile(): File {
-    val file = createTempFile(suffix = ".png", prefix = "feedback_screenshot_")
-    // -> %userprofile%\Documents\AndroidStudio\DeviceExplorer\emulator-5554\data\user\0\de.hpi.android.debug\cache\feedback_screenshot_*.png
-    this.compress(Bitmap.CompressFormat.PNG, 100, file.outputStream())
+fun Bitmap.asTempFile(): File {
+    val file = createTempFile(prefix = "feedback_screenshot_", suffix = ".png")
+    compress(Bitmap.CompressFormat.PNG, 100, file.outputStream())
     return file
 }
 
-// TODO: move this to better matching package
-private val MAX_LOG_LINES = 2000
-private val CMD_READ_LOG = "logcat -b main,system,crash,events -t $MAX_LOG_LINES -v threadtime printable"
+private const val LOG_LINES_MAX = 2000
+private const val LOG_READ_CMD = "logcat -b main,system,crash,events -t $LOG_LINES_MAX -v threadtime printable"
 
 /**
  * @throws IOException - in case of log reading error
  */
 internal fun readCurrentLog(): List<String> {
-    return Runtime.getRuntime().exec(CMD_READ_LOG)
+    return Runtime.getRuntime().exec(LOG_READ_CMD)
         .inputStream
         .bufferedReader()
         .useLines { it.toList() }

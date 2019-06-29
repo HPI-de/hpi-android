@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="@dimen/space_m">
 
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_m"
             android:layout_marginBottom="@dimen/space_m"
-            android:hint="@string/feedback_message_title">
+            android:hint="@string/feedback_message">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/message"
                 android:layout_width="match_parent"
@@ -38,17 +38,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="@string/feedback_include_user" />
+            android:text="@string/feedback_includeUser" />
 
         <CheckBox
             android:id="@+id/includeDebugData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="@string/feedback_include_debug_data" />
+            android:text="@string/feedback_includeDebugData" />
 
         <Button
-            android:id="@+id/send"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"

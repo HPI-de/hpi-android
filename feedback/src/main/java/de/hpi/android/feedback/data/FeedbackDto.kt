@@ -10,14 +10,13 @@ data class FeedbackDto(
     val message: String,
     val meta: Metadata
 ) : Dto<FeedbackDto> {
-
     override val id: Id<FeedbackDto> = "" // empty, server creates the id
 
     data class Metadata(
         val screenUri: URI,
-        val author: String, // TODO: replace with User reference
+        val author: String?, // TODO: replace with User reference
         val screenshot: File? = null,
-        val log: List<String>
+        val log: List<String>? = null
     ) {
         val timestamp: ZonedDateTime = ZonedDateTime.now()
 
@@ -27,7 +26,7 @@ data class FeedbackDto(
                     "screenUri=$screenUri, " +
                     "author=$author, " +
                     "screenshotPath=${screenshot?.absolutePath}, " +
-                    "log=[${log.size} lines] starting with \"${log.take(5).joinToString(separator = "; ")} ...\"" +
+                    "log=[${log?.size} lines] starting with \"${log?.take(5)?.joinToString(separator = "; ")} ...\"" +
                     ")"
         }
     }
