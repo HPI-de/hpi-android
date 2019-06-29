@@ -11,6 +11,7 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.io.File
 import java.net.URI
+import java.util.concurrent.TimeUnit
 
 class FeedbackViewModel : BaseViewModel() {
 
@@ -42,6 +43,7 @@ class FeedbackViewModel : BaseViewModel() {
         isSending.value = true
         sendingDisposable?.dispose()
         sendingDisposable = SendFeedbackUseCase(feedback)
+            .delay(5, TimeUnit.SECONDS)
             .subscribeBy(
                 onSuccess = {
                     Timber.i("Feedback received as id=$it")
