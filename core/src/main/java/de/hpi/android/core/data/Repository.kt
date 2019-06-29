@@ -6,6 +6,7 @@ import de.hpi.android.core.domain.merge
 import de.hpi.android.core.domain.success
 import io.reactivex.Completable
 import io.reactivex.Observable
+import io.reactivex.Single
 
 abstract class Repository<E : Dto<E>> {
     abstract fun get(id: Id<E>): Observable<Result<E>>
@@ -21,7 +22,7 @@ abstract class Repository<E : Dto<E>> {
 }
 
 abstract class MutableRepository<E : Dto<E>> : Repository<E>() {
-    abstract fun create(entity: E): Observable<Id<E>>
+    abstract fun create(entity: E): Single<Id<E>>
     abstract fun update(entity: E): Completable
     abstract fun delete(id: Id<E>): Completable
 }

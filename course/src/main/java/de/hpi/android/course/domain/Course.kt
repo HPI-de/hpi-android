@@ -14,16 +14,8 @@ data class Course(
     val lecturer: String,
     val assistants: Set<String> = emptySet(),
     val description: String,
-    val type: Set<Type>,
     val website: URI? = null
-) : Entity<Course, CourseDto> {
-    enum class Type {
-        LECTURE,
-        SEMINAR,
-        BLOCK_SEMINAR,
-        EXERCISE
-    }
-}
+) : Entity<Course, CourseDto>
 
 data class CourseSeries(
     override val id: Id<CourseSeriesDto>,
@@ -32,8 +24,16 @@ data class CourseSeries(
     val abbreviation: String,
     val ects: Int,
     val mandatory: Boolean,
-    val language: String
-) : Entity<CourseSeries, CourseSeriesDto>
+    val language: String,
+    val type: Set<Type>
+) : Entity<CourseSeries, CourseSeriesDto> {
+    enum class Type {
+        LECTURE,
+        SEMINAR,
+        BLOCK_SEMINAR,
+        EXERCISE
+    }
+}
 
 data class Semester(
     override val id: Id<SemesterDto>,

@@ -12,7 +12,6 @@ data class CourseDto(
     val lecturer: String,
     val assistants: Set<String> = emptySet(),
     val description: String,
-    val type: Set<Course.Type>,
     val website: URI? = null
 ) : Dto<CourseDto>
 
@@ -23,7 +22,8 @@ data class CourseSeriesDto(
     val abbreviation: String,
     val ects: Int,
     val mandatory: Boolean,
-    val language: String
+    val language: String,
+    val type: Set<CourseSeries.Type>
 ) : Dto<CourseSeriesDto>
 
 data class SemesterDto(

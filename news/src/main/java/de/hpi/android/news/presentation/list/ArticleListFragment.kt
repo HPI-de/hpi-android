@@ -5,27 +5,34 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import de.hpi.android.core.presentation.base.BaseFragment
+import de.hpi.android.core.presentation.utils.viewModel
 import de.hpi.android.news.R
-import de.hpi.android.news.databinding.FragmentArticleListBinding
-import kotlinx.android.synthetic.main.fragment_article_list.*
+import de.hpi.android.news.databinding.NewsFragmentArticleListBinding
+import kotlinx.android.synthetic.main.news_fragment_article_list.*
 
-class ArticleListFragment : BaseFragment<FragmentArticleListBinding, ArticleListViewModel>() {
-    private val adapter by lazy { ArticleAdapter() }
+class ArticleListFragment : BaseFragment<NewsFragmentArticleListBinding, ArticleListViewModel>() {
+    private val adapter by lazy {
+        ArticleAdapter {
+            findNavController().navigate(
+                ArticleListFragmentDirections.newsActionArticleListToArticleDetail(it.id.id)
+            )
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(ArticleListViewModel::class.java)
+        viewModel = viewModel()
     }
 
     override fun onCreateBinding(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): FragmentArticleListBinding {
-        return FragmentArticleListBinding.inflate(inflater, container, false).also {
+    ): NewsFragmentArticleListBinding {
+        return NewsFragmentArticleListBinding.inflate(inflater, container, false).also {
             it.viewModel = viewModel
         }
     }

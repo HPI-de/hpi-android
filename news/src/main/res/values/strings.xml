@@ -1,3 +1,25 @@
 <resources>
+
+    <string name="news_title">News</string>
+
     <string name="news_list_item_sourceAndDateFormat">%1$s · %2$s</string>
+
+    <string name="news_detail_meta">%1$s · %2$s</string>
+    <string name="news_detail_meta_viewCount">%1$s · %2$s · @ %3$d</string>
+    <plurals name="news_detail_authors_header">
+        <item quantity="zero">Unknown Author</item>
+        <item quantity="one">Author</item>
+        <item quantity="other">Authors</item>
+    </plurals>
+    <plurals name="news_detail_categories_header">
+        <item quantity="zero">No Categories</item>
+        <item quantity="one">Category</item>
+        <item quantity="other">Categories</item>
+    </plurals>
+    <plurals name="news_detail_tags_header">
+        <item quantity="zero">No Tags</item>
+        <item quantity="one">Tag</item>
+        <item quantity="other">Tags</item>
+    </plurals>
+
 </resources>

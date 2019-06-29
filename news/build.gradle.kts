@@ -5,6 +5,8 @@ plugins {
     id("kotlin-android")
     id("kotlin-android-extensions")
     id("kotlin-kapt")
+
+    id("androidx.navigation.safeargs.kotlin")
 }
 apply {
     plugin("kotlin-android")
@@ -31,6 +33,8 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
+
+    resourcePrefix("news_")
 }
 
 dependencies {

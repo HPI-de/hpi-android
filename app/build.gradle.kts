@@ -33,11 +33,14 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
+
+    resourcePrefix("app_")
 }
 
 dependencies {
     implementation(project(":core"))
-    implementation(project(":course"))
+    implementation(project(":feedback"))
+    implementation(project(":news"))
 
     implementation("androidx.multidex:multidex:2.0.1")
 }
