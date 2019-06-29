@@ -34,8 +34,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:text="@{course.lecturer}"
-            android:textColor="?colorOnBackgroundMediumEmphasis"
-            android:textAppearance="?textAppearanceBody1"
+            android:textAppearance="?textAppearanceCaption"
             tools:text="Prof. Dr. Christoph Meinel" />
 
     </LinearLayout>
