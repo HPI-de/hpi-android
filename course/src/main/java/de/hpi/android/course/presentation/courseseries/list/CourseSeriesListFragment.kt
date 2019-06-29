@@ -9,10 +9,10 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import de.hpi.android.core.presentation.base.BaseFragment
 import de.hpi.android.course.R
-import de.hpi.android.course.databinding.FragmentCourseSeriesListBinding
-import kotlinx.android.synthetic.main.fragment_course_list.*
+import de.hpi.android.course.databinding.CourseFragmentCourseSeriesListBinding
+import kotlinx.android.synthetic.main.course_fragment_course_list.*
 
-class CourseSeriesListFragment : BaseFragment<FragmentCourseSeriesListBinding, CourseSeriesListViewModel>() {
+class CourseSeriesListFragment : BaseFragment<CourseFragmentCourseSeriesListBinding, CourseSeriesListViewModel>() {
     private val adapter by lazy { CourseSeriesAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,8 +24,8 @@ class CourseSeriesListFragment : BaseFragment<FragmentCourseSeriesListBinding, C
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): FragmentCourseSeriesListBinding {
-        return FragmentCourseSeriesListBinding.inflate(inflater, container, false).also {
+    ): CourseFragmentCourseSeriesListBinding {
+        return CourseFragmentCourseSeriesListBinding.inflate(inflater, container, false).also {
             it.viewModel = viewModel
         }
     }

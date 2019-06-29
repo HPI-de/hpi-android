@@ -5,12 +5,12 @@ import android.view.ViewGroup
 import de.hpi.android.core.presentation.base.BaseAdapter
 import de.hpi.android.core.presentation.base.BaseViewHolder
 import de.hpi.android.course.R
-import de.hpi.android.course.databinding.ItemCourseSeriesBinding
+import de.hpi.android.course.databinding.CourseItemCourseSeriesBinding
 import de.hpi.android.course.domain.CourseSeries
 
-class CourseSeriesAdapter : BaseAdapter<CourseSeries, CourseSeriesAdapter.ViewHolder, ItemCourseSeriesBinding>() {
+class CourseSeriesAdapter : BaseAdapter<CourseSeries, CourseSeriesAdapter.ViewHolder, CourseItemCourseSeriesBinding>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemCourseSeriesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = CourseItemCourseSeriesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
@@ -20,8 +20,8 @@ class CourseSeriesAdapter : BaseAdapter<CourseSeries, CourseSeriesAdapter.ViewHo
         return old.title == new.title && old.ects == new.ects && old.mandatory == new.mandatory && old.type == new.type
     }
 
-    class ViewHolder(binding: ItemCourseSeriesBinding) :
-        BaseViewHolder<CourseSeries, ItemCourseSeriesBinding>(binding) {
+    class ViewHolder(binding: CourseItemCourseSeriesBinding) :
+        BaseViewHolder<CourseSeries, CourseItemCourseSeriesBinding>(binding) {
         override fun onItemSet() {
             binding.series = item
             binding.details.text = context.getString(R.string.course_courseSeries_details, item.ects,
