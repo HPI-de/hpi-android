@@ -7,7 +7,7 @@ import java.io.File
 import java.net.URI
 
 data class FeedbackDto(
-    override val id: Id<FeedbackDto> = "", // TODO: generate ID
+    override val id: Id<FeedbackDto> = Id(""), // TODO: generate ID
     val message: String,
     val meta: Metadata
 ) : Dto<FeedbackDto> {

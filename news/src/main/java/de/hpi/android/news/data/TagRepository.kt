@@ -10,27 +10,27 @@ import io.reactivex.Observable
 object TagRepository : Repository<TagDto>() {
     private val tags = listOf(
         TagDto(
-            id = "essen",
+            id = Id("essen"),
             title = "Essen",
             articleCount = 1
         ),
         TagDto(
-            id = "nachhaltigkeit",
+            id = Id("nachhaltigkeit"),
             title = "Nachhaltigkeit",
             articleCount = 3
         ),
         TagDto(
-            id = "nachhaltigkeitsklub",
+            id = Id("nachhaltigkeitsklub"),
             title = "Nachhaltigkeitsklub",
             articleCount = 5
         ),
         TagDto(
-            id = "selbstgemacht",
+            id = Id("selbstgemacht"),
             title = "selbstgemacht",
             articleCount = 2
         ),
         TagDto(
-            id = "workshop",
+            id = Id("workshop"),
             title = "Workshop",
             articleCount = 8
         )

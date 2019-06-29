@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.core.text.toSpannable
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
+import de.hpi.android.core.data.Id
 import de.hpi.android.core.presentation.base.BaseFragment
 import de.hpi.android.core.presentation.utils.formatDateTimeRelative
 import de.hpi.android.core.presentation.utils.viewModel
@@ -20,7 +21,7 @@ class ArticleDetailFragment : BaseFragment<NewsFragmentArticleDetailBinding, Art
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val args by navArgs<ArticleDetailFragmentArgs>()
-        viewModel = viewModel { ArticleDetailViewModel(args.id) }
+        viewModel = viewModel { ArticleDetailViewModel(Id(args.id)) }
     }
 
     override fun onCreateBinding(

@@ -17,7 +17,7 @@ class ArticleListFragment : BaseFragment<NewsFragmentArticleListBinding, Article
     private val adapter by lazy {
         ArticleAdapter {
             findNavController().navigate(
-                ArticleListFragmentDirections.newsActionArticleListToArticleDetail(it.id)
+                ArticleListFragmentDirections.newsActionArticleListToArticleDetail(it.id.value)
             )
         }
     }

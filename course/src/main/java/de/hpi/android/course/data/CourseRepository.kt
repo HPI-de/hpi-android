@@ -11,31 +11,31 @@ import io.reactivex.Observable
 object CourseRepository : Repository<CourseDto>() {
     private val courses = listOf(
         CourseDto(
-            id = "2019ss-pt2",
-            series = "pt2",
-            semester = "2019ss",
+            id = Id("2019ss-pt2"),
+            series = Id("pt2"),
+            semester = Id("2019ss"),
             description = "Fortsetzung von PT 1",
             lecturer = "Prof. Dr. Felix Naumann",
             assistants = setOf("Tobias Bleifuß")
         ),
         CourseDto(
-            id = "2019ss-ma2",
-            series = "ma2",
-            semester = "2019ss",
+            id = Id("2019ss-ma2"),
+            series = Id("ma2"),
+            semester = Id("2019ss"),
             description = "Fortsetzung von Mathe 1",
             lecturer = "Dr. Ferdinand Börner"
         ),
         CourseDto(
-            id = "2019ss-www",
-            series = "www",
-            semester = "2019ss",
+            id = Id("2019ss-www"),
+            series = Id("www"),
+            semester = Id("2019ss"),
             description = "Grundlagen des Internetworking",
             lecturer = "Prof. Dr. Christoph Meinel",
             assistants = setOf("Matthias Bauer", "Christiane Hagedorn", "Leonard Marschke")
         )
     )
 
-    override fun get(id: Id<Course>): Observable<Result<CourseDto>> {
+    override fun get(id: Id<CourseDto>): Observable<Result<CourseDto>> {
         val course = courses.firstOrNull { it.id == id }
         return Observable.just(
             course?.success()
