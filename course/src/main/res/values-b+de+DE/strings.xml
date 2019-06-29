@@ -1,7 +1,7 @@
 <resources>
     <string name="on_tele_task">Diese Vorlesung ist auf tele-TASK verfügbar.</string>
     <string name="not_on_tele_task">Diese Vorlesung ist nicht auf tele-TASK verfügbar.</string>
-    <string name="lecturer">Dozent: </string>
+    <string name="course_course_lecturer">Dozent: %1$s</string>
     <string name="compulsory_module">Pflichtmodul</string>
     <string name="optional_module">optionales Modul</string>
     <string name="ects">ECTS</string>
