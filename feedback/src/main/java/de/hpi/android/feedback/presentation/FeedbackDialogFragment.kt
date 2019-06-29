@@ -33,6 +33,10 @@ class FeedbackDialogFragment : BaseBottomSheepDialogFragment<DialogFeedbackBindi
                 Toast.LENGTH_SHORT
             ).show()
         })
+        prepareFeedbackDebugInformation()
+    }
+
+    private fun prepareFeedbackDebugInformation() {
         viewModel.referringScreen = URI.create(activity?.toString())
         launch {
             try {
@@ -61,8 +65,5 @@ class FeedbackDialogFragment : BaseBottomSheepDialogFragment<DialogFeedbackBindi
 
     override fun onDestroy() {
         super.onDestroy()
-        if (viewModel.screenshot != null)
-            if (!viewModel.screenshot!!.delete())
-                Timber.w("Deleting screenshot file failed")
     }
 }

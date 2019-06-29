@@ -62,5 +62,12 @@ class FeedbackViewModel : BaseViewModel() {
     override fun onCleared() {
         super.onCleared()
         sendingDisposable?.dispose()
+        clearScreenshotFile()
+    }
+
+    private fun clearScreenshotFile() {
+        if (screenshot != null)
+            if (!screenshot!!.delete())
+                Timber.w("Deleting screenshot file failed")
     }
 }
