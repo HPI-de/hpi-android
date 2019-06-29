@@ -8,12 +8,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import de.hpi.android.core.presentation.base.BaseFragment
 import de.hpi.android.menu.R
-import de.hpi.android.menu.databinding.ItemRestaurantCardBinding
-import de.hpi.android.menu.databinding.FragmentRestaurantsListBinding
-import kotlinx.android.synthetic.main.fragment_restaurants_list.*
-import kotlinx.android.synthetic.main.item_restaurant_card.*
+import de.hpi.android.menu.databinding.MenuItemRestaurantCardBinding
+import de.hpi.android.menu.databinding.MenuFragmentRestaurantsListBinding
+import kotlinx.android.synthetic.main.menu_fragment_restaurants_list.*
 
-class RestaurantsListFragment : BaseFragment<FragmentRestaurantsListBinding, MenuListViewModel>() {
+class MenuRestaurantsListFragment : BaseFragment<MenuFragmentRestaurantsListBinding, MenuListViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,8 +23,8 @@ class RestaurantsListFragment : BaseFragment<FragmentRestaurantsListBinding, Men
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): FragmentRestaurantsListBinding {
-        return FragmentRestaurantsListBinding.inflate(inflater, container, false).also {
+    ): MenuFragmentRestaurantsListBinding {
+        return MenuFragmentRestaurantsListBinding.inflate(inflater, container, false).also {
             it.viewModel = viewModel
         }
     }
@@ -38,7 +37,7 @@ class RestaurantsListFragment : BaseFragment<FragmentRestaurantsListBinding, Men
         viewModel.menus.observe(this, Observer { menus ->
             restaurantsList.removeAllViews()
             for ((restaurant, menusOfRestaurant) in menus?.groupBy { menu -> menu.restaurant }.orEmpty()) {
-                ItemRestaurantCardBinding.inflate(LayoutInflater.from(context), restaurantsList, true).also {
+                MenuItemRestaurantCardBinding.inflate(LayoutInflater.from(context), restaurantsList, true).also {
                     it.restaurant = restaurant
                     for (menu in menusOfRestaurant) {
                         it.restaurantCardContent.addView(MenuView(context!!).also {

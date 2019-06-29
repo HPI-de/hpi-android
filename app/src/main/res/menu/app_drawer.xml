@@ -22,4 +22,10 @@
         android:icon="@drawable/course_icon"
         android:title="@string/course_courseSeries_title" />
 
+    <item
+        android:id="@+id/menu_restaurantsList"
+        android:checkable="true"
+        android:icon="@drawable/menu_icon"
+        android:title="@string/menu_title" />
+
 </menu>

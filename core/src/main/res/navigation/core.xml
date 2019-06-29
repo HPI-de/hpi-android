@@ -52,4 +52,10 @@
             app:argType="string" />
     </fragment>
 
+    <!-- Menu -->
+    <fragment
+        android:id="@+id/menu_restaurantsList"
+        android:name="de.hpi.android.menu.presentation.list.MenuRestaurantsListFragment"
+        tools:layout="@layout/menu_fragment_restaurants_list" />
+
 </navigation>

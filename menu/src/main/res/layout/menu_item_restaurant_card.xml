@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="restaurant"
+            type="de.hpi.android.menu.domain.Restaurant" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/core_space_m"
+            android:layout_marginTop="@dimen/core_space_m"
+            android:layout_marginBottom="@dimen/core_space_m">
+
+            <LinearLayout
+                android:id="@+id/restaurantCardContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/restaurantTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/core_space_m"
+                    android:text="@{restaurant.title}"
+                    android:textAppearance="?textAppearanceHeadline6"
+                    tools:text="Mensa" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/core_space_s"
+            android:background="@color/core_brand_hpiYellow"
+            android:textAppearance="?textAppearanceHeadline6"
+            android:text="@{restaurant.title}"
+            tools:text="Mensa" />
+
+    </FrameLayout>
+
+</layout>
