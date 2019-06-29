@@ -5,13 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlin.coroutines.CoroutineContext
 
-abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel> : Fragment(), CoroutineScope {
+abstract class BaseBottomSheetDialogFragment<B : ViewDataBinding, VM : BaseViewModel> : BottomSheetDialogFragment(),
+    CoroutineScope {
     private lateinit var job: Job
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.Main
@@ -38,10 +40,11 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel> : Fragment(
 
     abstract fun onCreateBinding(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): B
 
-
     override fun onDestroy() {
         super.onDestroy()
         job.cancel()
     }
     // endregion
+
+    fun show(manager: FragmentManager) = super.show(manager, tag)
 }

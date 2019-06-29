@@ -1,5 +1,7 @@
 <resources>
 
+    <string name="news_title">News</string>
+
     <string name="news_list_item_sourceAndDateFormat">%1$s · %2$s</string>
 
     <string name="news_detail_meta">%1$s · %2$s</string>
