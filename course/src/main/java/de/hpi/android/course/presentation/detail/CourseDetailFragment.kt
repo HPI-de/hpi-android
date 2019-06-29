@@ -35,21 +35,6 @@ class CourseDetailFragment : BaseFragment<FragmentCourseDetailBinding, CourseDet
                     startActivity(intent)
                 }
             }
-            it.onToggleView = { i ->
-                val view = when (i) {
-                    0 -> tv_description
-                    1 -> tv_requirements
-                    2 -> tv_learning
-                    3 -> tv_examination
-                    4 -> tv_dates
-                    else -> tv_literature   // 5
-                }
-                if (view.isVisible) {
-                    view.visibility = View.GONE
-                } else {
-                    view.visibility = View.VISIBLE
-                }
-            }
         }
     }
 
