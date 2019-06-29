@@ -6,4 +6,4 @@ interface Dto<D : Dto<D>> {
     val id: Id<D>
 }
 
-inline class Id<D : Dto<D>>(val id: String)
+inline class Id<D : Dto<D>>(val value: String)
