@@ -45,3 +45,17 @@ fun Bitmap.asTemporaryFile(): File {
     this.compress(Bitmap.CompressFormat.PNG, 100, file.outputStream())
     return file
 }
+
+// TODO: move this to better matching package
+private val MAX_LOG_LINES = 2000
+private val CMD_READ_LOG = "logcat -b main,system,crash,events -t $MAX_LOG_LINES -v threadtime printable"
+
+/**
+ * @throws IOException - in case of log reading error
+ */
+internal fun readCurrentLog(): List<String> {
+    return Runtime.getRuntime().exec(CMD_READ_LOG)
+        .inputStream
+        .bufferedReader()
+        .useLines { it.toList() }
+}

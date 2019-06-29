@@ -17,8 +17,18 @@ data class FeedbackDto(
         val screenUri: URI,
         val author: String, // TODO: replace with User reference
         val screenshot: File? = null,
-        val log: String? = null
+        val log: List<String>
     ) {
         val timestamp: ZonedDateTime = ZonedDateTime.now()
+
+        override fun toString(): String {
+            return "FeedbackMeta(" +
+                    "timestamp=$timestamp, " +
+                    "screenUri=$screenUri, " +
+                    "author=$author, " +
+                    "screenshotPath=${screenshot?.absolutePath}, " +
+                    "log=[${log.size} lines] starting with \"${log.take(5).joinToString(separator = "; ")} ...\"" +
+                    ")"
+        }
     }
 }

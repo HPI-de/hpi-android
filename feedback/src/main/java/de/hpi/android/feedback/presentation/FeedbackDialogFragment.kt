@@ -8,6 +8,7 @@ import de.hpi.android.core.presentation.base.BaseBottomSheepDialogFragment
 import de.hpi.android.feedback.databinding.DialogFeedbackBinding
 import de.hpi.android.feedback.presentation.utils.asTemporaryFile
 import de.hpi.android.feedback.presentation.utils.createScreenshot
+import de.hpi.android.feedback.presentation.utils.readCurrentLog
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.io.IOException
@@ -26,6 +27,11 @@ class FeedbackDialogFragment : BaseBottomSheepDialogFragment<DialogFeedbackBindi
             } catch (e: IOException) {
                 Timber.w(e, "Error taking screenshot for feedback")
             }
+            try {
+                viewModel.log = readCurrentLog()
+            } catch (e: IOException) {
+                Timber.w(e, "Error reading log for feedback")
+            }
         }
     }
 
@@ -36,7 +42,7 @@ class FeedbackDialogFragment : BaseBottomSheepDialogFragment<DialogFeedbackBindi
     ): DialogFeedbackBinding {
         return DialogFeedbackBinding.inflate(inflater, container, false)
             .also { it.viewModel = viewModel }
-        }
+    }
 
     override fun onDestroy() {
         super.onDestroy()
