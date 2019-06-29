@@ -29,7 +29,7 @@ object CourseDetailRepository : Repository<CourseDetailDto>() {
             programs = mapOf(
                 "IT-Systems Engineering BA" to
                         setOf(
-                            "Web- und Internet-Technologien", " HCGT-Grundlagen", "HCGT-Vertiefung",
+                            "Web- und Internet-Technologien", "HCGT-Grundlagen", "HCGT-Vertiefung",
                             "ISAE-Grundlagen", "ISAE-Vertiefung"
                         )
             ),
