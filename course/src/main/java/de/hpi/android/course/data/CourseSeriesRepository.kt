@@ -18,7 +18,8 @@ object CourseSeriesRepository : Repository<CourseSeriesDto>() {
             abbreviation = "PT 2",
             ects = 6,
             mandatory = true,
-            language = "Deutsch"
+            language = "Deutsch",
+            type = setOf(CourseSeries.Type.LECTURE, CourseSeries.Type.EXERCISE)
         ),
         CourseSeriesDto(
             id = "ma2",
@@ -27,7 +28,8 @@ object CourseSeriesRepository : Repository<CourseSeriesDto>() {
             abbreviation = "MA 2",
             ects = 6,
             mandatory = true,
-            language = "Deutsch"
+            language = "Deutsch",
+            type = setOf(CourseSeries.Type.LECTURE, CourseSeries.Type.EXERCISE)
         ),
         CourseSeriesDto(
             id = "www",
@@ -36,7 +38,9 @@ object CourseSeriesRepository : Repository<CourseSeriesDto>() {
             abbreviation = "WWW",
             ects = 6,
             mandatory = false,
-            language = "Deutsch"
+            language = "Deutsch",
+            type = setOf(CourseSeries.Type.LECTURE, CourseSeries.Type.EXERCISE)
+
         )
     )
 

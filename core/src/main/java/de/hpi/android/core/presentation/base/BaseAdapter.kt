@@ -32,6 +32,8 @@ abstract class BaseAdapter<T : Any, VH : BaseViewHolder<T, B>, out B : ViewDataB
 
 abstract class BaseViewHolder<T : Any, out B : ViewDataBinding>(val binding: B) :
     RecyclerView.ViewHolder(binding.root) {
+    val context = itemView.context
+
     private lateinit var _item: T
     var item: T
         get() = _item
