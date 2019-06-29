@@ -1,2 +1,7 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="de.hpi.android.core"/>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="de.hpi.android.core">
+
+    <application android:theme="@style/Core.AppTheme" />
+
+</manifest>
