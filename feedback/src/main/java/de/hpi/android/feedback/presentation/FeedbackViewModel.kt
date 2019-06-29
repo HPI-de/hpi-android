@@ -1,8 +1,11 @@
 package de.hpi.android.feedback.presentation
 
+import androidx.lifecycle.MutableLiveData
+import de.hpi.android.core.presentation.SingleLiveEvent
 import de.hpi.android.core.presentation.base.BaseViewModel
 import de.hpi.android.feedback.data.FeedbackDto
 import de.hpi.android.feedback.domain.SendFeedbackUseCase
+import io.reactivex.disposables.Disposable
 import io.reactivex.rxkotlin.subscribeBy
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -15,26 +18,49 @@ class FeedbackViewModel : BaseViewModel() {
     var screenshot: File? = null
     var log: List<String>? = null
 
+    val isSending = MutableLiveData<Boolean>().apply { value = false }
+    val isSent = SingleLiveEvent<Boolean>()
+    var sendingDisposable: Disposable? = null
+
     fun onSend(message: String, includeUser: Boolean, includeDebugData: Boolean) {
         launch {
-            val feedback = FeedbackDto(
-                message = message,
-                meta = FeedbackDto.Metadata(
-                    screenUri = referringScreen,
-                    author = if (includeUser) "User#123" else "Anonymous User",
-                    screenshot = if (includeDebugData) screenshot else null,
-                    log = if (includeDebugData) log.orEmpty() else emptyList()
+            sendFeedback(
+                FeedbackDto(
+                    message = message,
+                    meta = FeedbackDto.Metadata(
+                        screenUri = referringScreen,
+                        author = if (includeUser) "User#123" else "Anonymous User",
+                        screenshot = if (includeDebugData) screenshot else null,
+                        log = if (includeDebugData) log.orEmpty() else emptyList()
+                    )
                 )
             )
-            SendFeedbackUseCase(feedback)
-                .subscribeBy(
-                    onSuccess = {
-                        Timber.i("Feedback received as id=$it")
-                    },
-                    onError = {
-                        Timber.w(it, "Sending log failed")
-                    }
-                )
         }
+    }
+
+    private fun sendFeedback(feedback: FeedbackDto) {
+        isSending.value = true
+        sendingDisposable?.dispose()
+        sendingDisposable = SendFeedbackUseCase(feedback)
+            .subscribeBy(
+                onSuccess = {
+                    Timber.i("Feedback received as id=$it")
+                    launch {
+                        isSent.setValue(true)
+                    }
+                },
+                onError = {
+                    Timber.w(it, "Sending feedback failed")
+                    launch {
+                        isSending.value = false
+                        isSent.setValue(false)
+                    }
+                }
+            )
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        sendingDisposable?.dispose()
     }
 }

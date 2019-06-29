@@ -52,6 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
+            android:enabled="@{!viewModel.isSending}"
             android:onClick="@{(view) -> viewModel.onSend(message.getText().toString(), includeUser.isChecked(), includeDebugData.isChecked())}"
             android:text="@string/feedback_send" />
 

@@ -4,4 +4,6 @@
     <string name="feedback_include_user">Include user name</string>
     <string name="feedback_include_debug_data">Include logs and screenshots</string>
     <string name="feedback_send">Send</string>
+    <string name="feedback_sending_successful">Successfully sent feedback</string>
+    <string name="feedback_sending_failed">Failed to send feedback</string>
 </resources>
