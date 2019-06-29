@@ -15,7 +15,7 @@ data class Course(
     val assistants: Set<String> = emptySet(),
     val description: String,
     val website: URI? = null
-) : Entity<Course, CourseDto>
+) : Entity<Course>
 
 data class CourseSeries(
     override val id: Id<CourseSeriesDto>,
