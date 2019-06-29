@@ -1,14 +1,9 @@
-val kotlin_version: String by extra
 plugins {
     id("com.android.library")
 
     id("kotlin-android")
     id("kotlin-android-extensions")
     id("kotlin-kapt")
-}
-apply {
-    plugin("kotlin-android")
-    plugin("kotlin-android-extensions")
 }
 
 android {
@@ -35,7 +30,7 @@ android {
 
 dependencies {
     implementation(project(":core"))
-}
-repositories {
-    mavenCentral()
+    implementation("com.google.protobuf:protobuf-java:3.6.1")
+    implementation("io.grpc:grpc-stub:1.18.0")
+    implementation("io.grpc:grpc-protobuf:1.18.0")
 }
