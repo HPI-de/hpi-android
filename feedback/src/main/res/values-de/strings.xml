@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="feedback_title">Feedback</string>
+    <string name="feedback_message">Nachricht</string>
+    <string name="feedback_includeUser">Nutzernamen anhängen</string>
+    <string name="feedback_includeDebugData">Logs und Screenshot anhängen</string>
+    <string name="feedback_send">Senden</string>
+    <string name="feedback_send_successful">Feedback erfolgreich gesendet</string>
+    <string name="feedback_send_error">Es gab ein Problem beim Senden des Feedbacks. Bitte versuchen Sie es erneut</string>
+
+</resources>
