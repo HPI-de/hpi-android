@@ -1,5 +1,8 @@
 <resources>
 
+    <string name="course_course_lecturer">Lecturer: %1$s</string>
+
+    <string name="course_courseSeries_details">%1$d ECTS · %2$s · %3$s</string>
     <string name="course_courseSeries_mandatory_true">mandatory</string>
     <string name="course_courseSeries_mandatory_false">voluntary</string>
     <string name="course_courseSeries_type_lecture">lecture</string>
@@ -8,20 +11,16 @@
     <string name="course_courseSeries_type_exercise">exercise</string>
     <string name="course_courseSeries_type_seperator">\u0020·\u0020</string>
 
-    <string name="course_courseSeries_details">%1$d ECTS · %2$s · %3$s</string>
-
-    <string name="on_tele_task">This lecture is on tele-TASK.</string>
-    <string name="not_on_tele_task">This lecture is not on tele-TASK.</string>
-    <string name="course_course_lecturer">Lecturer: %1$s</string>
-    <string name="course_courseDetails_detail_details">%1$s · %2$d ECTS · %3$d h/week\n%4$s</string>
-    <string name="programs_mdoules">Programs &amp; Modules</string>
-    <string name="description">Description</string>
-    <string name="requirements">Requirements</string>
-    <string name="learning">Learning</string>
-    <string name="examination">Examination</string>
-    <string name="dates">Dates</string>
-    <string name="literature">Literature</string>
-    <string name="no_guarantee">All statements without guarantee.</string>
-    <string name="report_error">REPORT AN ERROR</string>
+    <string name="course_courseSeries_detail_teleTask">This lecture is on tele-TASK.</string>
+    <string name="course_courseSeries_detail_details">%1$s · %2$d ECTS · %3$d h/week\n%4$s</string>
+    <string name="course_courseSeries_detail_modules">Programs &amp; Modules</string>
+    <string name="course_courseSeries_detail_description">Description</string>
+    <string name="course_courseSeries_detail_requirements">Requirements</string>
+    <string name="course_courseSeries_detail_learning">Learning</string>
+    <string name="course_courseSeries_detail_examination">Examination</string>
+    <string name="course_courseSeries_detail_dates">Dates</string>
+    <string name="course_courseSeries_detail_literature">Literature</string>
+    <string name="course_courseSeries_detail_noGuarantee">All statements without guarantee.</string>
+    <string name="course_courseSeries_detail_reportError">Report an error</string>
 
 </resources>
