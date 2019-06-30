@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/course" />
+            <option value="$PROJECT_DIR$/feedback" />
             <option value="$PROJECT_DIR$/menu" />
             <option value="$PROJECT_DIR$/news" />
           </set>

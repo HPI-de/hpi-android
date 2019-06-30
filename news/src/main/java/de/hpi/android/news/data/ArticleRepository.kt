@@ -12,8 +12,8 @@ import java.net.URL
 object ArticleRepository : Repository<ArticleDto>() {
     private val articles = listOf(
         ArticleDto(
-            id = "1",
-            sourceId = "hpi",
+            id = Id("1"),
+            sourceId = Id("hpi"),
             link = URL("https://hpi.de/news/jahrgaenge/2019/die-schul-cloud-fuer-brandenburg-bildungsministerin-britta-ernst-unterzeichnet-absichtserklaerung-zur-nutzung-der-hpi-schul-cloud.html"),
             title = "Die Schul-Cloud für Brandenburg: Bildungsministerin Britta Ernst unterzeichnet Absichtserklärung zur Nutzung der HPI Schul-Cloud",
             authors = emptySet(),
@@ -33,8 +33,8 @@ object ArticleRepository : Repository<ArticleDto>() {
             cover = URL("https://hpi.de/fileadmin/user_upload/hpi/bilder/teaser_news/2019/HPI_Schul_Cloud_2019_1020x420.jpg")
         ),
         ArticleDto(
-            id = "2",
-            sourceId = "hpi-mgzn",
+            id = Id("2"),
+            sourceId = Id("hpi-mgzn"),
             link = URL("https://hpimgzn.de/2019/von-wurmmehlkeksen-bis-hin-zu-kompostieranlagen/"),
             title = "Von Wurmmehlkeksen bis hin zu Kompostieranlagen",
             authors = setOf("Lilith Diringer"),
@@ -67,9 +67,9 @@ object ArticleRepository : Repository<ArticleDto>() {
                         Lilith.Diringer@student.hpi.de
                         Malte.Barth@student.hpi.de
                     """.trimIndent(),
-            categories = setOf("allgemein", "klubs", "klubs/nachhaltigkeitsklub"),
+            categories = setOf(Id("allgemein"), Id("klubs"), Id("klubs/nachhaltigkeitsklub")),
             cover = URL("https://hpimgzn.de/wp-content/uploads/2018/12/photo_2018-12-16_20-19-43.jpg"),
-            tags = setOf("nachhaltigkeitsklub", "essen", "selbstgemacht", "nachhaltigkeit", "workshop"),
+            tags = setOf(Id("nachhaltigkeitsklub"), Id("essen"), Id("selbstgemacht"), Id("nachhaltigkeit"), Id("workshop")),
             viewCount = 107
         )
     )

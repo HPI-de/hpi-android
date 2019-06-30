@@ -1,15 +1,19 @@
 <resources>
+
+    <string name="course_courseSeries_mandatory_true">mandatory</string>
+    <string name="course_courseSeries_mandatory_false">voluntary</string>
+    <string name="course_courseSeries_type_lecture">lecture</string>
+    <string name="course_courseSeries_type_seminar">seminar</string>
+    <string name="course_courseSeries_type_blockSeminar">block seminar</string>
+    <string name="course_courseSeries_type_exercise">exercise</string>
+    <string name="course_courseSeries_type_seperator">\u0020·\u0020</string>
+
+    <string name="course_courseSeries_details">%1$d ECTS · %2$s · %3$s</string>
+
     <string name="on_tele_task">This lecture is on tele-TASK.</string>
     <string name="not_on_tele_task">This lecture is not on tele-TASK.</string>
     <string name="course_course_lecturer">Lecturer: %1$s</string>
-    <string name="course_courseSeries_mandatory_true">Compulsory Module</string>
-    <string name="course_courseSeries_mandatory_false">Voluntary Module</string>
-    <string name="course_courseSeries_type_lecture">Lecture</string>
-    <string name="course_courseSeries_type_seminar">Seminar</string>
-    <string name="course_courseSeries_type_blockSeminar">Block seminar</string>
-    <string name="course_courseSeries_type_exercise">Exercise</string>
-    <string name="course_courseSeries_type_seperator">\u0020·\u0020</string>
-    <string name="course_courseDetails_details">%1$s · %2$d ECTS · %3$d h/week\n%4$s</string>
+    <string name="course_courseDetails_detail_details">%1$s · %2$d ECTS · %3$d h/week\n%4$s</string>
     <string name="programs_mdoules">Programs &amp; Modules</string>
     <string name="description">Description</string>
     <string name="requirements">Requirements</string>
@@ -19,4 +23,5 @@
     <string name="literature">Literature</string>
     <string name="no_guarantee">All statements without guarantee.</string>
     <string name="report_error">REPORT AN ERROR</string>
+
 </resources>

@@ -2,44 +2,23 @@ package de.hpi.android.course.domain
 
 import de.hpi.android.core.data.Id
 import de.hpi.android.core.domain.Entity
+import de.hpi.android.course.data.CourseDetailDto
+import de.hpi.android.course.data.CourseDto
+import de.hpi.android.course.data.CourseSeriesDto
+import de.hpi.android.course.data.SemesterDto
 import java.net.URI
 
 data class Course(
-    override val id: Id<Course>,
+    override val id: Id<CourseDto>,
     val series: CourseSeries,
     val semester: Semester,
     val lecturer: String,
     val assistants: Set<String> = emptySet(),
-    val type: Set<Type>,
     val website: URI? = null
-) : Entity<Course> {
-    enum class Type {
-        LECTURE,
-        SEMINAR,
-        BLOCK_SEMINAR,
-        EXERCISE
-    }
-}
-
-data class CourseSeries(
-    override val id: Id<CourseSeries>,
-    val title: String,
-    val shortTitle: String,
-    val abbreviation: String,
-    val ects: Int,
-    val hoursPerWeek: Int,
-    val mandatory: Boolean,
-    val language: String
-) : Entity<CourseSeries>
-
-data class Semester(
-    override val id: Id<Semester>,
-    val term: String,
-    val year: Int
-) : Entity<Semester>
+) : Entity<Course, CourseDto>
 
 data class CourseDetail(
-    override val id: Id<CourseDetail>,
+    override val id: Id<CourseDetailDto>,
     val teleTask: URI?,
     val programs: Map<String, Set<String>>,
     val description: String,
@@ -48,4 +27,29 @@ data class CourseDetail(
     val examination: String? = null,
     val dates: String? = null,
     val literature: String? = null
-) : Entity<CourseDetail>
+) : Entity<CourseDetail, CourseDetailDto>
+
+data class CourseSeries(
+    override val id: Id<CourseSeriesDto>,
+    val title: String,
+    val shortTitle: String,
+    val abbreviation: String,
+    val ects: Int,
+    val hoursPerWeek: Int,
+    val mandatory: Boolean,
+    val language: String,
+    val type: Set<Type>
+) : Entity<CourseSeries, CourseSeriesDto> {
+    enum class Type {
+        LECTURE,
+        SEMINAR,
+        BLOCK_SEMINAR,
+        EXERCISE
+    }
+}
+
+data class Semester(
+    override val id: Id<SemesterDto>,
+    val term: String,
+    val year: Int
+) : Entity<Semester, SemesterDto>

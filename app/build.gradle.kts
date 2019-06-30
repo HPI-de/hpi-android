@@ -39,6 +39,7 @@ android {
 
 dependencies {
     implementation(project(":core"))
+    implementation(project(":feedback"))
     implementation(project(":news"))
 
     implementation("androidx.multidex:multidex:2.0.1")
