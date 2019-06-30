@@ -10,9 +10,6 @@
         <variable
             name="onTeleTaskClicked"
             type="kotlin.jvm.functions.Function0"/>
-        <variable
-            name="onToggleView"
-            type="kotlin.jvm.functions.Function1"/>
     </data>
     <ScrollView
         android:layout_width="match_parent"
@@ -42,24 +39,26 @@
             <!--lecturer-->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/core_space_m"
+                android:paddingEnd="@dimen/core_space_m"
+                android:paddingTop="@dimen/core_space_s"
+                android:paddingBottom="@dimen/core_space_s">
                 <ImageView
                     android:id="@+id/lecturer_image_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/core_space_m"
+                    android:paddingEnd="@dimen/core_space_m"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     android:src="@drawable/ic_android_black_24dp"/>
                 <TextView
-                    android:id="@+id/lecturer_lecturer_text_view"
+                    android:id="@+id/lecturer_heading_text_view"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toEndOf="@id/lecturer_image_view"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:paddingTop="@dimen/core_space_s"
-                    android:paddingEnd="@dimen/core_space_m"
                     android:textAppearance="?textAppearanceSubtitle1"
                     android:text="@{@string/course_course_lecturer(viewModel.course.lecturer)}"
                     tools:text="Lecturer: Prof. Dr. Christoph Meinel"/>
@@ -67,13 +66,11 @@
                     android:id="@+id/lecturer_assistants_text_view"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="@id/lecturer_lecturer_text_view"
+                    app:layout_constraintStart_toStartOf="@id/lecturer_heading_text_view"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/lecturer_lecturer_text_view"
-                    android:paddingBottom="@dimen/core_space_s"
-                    android:paddingEnd="@dimen/core_space_m"
+                    app:layout_constraintTop_toBottomOf="@id/lecturer_heading_text_view"
                     android:textAppearance="?textAppearanceCaption"
-                    android:text="@{viewModel.course.assistants.toString()}"
+                    android:text="@{viewModel.assistants}"
                     tools:text="Matthias Bauer, Christiane Hagedorn, Leonard Marschke"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -88,276 +85,215 @@
                 android:drawablePadding="@dimen/core_space_m"
                 android:drawableStart="@drawable/ic_android_black_24dp"
                 android:textAppearance="?textAppearanceSubtitle1"
-                android:text="@{viewModel.course.series.mandatory ? @string/compulsory_module : @string/optional_module}"
-                tools:text="Compulsory Module · 6 ECTS · 4 h/week · Lecture · Exercise"
-                android:onClick="@{(v) -> onTeleTaskClicked.invoke()}"/>
-            <!--·-->
+                android:text="@{viewModel.generalInformation}"
+                tools:text="Compulsory Module · 6 ECTS · 4 h/week · Lecture · Exercise"/>
 
             <!--program & modules-->
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:paddingStart="@dimen/core_space_m"
+                android:paddingEnd="@dimen/core_space_m"
+                android:paddingTop="@dimen/core_space_s"
+                android:paddingBottom="@dimen/core_space_s">
                 <ImageView
+                    android:id="@+id/programs_modules_image_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/core_space_m"
+                    android:paddingEnd="@dimen/core_space_m"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     android:src="@drawable/ic_android_black_24dp"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/programs_modules_heading_text_view"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingEnd="@dimen/core_space_m"
-                        android:paddingTop="@dimen/core_space_s"
-                        android:paddingBottom="@dimen/core_space_s"
-                        android:textAppearance="?textAppearanceSubtitle1"
-                        android:text="@string/programs_mdoules"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingEnd="@dimen/core_space_m"
-                        android:paddingTop="@dimen/core_space_s"
-                        android:paddingBottom="@dimen/core_space_s"
-                        android:textAppearance="?textAppearanceCaption"
-                        android:text="@{viewModel.courseDetail.programs.toString()}"
-                        tools:text="IT-Systems Engineering BA\n\tWeb- und Internet-Technologien\n\tHCGT-Grundlagen\n\tHCGT-Vertiefung\n\tISAE-Grundlagen\n\tISAE-Vertiefung"/>
-                </LinearLayout>
-            </LinearLayout>
+                    app:layout_constraintStart_toEndOf="@id/programs_modules_image_view"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textAppearance="?textAppearanceSubtitle1"
+                    android:text="@string/programs_mdoules"/>
+                <TextView
+                    android:id="@+id/programs_modules_content_text_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/programs_modules_heading_text_view"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/programs_modules_heading_text_view"
+                    android:textAppearance="?textAppearanceBody2"
+                    android:text="@{viewModel.programsModules   }"
+                    tools:text="IT-Systems Engineering BA\n\tWeb- und Internet-Technologien\n\tHCGT-Grundlagen\n\tHCGT-Vertiefung\n\tISAE-Grundlagen\n\tISAE-Vertiefung"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!--description-->
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/core_space_m"
-                    android:src="@drawable/ic_android_black_24dp"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingEnd="@dimen/core_space_m"
-                        android:paddingTop="@dimen/core_space_s"
-                        android:paddingBottom="@dimen/core_space_s"
-                        android:drawablePadding="@dimen/core_space_m"
-                        android:drawableEnd="@drawable/ic_android_black_24dp"
-                        android:textAppearance="?textAppearanceSubtitle1"
-                        android:text="@string/description"
-                        android:onClick="@{(v) -> onToggleView.invoke(0)}"/>
-                    <TextView
-                        android:id="@+id/tv_description"
-                        android:visibility="visible"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@{viewModel.courseDetail.description}"
-                        tools:text="Aufgrund der fortschreitenden Entwicklung des Internets und des WWW existieren heute zahlreiche Möglichkeiten..."/>
-                </LinearLayout>
-            </LinearLayout>
+                android:paddingStart="@dimen/core_space_m"
+                android:paddingEnd="@dimen/core_space_m"
+                android:paddingTop="@dimen/core_space_s"
+                android:paddingBottom="@dimen/core_space_s"
+                android:drawablePadding="@dimen/core_space_m"
+                android:drawableStart="@drawable/ic_android_black_24dp"
+                android:textAppearance="?textAppearanceSubtitle1"
+                android:text="@string/description"
+                app:visible="@{viewModel.courseDetail.description}"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/core_space_m"
+                android:paddingEnd="@dimen/core_space_m"
+                android:paddingTop="@dimen/core_space_s"
+                android:paddingBottom="@dimen/core_space_s"
+                android:textAppearance="?textAppearanceBody1"
+                android:text="@{viewModel.courseDetail.description}"
+                tools:text="Hier werden die Voraussetzungen für Kurs aufgelistet."
+                app:visible="@{viewModel.courseDetail.description}"/>
 
             <!--requirements-->
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:visibility="@{viewModel.courseDetail.requirements}">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_android_black_24dp"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:onClick="@{(v) -> onToggleView.invoke(1)}">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/requirements"/>
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_android_black_24dp"/>
-                    </LinearLayout>
-                    <TextView
-                        android:id="@+id/tv_requirements"
-                        android:visibility="visible"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@{viewModel.courseDetail.requirements}"/>
-                </LinearLayout>
-            </LinearLayout>
+                android:paddingStart="@dimen/core_space_m"
+                android:paddingEnd="@dimen/core_space_m"
+                android:paddingTop="@dimen/core_space_s"
+                android:paddingBottom="@dimen/core_space_s"
+                android:drawablePadding="@dimen/core_space_m"
+                android:drawableStart="@drawable/ic_android_black_24dp"
+                android:textAppearance="?textAppearanceSubtitle1"
+                android:text="@string/requirements"
+                app:visible="@{viewModel.courseDetail.requirements}"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/core_space_m"
+                android:paddingEnd="@dimen/core_space_m"
+                android:paddingTop="@dimen/core_space_s"
+                android:paddingBottom="@dimen/core_space_s"
+                android:textAppearance="?textAppearanceBody1"
+                android:text="@{viewModel.courseDetail.requirements}"
+                tools:text="Hier werden die Voraussetzungen für Kurs aufgelistet."
+                app:visible="@{viewModel.courseDetail.requirements}"/>
 
             <!--learning-->
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:visibility="@{viewModel.courseDetail.learning}">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_android_black_24dp"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:onClick="@{(v) -> onToggleView.invoke(2)}">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/learning"/>
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_android_black_24dp"/>
-                    </LinearLayout>
-                    <TextView
-                        android:id="@+id/tv_learning"
-                        android:visibility="visible"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@{viewModel.courseDetail.learning}"/>
-                </LinearLayout>
-            </LinearLayout>
+                android:paddingStart="@dimen/core_space_m"
+                android:paddingEnd="@dimen/core_space_m"
+                android:paddingTop="@dimen/core_space_s"
+                android:paddingBottom="@dimen/core_space_s"
+                android:drawablePadding="@dimen/core_space_m"
+                android:drawableStart="@drawable/ic_android_black_24dp"
+                android:textAppearance="?textAppearanceSubtitle1"
+                android:text="@string/learning"
+                app:visible="@{viewModel.courseDetail.learning}"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/core_space_m"
+                android:paddingEnd="@dimen/core_space_m"
+                android:paddingTop="@dimen/core_space_s"
+                android:paddingBottom="@dimen/core_space_s"
+                android:textAppearance="?textAppearanceBody1"
+                android:text="@{viewModel.courseDetail.learning}"
+                tools:text="Hier steht, welche Lehrmethoden in dem Kurs benutzt werden."
+                app:visible="@{viewModel.courseDetail.learning}"/>
 
             <!--examination-->
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:visibility="@{viewModel.courseDetail.examination}">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_android_black_24dp"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:onClick="@{(v) -> onToggleView.invoke(3)}">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/examination"/>
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_android_black_24dp"/>
-                    </LinearLayout>
-                    <TextView
-                        android:id="@+id/tv_examination"
-                        android:visibility="visible"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@{viewModel.courseDetail.examination}"/>
-                </LinearLayout>
-            </LinearLayout>
+                android:paddingStart="@dimen/core_space_m"
+                android:paddingEnd="@dimen/core_space_m"
+                android:paddingTop="@dimen/core_space_s"
+                android:paddingBottom="@dimen/core_space_s"
+                android:drawablePadding="@dimen/core_space_m"
+                android:drawableStart="@drawable/ic_android_black_24dp"
+                android:textAppearance="?textAppearanceSubtitle1"
+                android:text="@string/examination"
+                app:visible="@{viewModel.courseDetail.examination}"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/core_space_m"
+                android:paddingEnd="@dimen/core_space_m"
+                android:paddingTop="@dimen/core_space_s"
+                android:paddingBottom="@dimen/core_space_s"
+                android:textAppearance="?textAppearanceBody1"
+                android:text="@{viewModel.courseDetail.examination}"
+                tools:text="Hier steht, wie sich die Endnote zusammensetzt. Das heißt zu wie viel Prozent Übungen, Zwischenklausuren und die Endklausur zählen."
+                app:visible="@{viewModel.courseDetail.examination}"/>
 
             <!--dates-->
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:visibility="@{viewModel.courseDetail.dates}">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_android_black_24dp"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:onClick="@{(v) -> onToggleView.invoke(4)}">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/dates"/>
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_android_black_24dp"/>
-                    </LinearLayout>
-                    <TextView
-                        android:id="@+id/tv_dates"
-                        android:visibility="visible"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@{viewModel.courseDetail.dates}"/>
-                </LinearLayout>
-            </LinearLayout>
+                android:paddingStart="@dimen/core_space_m"
+                android:paddingEnd="@dimen/core_space_m"
+                android:paddingTop="@dimen/core_space_s"
+                android:paddingBottom="@dimen/core_space_s"
+                android:drawablePadding="@dimen/core_space_m"
+                android:drawableStart="@drawable/ic_android_black_24dp"
+                android:textAppearance="?textAppearanceSubtitle1"
+                android:text="@string/dates"
+                app:visible="@{viewModel.courseDetail.dates}"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/core_space_m"
+                android:paddingEnd="@dimen/core_space_m"
+                android:paddingTop="@dimen/core_space_s"
+                android:paddingBottom="@dimen/core_space_s"
+                android:textAppearance="?textAppearanceBody1"
+                android:text="@{viewModel.courseDetail.dates}"
+                tools:text="Hier stehen alle für den Kurs relevanten Daten wie Vorlesungs- oder Übungstermine."
+                app:visible="@{viewModel.courseDetail.dates}"/>
 
             <!--literature-->
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:visibility="@{viewModel.courseDetail.literature}">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_android_black_24dp"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <LinearLayout
-                        android:id="@+id/ll_requirements"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:onClick="@{(v) -> onToggleView.invoke(5)}">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/literature"/>
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_android_black_24dp"/>
-                    </LinearLayout>
-                    <TextView
-                        android:id="@+id/tv_literature"
-                        android:visibility="visible"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@{viewModel.courseDetail.literature}"/>
-                </LinearLayout>
-            </LinearLayout>
+                android:paddingStart="@dimen/core_space_m"
+                android:paddingEnd="@dimen/core_space_m"
+                android:paddingTop="@dimen/core_space_s"
+                android:paddingBottom="@dimen/core_space_s"
+                android:drawablePadding="@dimen/core_space_m"
+                android:drawableStart="@drawable/ic_android_black_24dp"
+                android:textAppearance="?textAppearanceSubtitle1"
+                android:text="@string/literature"
+                app:visible="@{viewModel.courseDetail.literature}"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/core_space_m"
+                android:paddingEnd="@dimen/core_space_m"
+                android:paddingTop="@dimen/core_space_s"
+                android:paddingBottom="@dimen/core_space_s"
+                android:textAppearance="?textAppearanceBody1"
+                android:text="@{viewModel.courseDetail.literature}"
+                tools:text="Hier werden die Bücher aufgelistet, die die Grundlage für die Vorlesung bilden oder die vom Dozenten empfohlen werden."
+                app:visible="@{viewModel.courseDetail.literature}"/>
 
+            <!--footer-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/no_guarantee"
-                android:layout_gravity="center"/>
-            <TextView
+                android:paddingStart="@dimen/core_space_m"
+                android:paddingEnd="@dimen/core_space_m"
+                android:paddingTop="@dimen/core_space_s"
+                android:paddingBottom="@dimen/core_space_s"
+                android:layout_gravity="center"
+                android:text="@string/no_guarantee"/>
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/report_error"
-                android:layout_gravity="center"/>
+                android:paddingStart="@dimen/core_space_m"
+                android:paddingEnd="@dimen/core_space_m"
+                android:paddingTop="@dimen/core_space_s"
+                android:paddingBottom="@dimen/core_space_s"
+                android:layout_gravity="center"
+                android:text="@string/report_error"/>
         </LinearLayout>
     </ScrollView>
 </layout>
