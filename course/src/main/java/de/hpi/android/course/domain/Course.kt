@@ -20,7 +20,7 @@ data class Course(
 data class CourseDetail(
     override val id: Id<CourseDetailDto>,
     val teleTask: URI?,
-    val programs: Map<String, Set<String>>,
+    val modules: Map<String, Set<String>>,
     val description: String,
     val requirements: String? = null,
     val learning: String? = null,

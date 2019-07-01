@@ -29,3 +29,7 @@ fun <T1, T2> Pair<T1?, T2?>.takeIfNotNull(): Pair<T1, T2>? {
     t2 ?: return null
     return t1 to t2
 }
+
+fun StringBuilder.appendLine(s: String) {
+    append("$s\n")
+}

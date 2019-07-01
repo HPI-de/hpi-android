@@ -6,25 +6,24 @@ import de.hpi.android.core.domain.Result
 import de.hpi.android.core.domain.error
 import de.hpi.android.core.domain.success
 import io.reactivex.Observable
-import java.lang.IllegalArgumentException
 import java.net.URI
 
 object CourseDetailRepository : Repository<CourseDetailDto>() {
     private val courseDetails = listOf(
         CourseDetailDto(
-            id = "2019ss-pt2",
+            id = Id("2019ss-pt2"),
             teleTask = URI("https://www.tele-task.de/series/1260/"),
             programs = mapOf("IT-Systems Engineering BA" to setOf("Programmiertechnik II")),
             description = "Fortsetzung von PT 1"
         ),
         CourseDetailDto(
-            id = "2019ss-ma2",
+            id = Id("2019ss-ma2"),
             teleTask = null,
             programs = mapOf("IT-Systems Engineering BA" to setOf("Mathematik II")),
             description = "Fortsetzung von Mathe 1"
         ),
         CourseDetailDto(
-            id = "2019ss-www",
+            id = Id("2019ss-www"),
             teleTask = URI("https://www.tele-task.de/series/1253/"),
             programs = mapOf(
                 "IT-Systems Engineering BA" to
@@ -38,7 +37,7 @@ object CourseDetailRepository : Repository<CourseDetailDto>() {
             learning = "Folien vorlesen",
             examination = "Zwischen- und Endklausur",
             dates = "Dienstag und Donnerstag",
-            literature = "Meinel's buch"
+            literature = "Meinel's Buch"
         )
     )
 

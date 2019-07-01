@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Course" />
+    <style name="Course.Widget" />
+    <style name="Course.Widget.CourseDetails" />
+
+    <style name="Course.Widget.CourseDetails.ListItem">
+        <item name="android:drawablePadding">@dimen/core_space_m</item>
+        <item name="android:paddingStart">@dimen/core_space_m</item>
+        <item name="android:paddingEnd">@dimen/core_space_m</item>
+        <item name="android:paddingTop">@dimen/core_space_s</item>
+        <item name="android:paddingBottom">@dimen/core_space_s</item>
+        <item name="android:textAppearance">?textAppearanceSubtitle1</item>
+    </style>
+    <style name="Course.Widget.CourseDetails.AccordionContent">
+        <item name="android:paddingStart">@dimen/core_space_m</item>
+        <item name="android:paddingEnd">@dimen/core_space_m</item>
+        <item name="android:paddingTop">@dimen/core_space_s</item>
+        <item name="android:paddingBottom">@dimen/core_space_s</item>
+        <item name="android:textAppearance">?textAppearanceBody1</item>
+    </style>
+
+</resources>

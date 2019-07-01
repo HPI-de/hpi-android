@@ -42,7 +42,7 @@ fun CourseDetailDto.toCourseDetailEntity(): Result<CourseDetail> {
     return CourseDetail(
         id = id,
         teleTask = teleTask,
-        programs = programs,
+        modules = programs,
         description = description,
         requirements = requirements,
         learning = learning,

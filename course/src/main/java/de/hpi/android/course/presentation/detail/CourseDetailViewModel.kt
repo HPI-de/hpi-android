@@ -1,33 +1,36 @@
 package de.hpi.android.course.presentation.detail
 
-import androidx.lifecycle.MutableLiveData
+import de.hpi.android.core.data.Id
 import de.hpi.android.core.presentation.base.BaseViewModel
+import de.hpi.android.core.utils.appendLine
 import de.hpi.android.core.utils.asLiveData
 import de.hpi.android.core.utils.data
 import de.hpi.android.core.utils.map
+import de.hpi.android.course.data.CourseDetailDto
+import de.hpi.android.course.data.CourseDto
 import de.hpi.android.course.domain.GetCourseDetailUseCase
 import de.hpi.android.course.domain.GetCourseUseCase
 
 class CourseDetailViewModel : BaseViewModel() {
-    private val courseId = "2019ss-www"     // still hardcoded
-    private val courseDetailResult = GetCourseDetailUseCase(courseId).asLiveData()
-    private val courseResult = GetCourseUseCase(courseId).asLiveData()      // get this from the parent activity?
-    val courseDetail = courseDetailResult.data
+    private val courseId = Id<CourseDto>("2019ss-www") // TODO: use navigation arguments
+
+    private val courseResult = GetCourseUseCase(courseId).asLiveData()
     val course = courseResult.data
+
+    @Suppress("UNCHECKED_CAST")
+    private val courseDetailResult = GetCourseDetailUseCase(courseId as Id<CourseDetailDto>).asLiveData()
+    val courseDetail = courseDetailResult.data
+
     val assistants = course.map { it?.assistants?.joinToString() }
     val programsModules = courseDetail.map { courseDetail ->
-        val lines = mutableSetOf<String>()
-        courseDetail?.let {
-            for ((program, moduleList) in courseDetail.programs) {
-                lines.add(program)
-                for (module in moduleList) {
-                    lines.add("\t\t" + module)
-                }
+        if (courseDetail == null) return@map null
+
+        buildString {
+            for ((program, moduleList) in courseDetail.modules) {
+                appendLine(program)
+                for (module in moduleList)
+                    appendLine("\t\t$module")
             }
         }
-        lines.joinToString(separator = "\n")
-    }
-    val generalInformation: MutableLiveData<String> by lazy {
-        MutableLiveData<String>()
     }
 }
