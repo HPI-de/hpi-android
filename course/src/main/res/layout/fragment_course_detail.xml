@@ -29,8 +29,8 @@
                 style="@style/Course.Widget.CourseDetails.ListItem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/ic_android_black_24dp"
-                android:drawableStart="@drawable/ic_android_black_24dp"
+                android:drawableEnd="@drawable/course_ic_outline_open_in_new_24dp"
+                android:drawableStart="@drawable/course_ic_outline_videocam_24dp"
                 android:onClick="@{(v) -> onTeleTaskClicked.invoke()}"
                 android:text="@string/course_courseSeries_detail_teleTask"
                 app:visible="@{viewModel.courseDetail.teleTask}"
@@ -45,7 +45,7 @@
                     android:id="@+id/lecturer_image_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_android_black_24dp"
+                    android:src="@drawable/course_ic_outline_person_24dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
                 <TextView
@@ -76,8 +76,8 @@
                 style="@style/Course.Widget.CourseDetails.ListItem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_android_black_24dp"
-                android:text="@{viewModel.generalInformation}"
+                android:drawableStart="@drawable/course_ic_outline_info_24dp"
+                android:text="@{generalInformation}"
                 tools:text="Compulsory Module · 6 ECTS · 4 h/week · Lecture · Exercise" />
 
             <!--modules & modules-->
@@ -91,7 +91,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:src="@drawable/ic_android_black_24dp" />
+                    android:src="@drawable/course_ic_outline_view_module_24dp" />
                 <TextView
                     android:id="@+id/programs_modules_heading_text_view"
                     android:layout_width="0dp"
@@ -106,24 +106,26 @@
                     android:id="@+id/programs_modules_content_text_view"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@{viewModel.programsModules}"
+                    android:text="@{viewModel.modules}"
                     android:textAppearance="?textAppearanceBody2"
                     app:layout_constraintStart_toStartOf="@id/programs_modules_heading_text_view"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/programs_modules_heading_text_view"
-                    tools:text="IT-Systems Engineering BA\n\tWeb- und Internet-Technologien\n\tHCGT-Grundlagen\n\tHCGT-Vertiefung\n\tISAE-Grundlagen\n\tISAE-Vertiefung" />
+                    tools:text="IT-Systems Engineering BA\n\t\tWeb- und Internet-Technologien\n\t\tHCGT-Grundlagen\n\t\tHCGT-Vertiefung\n\t\tISAE-Grundlagen\n\t\tISAE-Vertiefung" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!--description-->
             <TextView
                 style="@style/Course.Widget.CourseDetails.ListItem"
+                android:background="?colorSurface"
                 android:layout_width="match_parent"
+                android:elevation="1dp"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_android_black_24dp"
+                android:drawableStart="@drawable/course_ic_outline_notes_24dp"
                 android:text="@string/course_courseSeries_detail_description"
                 app:visible="@{viewModel.courseDetail.description}" />
             <TextView
-                style="Course.Widget.CourseDetails.AccordionContent"
+                style="@style/Course.Widget.CourseDetails.AccordionContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.courseDetail.description}"
@@ -135,11 +137,11 @@
                 style="@style/Course.Widget.CourseDetails.ListItem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_android_black_24dp"
+                android:drawableStart="@drawable/course_ic_outline_check_24dp"
                 android:text="@string/course_courseSeries_detail_requirements"
                 app:visible="@{viewModel.courseDetail.requirements}" />
             <TextView
-                style="Course.Widget.CourseDetails.AccordionContent"
+                style="@style/Course.Widget.CourseDetails.AccordionContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.courseDetail.requirements}"
@@ -151,11 +153,11 @@
                 style="@style/Course.Widget.CourseDetails.ListItem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_android_black_24dp"
+                android:drawableStart="@drawable/course_ic_outline_school_24dp"
                 android:text="@string/course_courseSeries_detail_learning"
                 app:visible="@{viewModel.courseDetail.learning}" />
             <TextView
-                style="Course.Widget.CourseDetails.AccordionContent"
+                style="@style/Course.Widget.CourseDetails.AccordionContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.courseDetail.learning}"
@@ -167,11 +169,11 @@
                 style="@style/Course.Widget.CourseDetails.ListItem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_android_black_24dp"
+                android:drawableStart="@drawable/course_ic_outline_format_list_numbered_24dp"
                 android:text="@string/course_courseSeries_detail_examination"
                 app:visible="@{viewModel.courseDetail.examination}" />
             <TextView
-                style="Course.Widget.CourseDetails.AccordionContent"
+                style="@style/Course.Widget.CourseDetails.AccordionContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.courseDetail.examination}"
@@ -183,11 +185,11 @@
                 style="@style/Course.Widget.CourseDetails.ListItem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_android_black_24dp"
+                android:drawableStart="@drawable/course_ic_outline_calendar_today_24dp"
                 android:text="@string/course_courseSeries_detail_dates"
                 app:visible="@{viewModel.courseDetail.dates}" />
             <TextView
-                style="Course.Widget.CourseDetails.AccordionContent"
+                style="@style/Course.Widget.CourseDetails.AccordionContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.courseDetail.dates}"
@@ -199,16 +201,16 @@
                 style="@style/Course.Widget.CourseDetails.ListItem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/ic_android_black_24dp"
+                android:drawableStart="@drawable/course_ic_outline_book_24dp"
                 android:text="@string/course_courseSeries_detail_literature"
                 app:visible="@{viewModel.courseDetail.literature}" />
             <TextView
-                style="Course.Widget.CourseDetails.AccordionContent"
+                style="@style/Course.Widget.CourseDetails.AccordionContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{viewModel.courseDetail.literature}"
                 app:visible="@{viewModel.courseDetail.literature}"
-                tools:text="Hier werden die Bücher aufgelistet, die die Grundlage für die Vorlesung bilden oder die vom Dozenten empfohlen werden." />
+                tools:text="Hier werden die Bücher aufgelistet, die die Grundlage für die Vorlesung bilden oder vom Dozenten empfohlen werden." />
 
             <!--footer-->
             <TextView

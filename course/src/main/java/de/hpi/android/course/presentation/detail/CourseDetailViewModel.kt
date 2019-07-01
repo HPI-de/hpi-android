@@ -22,7 +22,7 @@ class CourseDetailViewModel : BaseViewModel() {
     val courseDetail = courseDetailResult.data
 
     val assistants = course.map { it?.assistants?.joinToString() }
-    val programsModules = courseDetail.map { courseDetail ->
+    val modules = courseDetail.map { courseDetail ->
         if (courseDetail == null) return@map null
 
         buildString {
