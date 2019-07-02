@@ -1,13 +1,15 @@
 <resources>
 
+    <string name="course_title">Courses</string>
+    <string name="course_courseSeries_title">All Courses</string>
+
+    <string name="course_courseSeries_details">%1$d ECTS · %2$s · %3$s</string>
     <string name="course_courseSeries_mandatory_true">mandatory</string>
     <string name="course_courseSeries_mandatory_false">voluntary</string>
     <string name="course_courseSeries_type_lecture">lecture</string>
     <string name="course_courseSeries_type_seminar">seminar</string>
     <string name="course_courseSeries_type_blockSeminar">block seminar</string>
     <string name="course_courseSeries_type_exercise">exercise</string>
-    <string name="course_courseSeries_type_seperator">\u0020·\u0020</string>
-
-    <string name="course_courseSeries_details">%1$d ECTS · %2$s · %3$s</string>
+    <string name="course_courseSeries_type_seperator" translatable="false">\u0020·\u0020</string>
 
 </resources>

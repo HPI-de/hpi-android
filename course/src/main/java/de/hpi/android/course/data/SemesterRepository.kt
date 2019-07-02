@@ -8,7 +8,6 @@ import de.hpi.android.core.domain.success
 import io.reactivex.Observable
 
 object SemesterRepository : Repository<SemesterDto>() {
-
     private val semesters = listOf(
         SemesterDto(
             id = Id("2018ws"),
@@ -33,5 +32,4 @@ object SemesterRepository : Repository<SemesterDto>() {
     override fun getAll(): Observable<Result<List<SemesterDto>>> {
         return Observable.just(Result.Success(semesters))
     }
-
 }
