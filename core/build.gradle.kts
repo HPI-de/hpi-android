@@ -1,7 +1,5 @@
-import com.android.build.gradle.ProguardFiles.getDefaultProguardFile
-import org.gradle.internal.impldep.com.amazonaws.PredefinedClientConfigurations.defaultConfig
+
 import org.jetbrains.kotlin.config.KotlinCompilerVersion
-import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
 
 
 plugins {
@@ -40,24 +38,24 @@ dependencies {
     // Data & Domain Layer
     // Kotlin
     api("org.jetbrains.kotlin:kotlin-stdlib-jdk7:${KotlinCompilerVersion.VERSION}")
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.1")
-    api("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.2")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.2")
 
     // Logging
     api("com.jakewharton.timber:timber:4.7.1")
 
     // ReactiveX
-    api("io.reactivex.rxjava2:rxjava:2.2.7")
+    api("io.reactivex.rxjava2:rxjava:2.2.10")
     api("io.reactivex.rxjava2:rxandroid:2.1.1")
     api("io.reactivex.rxjava2:rxkotlin:2.3.0")
 
     // Network
-    api("io.grpc:grpc-okhttp:1.18.0")
-    api("io.grpc:grpc-stub:1.18.0")
+    api("io.grpc:grpc-okhttp:1.21.0")
+    api("io.grpc:grpc-stub:1.21.0")
 
     // Data
     api("com.google.code.gson:gson:2.8.5")
-    api("com.google.protobuf:protobuf-java:3.6.1")
+    api("com.google.protobuf:protobuf-java:3.8.0")
 
     // AndroidX
     api("androidx.appcompat:appcompat:1.0.2")
@@ -70,7 +68,7 @@ dependencies {
 
     // Presentation Layer
     // Date and Time
-    api("com.jakewharton.threetenabp:threetenabp:1.2.0")
+    api("com.jakewharton.threetenabp:threetenabp:1.2.1")
 
     // Images
     api("com.github.bumptech.glide:glide:4.9.0")
