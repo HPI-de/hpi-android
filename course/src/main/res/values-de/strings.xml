@@ -1,6 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Course -->
+    <string name="course_title">Kurse</string>
     <string name="course_course_lecturer">Dozent: %1$s</string>
+
+    <!-- CourseSeries -->
+    <string name="course_courseSeries_title">Alle Kurse</string>
 
     <string name="course_courseSeries_details">%1$d ECTS · %2$s · %3$s</string>
     <string name="course_courseSeries_mandatory_true">Pflichtmodul</string>

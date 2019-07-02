@@ -27,11 +27,10 @@ class MenuAdapter : BaseAdapter<Menu, MenuAdapter.ViewHolder, MenuItemMenuBindin
             binding.menu = item
             with(binding.labels) {
                 removeAllViews()
-                for (label in item.labels) {
-                    val chip = Chip(context)
-                    chip.chipIcon = context.getDrawable(android.R.drawable.ic_delete)
-                    addView(chip)
-                }
+                for (label in item.labels)
+                    addView(Chip(context).apply {
+                        chipIcon = context.getDrawable(android.R.drawable.ic_delete)
+                    })
             }
         }
     }

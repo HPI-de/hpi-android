@@ -1,6 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Course -->
+    <string name="course_title">Courses</string>
     <string name="course_course_lecturer">Lecturer: %1$s</string>
+
+    <!-- CourseSeries -->
+    <string name="course_courseSeries_title">All Courses</string>
 
     <string name="course_courseSeries_details">%1$d ECTS · %2$s · %3$s</string>
     <string name="course_courseSeries_mandatory_true">mandatory</string>
@@ -9,7 +15,7 @@
     <string name="course_courseSeries_type_seminar">seminar</string>
     <string name="course_courseSeries_type_blockSeminar">block seminar</string>
     <string name="course_courseSeries_type_exercise">exercise</string>
-    <string name="course_courseSeries_type_seperator">\u0020·\u0020</string>
+    <string name="course_courseSeries_type_seperator" translatable="false">\u0020·\u0020</string>
 
     <string name="course_courseSeries_detail_teleTask">This lecture is on tele-TASK.</string>
     <string name="course_courseSeries_detail_details">%1$s · %2$d ECTS · %3$d h/week\n%4$s</string>
