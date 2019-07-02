@@ -39,7 +39,6 @@ fun ImageView.loadImage(
     url: String?,
     placeholder: Drawable?
 ) {
-    //    scaleType = ImageView.ScaleType.CENTER_CROP
     Glide.with(this)
         .load(url)
         .placeholder(placeholder ?: ColorDrawable(ContextCompat.getColor(context, R.color.core_placeholder)))

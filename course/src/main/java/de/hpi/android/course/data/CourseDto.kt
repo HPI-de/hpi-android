@@ -2,15 +2,13 @@ package de.hpi.android.course.data
 
 import de.hpi.android.core.data.Dto
 import de.hpi.android.core.data.Id
-import de.hpi.android.course.domain.Course
 import de.hpi.android.course.domain.CourseSeries
-import de.hpi.android.course.domain.Semester
 import java.net.URI
 
 data class CourseDto(
-    override val id: Id<Course>,
-    val series: Id<CourseSeries>,
-    val semester: Id<Semester>,
+    override val id: Id<CourseDto>,
+    val series: Id<CourseSeriesDto>,
+    val semester: Id<SemesterDto>,
     val lecturer: String,
     val assistants: Set<String> = emptySet(),
     val description: String,
@@ -18,7 +16,7 @@ data class CourseDto(
 ) : Dto<CourseDto>
 
 data class CourseSeriesDto(
-    override val id: Id<CourseSeries>,
+    override val id: Id<CourseSeriesDto>,
     val title: String,
     val shortTitle: String,
     val abbreviation: String,
@@ -29,7 +27,7 @@ data class CourseSeriesDto(
 ) : Dto<CourseSeriesDto>
 
 data class SemesterDto(
-    override val id: Id<Semester>,
+    override val id: Id<SemesterDto>,
     val term: String,
     val year: Int
 ) : Dto<SemesterDto>

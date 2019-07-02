@@ -25,7 +25,7 @@ class MenuAdapter : BaseAdapter<Menu, MenuAdapter.ViewHolder, MenuItemMenuBindin
     class ViewHolder(binding: MenuItemMenuBinding) : BaseViewHolder<Menu, MenuItemMenuBinding>(binding) {
         override fun onItemSet() {
             binding.menu = item
-            with (binding.labels) {
+            with(binding.labels) {
                 removeAllViews()
                 for (label in item.labels) {
                     val chip = Chip(context)

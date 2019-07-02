@@ -11,69 +11,69 @@ import org.threeten.bp.LocalDate
 object MenuRepository : Repository<MenuDto>() {
     private val restaurants = listOf(
         MenuDto(
-            id = "mensa1",
+            id = Id("mensa1"),
             date = LocalDate.now(),
-            restaurant = "mensa",
+            restaurant = Id("mensa"),
             title = "Vegane Nudeln all' arrabbiata, dazu Reibekäse",
             substitution = "andere Nudeln",
             price = 1.40f,
             counter = "1",
-            labels = setOf("chicken", "beef", "vegetarian")
+            labels = setOf(Id("chicken"), Id("beef"), Id("vegetarian"))
         ),
         MenuDto(
-            id = "mensa2",
+            id = Id("mensa2"),
             date = LocalDate.now(),
-            restaurant = "mensa",
+            restaurant = Id("mensa"),
             title = "Tandem Marburg: Kassler-Rippenspeer mit Honigkruste, Apfelweinsauerkraut und Kartoffelbrei",
             substitution = "nur Honigkruste",
             price = 2.00f,
             counter = "2",
-            labels = setOf("chicken", "beef", "pork")
+            labels = setOf(Id("chicken"), Id("beef"), Id("pork"))
         ),
         MenuDto(
-            id = "mensa3",
+            id = Id("mensa3"),
             date = LocalDate.now(),
-            restaurant = "mensa",
+            restaurant = Id("mensa"),
             title = "Rinderhacksteak mit Knoblauchdip und Peperoni-Schoten, dazu bunter CousCous-Salat oder griechiche Kartoffeln",
             substitution = null,
             price = 2.50f,
             counter = "3",
-            labels = setOf("chicken", "beef")
+            labels = setOf(Id("chicken"), Id("beef"))
         ),
         MenuDto(
-            id = "mensa4",
+            id = Id("mensa4"),
             date = LocalDate.now(),
-            restaurant = "mensa",
+            restaurant = Id("mensa"),
             title = "Brokkoli-Nuss-Ecke mit rustikalem Möhrengemüse und Schupfnudeln oder Kartoffeln",
             substitution = "Blumenkohl-Marzipan-Kante mit feinem Karottenobst oder Schlöpfreis und Anti-Kartoffeln",
             price = 2.50f,
             counter = "4",
-            labels = setOf("chicken", "beef", "vegetarian")
+            labels = setOf(Id("chicken"), Id("beef"), Id("vegetarian"))
         ),
         MenuDto(
-            id = "mensaSoup",
+            id = Id("mensaSoup"),
             date = LocalDate.now(),
-            restaurant = "mensa",
+            restaurant = Id("mensa"),
             title = "Tandem Marbug: Quer durch en Gadde (Gemüsecremesuppe)",
             substitution = "nur Brühe",
             price = 1.00f,
             counter = "Tagessuppe",
-            labels = setOf("chicken", "beef", "vegetarian")
+            labels = setOf(Id("chicken"), Id("beef"), Id("vegetarian"))
         ),
         MenuDto(
-            id = "mensaNoodles",
+            id = Id("mensaNoodles"),
             date = LocalDate.now(),
-            restaurant = "mensa",
+            restaurant = Id("mensa"),
             title = "Nudeln mit veganer Tomatensauce oder Hackfleischsauce",
             substitution = "mehr Hack",
             price = 2.00f,
             counter = "Nudeltheke",
-            labels = setOf("chicken", "beef", "pork")
+            labels = setOf(Id("chicken"), Id("beef"), Id("pork"))
         ),
         MenuDto(
-            id = "ulf1",
+            id = Id("ulf1"),
             date = LocalDate.now(),
-            restaurant = "ulf",
+            restaurant = Id("ulf"),
             title = "Hühnerfrikassee mit Reis",
             substitution = null,
             price = 5.00f,
@@ -81,9 +81,9 @@ object MenuRepository : Repository<MenuDto>() {
             labels = emptySet()
         ),
         MenuDto(
-            id = "ulf2",
+            id = Id("ulf2"),
             date = LocalDate.now(),
-            restaurant = "ulf",
+            restaurant = Id("ulf"),
             title = "Nudelsalat mit einer Ruccolapesto und Mozzarella",
             substitution = null,
             price = 5.00f,
@@ -91,9 +91,9 @@ object MenuRepository : Repository<MenuDto>() {
             labels = emptySet()
         ),
         MenuDto(
-            id = "ulf3",
+            id = Id("ulf3"),
             date = LocalDate.now(),
-            restaurant = "ulf",
+            restaurant = Id("ulf"),
             title = "Nudelsalat mit einerTomatenpesto und Mozzarella",
             substitution = null,
             price = 5.00f,
@@ -101,9 +101,9 @@ object MenuRepository : Repository<MenuDto>() {
             labels = emptySet()
         ),
         MenuDto(
-            id = "ulf4",
+            id = Id("ulf4"),
             date = LocalDate.now(),
-            restaurant = "ulf",
+            restaurant = Id("ulf"),
             title = "Minestrone",
             substitution = null,
             price = 3.00f,
