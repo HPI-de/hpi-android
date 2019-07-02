@@ -16,6 +16,7 @@ object CourseSeriesRepository : Repository<CourseSeriesDto>() {
             shortTitle = "Programmiertechnik II",
             abbreviation = "PT 2",
             ects = 6,
+            hoursPerWeek = 4,
             mandatory = true,
             language = "Deutsch",
             type = setOf(CourseSeries.Type.LECTURE, CourseSeries.Type.EXERCISE)
@@ -26,6 +27,7 @@ object CourseSeriesRepository : Repository<CourseSeriesDto>() {
             shortTitle = "Mathe II",
             abbreviation = "MA 2",
             ects = 6,
+            hoursPerWeek = 4,
             mandatory = true,
             language = "Deutsch",
             type = setOf(CourseSeries.Type.LECTURE, CourseSeries.Type.EXERCISE)
@@ -36,6 +38,7 @@ object CourseSeriesRepository : Repository<CourseSeriesDto>() {
             shortTitle = "Internet und WWW",
             abbreviation = "WWW",
             ects = 6,
+            hoursPerWeek = 4,
             mandatory = false,
             language = "Deutsch",
             type = setOf(CourseSeries.Type.LECTURE, CourseSeries.Type.EXERCISE)

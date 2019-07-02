@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Course -->
     <string name="course_title">Kurse</string>
+    <string name="course_course_lecturer">Dozent: %1$s</string>
+
+    <!-- CourseSeries -->
     <string name="course_courseSeries_title">Alle Kurse</string>
 
     <string name="course_courseSeries_details">%1$d ECTS · %2$s · %3$s</string>
-    <string name="course_courseSeries_mandatory_true">Pflicht</string>
-    <string name="course_courseSeries_mandatory_false">Freiwillig</string>
-    <string name="course_courseSeries_type_lecture">Vorlesung</string>
+    <string name="course_courseSeries_mandatory_true">Pflichtmodul</string>
+    <string name="course_courseSeries_mandatory_false">Wahlmodul</string>
+    <string name="course_courseSeries_type_lecture">Vorlseung</string>
     <string name="course_courseSeries_type_seminar">Seminar</string>
     <string name="course_courseSeries_type_blockSeminar">Blockseminar</string>
     <string name="course_courseSeries_type_exercise">Übung</string>
+    <string name="course_courseSeries_type_seperator">\u0020·\u0020</string>
+
+    <string name="course_courseSeries_detail_teleTask">Diese Vorlesung ist auf tele-TASK verfügbar.</string>
+    <string name="course_courseSeries_detail_details">%1$s · %2$d ECTS · %3$d h/Woche\n%4$s</string>
+    <string name="course_courseSeries_detail_modules">Studiengänge &amp; Module</string>
+    <string name="course_courseSeries_detail_description">Beschreibung</string>
+    <string name="course_courseSeries_detail_requirements">Voraussetzungen</string>
+    <string name="course_courseSeries_detail_learning">Lern- und Lehrformen</string>
+    <string name="course_courseSeries_detail_examination">Leistungserfassung</string>
+    <string name="course_courseSeries_detail_dates">Termine</string>
+    <string name="course_courseSeries_detail_literature">Literatur</string>
+    <string name="course_courseSeries_detail_noGuarantee">Alle Angaben ohne Gewähr.</string>
+    <string name="course_courseSeries_detail_reportError">Fehler melden</string>
 
 </resources>
