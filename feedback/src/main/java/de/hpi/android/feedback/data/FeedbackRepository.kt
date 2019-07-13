@@ -7,9 +7,7 @@ import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
 import timber.log.Timber
-import java.io.IOException
 import java.util.concurrent.ThreadLocalRandom
-import java.util.concurrent.atomic.AtomicBoolean
 
 object FeedbackRepository : MutableRepository<FeedbackDto>() {
     override fun get(id: Id<FeedbackDto>): Observable<Result<FeedbackDto>> {

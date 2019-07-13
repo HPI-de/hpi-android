@@ -11,7 +11,6 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.io.File
 import java.net.URI
-import java.util.concurrent.TimeUnit
 
 class FeedbackViewModel : BaseViewModel() {
     var referringScreen: URI = URI.create("/")
