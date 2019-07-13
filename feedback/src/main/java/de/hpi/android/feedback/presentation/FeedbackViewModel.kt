@@ -47,7 +47,6 @@ class FeedbackViewModel : BaseViewModel() {
         isSending.value = true
         sendingDisposable?.dispose()
         sendingDisposable = SendFeedbackUseCase(feedback)
-            .delay(5, TimeUnit.SECONDS)
             .subscribeBy(
                 onSuccess = {
                     Timber.i("Feedback sent with ID $it")
