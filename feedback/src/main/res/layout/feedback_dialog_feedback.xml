@@ -25,7 +25,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/space_m"
             android:layout_marginBottom="@dimen/space_m"
-            android:hint="@string/feedback_message">
+            android:hint="@string/feedback_message"
+            android:id="@+id/messageWrapper">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/message"
                 android:layout_width="match_parent"
@@ -51,7 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:enabled="@{!viewModel.isSending}"
+            android:enabled="@{!safeUnbox(viewModel.isSending) &amp;&amp; !safeUnbox(viewModel.isInvalid)}"
             android:onClick="@{(view) -> viewModel.onSend(message.getText().toString(), includeUser.isChecked(), includeDebugData.isChecked())}"
             android:text="@string/feedback_send" />
 

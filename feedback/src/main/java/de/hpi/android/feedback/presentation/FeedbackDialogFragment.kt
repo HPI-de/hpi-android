@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import de.hpi.android.core.presentation.base.BaseBottomSheepDialogFragment
@@ -13,6 +14,7 @@ import de.hpi.android.feedback.databinding.FeedbackDialogFeedbackBinding
 import de.hpi.android.feedback.presentation.utils.asTempFile
 import de.hpi.android.feedback.presentation.utils.createScreenshot
 import de.hpi.android.feedback.presentation.utils.readCurrentLog
+import kotlinx.android.synthetic.main.feedback_dialog_feedback.*
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.io.IOException
@@ -63,6 +65,14 @@ class FeedbackDialogFragment : BaseBottomSheepDialogFragment<FeedbackDialogFeedb
                 if (success) R.string.feedback_send_successful else R.string.feedback_send_error,
                 Toast.LENGTH_SHORT
             ).show()
+        })
+
+        message.addTextChangedListener { text -> viewModel.validateMessage(text?.toString()) }
+        viewModel.isInvalid.observe(this, Observer { invalid ->
+            if (invalid)
+                messageWrapper.error = getString(R.string.feedback_message_blank)
+            else
+                messageWrapper.error = null
         })
     }
 }

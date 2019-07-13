@@ -2,6 +2,7 @@
 
     <string name="feedback_title">Feedback</string>
     <string name="feedback_message">Feedback message</string>
+    <string name="feedback_message_blank">Message field should not be empty!</string>
     <string name="feedback_includeUser">Include user name</string>
     <string name="feedback_includeDebugData">Include logs and screenshots</string>
     <string name="feedback_send">Send</string>

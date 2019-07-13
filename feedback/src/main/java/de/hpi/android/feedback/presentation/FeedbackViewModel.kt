@@ -19,6 +19,7 @@ class FeedbackViewModel : BaseViewModel() {
     var log: List<String>? = null
 
     val isSending = MutableLiveData<Boolean>().apply { value = false }
+    val isInvalid = MutableLiveData<Boolean>().apply { value = true }
     val isSent = SingleLiveEvent<Boolean>()
     var sendingDisposable: Disposable? = null
 
@@ -36,6 +37,10 @@ class FeedbackViewModel : BaseViewModel() {
                 )
             )
         }
+    }
+
+    fun validateMessage(message : String?) {
+        isInvalid.value = message.isNullOrBlank()
     }
 
     private fun sendFeedback(feedback: FeedbackDto) {
