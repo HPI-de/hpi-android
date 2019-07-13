@@ -20,17 +20,11 @@ object FeedbackRepository : MutableRepository<FeedbackDto>() {
         throw UnsupportedOperationException();
     }
 
-    private val debugSuccess = AtomicBoolean(false)
-
     override fun create(entity: FeedbackDto): Single<Id<FeedbackDto>> {
         Timber.i(entity.toString())
         //TODO: implement feedback sending
         val id: Id<FeedbackDto> = ThreadLocalRandom.current().nextInt(Integer.MAX_VALUE).toString()
-        return if (debugSuccess.getAndSet(true)) {
-            Single.just(id)
-        } else {
-            Single.error(IOException("example network error"))
-        }
+        return Single.just(id) // mock succeed
     }
 
     override fun update(entity: FeedbackDto): Completable {
