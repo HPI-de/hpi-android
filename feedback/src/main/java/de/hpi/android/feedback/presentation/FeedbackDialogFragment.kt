@@ -13,7 +13,7 @@ import de.hpi.android.feedback.R
 import de.hpi.android.feedback.databinding.FeedbackDialogFeedbackBinding
 import de.hpi.android.feedback.presentation.utils.asTempFile
 import de.hpi.android.feedback.presentation.utils.createScreenshot
-import de.hpi.android.feedback.presentation.utils.readCurrentLog
+import de.hpi.android.feedback.presentation.utils.saveCurrentLog
 import kotlinx.android.synthetic.main.feedback_dialog_feedback.*
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -34,14 +34,14 @@ class FeedbackDialogFragment : BaseBottomSheepDialogFragment<FeedbackDialogFeedb
             try {
                 viewModel.screenshot = activity?.window
                     ?.createScreenshot()
-                    ?.asTempFile()
+                    ?.asTempFile("feedback_screenshot_")
             } catch (e: IOException) {
                 Timber.w(e, "Error taking screenshot for feedback")
             }
             try {
-                viewModel.log = readCurrentLog()
+                viewModel.log = saveCurrentLog("feedback_log_")
             } catch (e: IOException) {
-                Timber.w(e, "Error reading log for feedback")
+                Timber.w(e, "Error reading/writing log for feedback")
             }
         }
     }

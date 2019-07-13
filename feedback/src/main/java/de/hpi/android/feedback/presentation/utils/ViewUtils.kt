@@ -38,8 +38,8 @@ suspend fun Window.createScreenshot(): Bitmap {
 /**
  * @throws IOException - in case of file writing error
  */
-fun Bitmap.asTempFile(): File {
-    val file = createTempFile(prefix = "feedback_screenshot_", suffix = ".png")
+fun Bitmap.asTempFile(filenamePrefix: String): File {
+    val file = createTempFile(prefix = filenamePrefix, suffix = ".png")
     compress(Bitmap.CompressFormat.PNG, 100, file.outputStream())
     return file
 }
@@ -50,9 +50,17 @@ private const val LOG_READ_CMD = "logcat -b main,system,crash,events -t $LOG_LIN
 /**
  * @throws IOException - in case of log reading error
  */
-internal fun readCurrentLog(): List<String> {
-    return Runtime.getRuntime().exec(LOG_READ_CMD)
+internal fun saveCurrentLog(filenamePrefix: String): File {
+    val file = createTempFile(prefix = filenamePrefix, suffix = ".log")
+    Runtime.getRuntime().exec(LOG_READ_CMD)
         .inputStream
         .bufferedReader()
-        .useLines { it.toList() }
+        .use { input ->
+            file
+                .bufferedWriter()
+                .use { output ->
+                    input.copyTo(output)
+                }
+        }
+    return file
 }

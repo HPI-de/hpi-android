@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit
 class FeedbackViewModel : BaseViewModel() {
     var referringScreen: URI = URI.create("/")
     var screenshot: File? = null
-    var log: List<String>? = null
+    var log: File? = null
 
     val isSending = MutableLiveData<Boolean>().apply { value = false }
     val isInvalid = MutableLiveData<Boolean>().apply { value = true }
@@ -39,7 +39,7 @@ class FeedbackViewModel : BaseViewModel() {
         }
     }
 
-    fun validateMessage(message : String?) {
+    fun validateMessage(message: String?) {
         isInvalid.value = message.isNullOrBlank()
     }
 
@@ -71,5 +71,8 @@ class FeedbackViewModel : BaseViewModel() {
 
         if (screenshot?.delete() == false)
             Timber.w("Deleting screenshot file failed")
+
+        if (log?.delete() == false)
+            Timber.w("Deleting log file failed")
     }
 }
