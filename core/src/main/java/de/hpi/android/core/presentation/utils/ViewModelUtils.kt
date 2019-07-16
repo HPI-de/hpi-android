@@ -5,11 +5,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import de.hpi.android.core.presentation.base.BaseBottomSheetDialogFragment
+import de.hpi.android.core.presentation.base.BaseBottomSheepDialogFragment
 import de.hpi.android.core.presentation.base.BaseFragment
 import de.hpi.android.core.presentation.base.BaseViewModel
 
-inline fun <B : ViewDataBinding, reified VM : BaseViewModel> BaseBottomSheetDialogFragment<B, VM>.viewModel(
+inline fun <B : ViewDataBinding, reified VM : BaseViewModel> BaseBottomSheepDialogFragment<B, VM>.viewModel(
     noinline factory: (() -> VM)? = null
 ): VM {
     return viewModel<VM>(factory)

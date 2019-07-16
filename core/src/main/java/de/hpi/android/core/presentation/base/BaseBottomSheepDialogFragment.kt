@@ -12,7 +12,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlin.coroutines.CoroutineContext
 
-abstract class BaseBottomSheetDialogFragment<B : ViewDataBinding, VM : BaseViewModel> : BottomSheetDialogFragment(),
+abstract class BaseBottomSheepDialogFragment<B : ViewDataBinding, VM : BaseViewModel> : BottomSheetDialogFragment(),
     CoroutineScope {
     private lateinit var job: Job
     override val coroutineContext: CoroutineContext

@@ -7,6 +7,7 @@ import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
 import timber.log.Timber
+import java.util.concurrent.ThreadLocalRandom
 
 object FeedbackRepository : MutableRepository<FeedbackDto>() {
     override fun get(id: Id<FeedbackDto>): Observable<Result<FeedbackDto>> {
@@ -20,7 +21,8 @@ object FeedbackRepository : MutableRepository<FeedbackDto>() {
     override fun create(entity: FeedbackDto): Single<Id<FeedbackDto>> {
         Timber.i(entity.toString())
         //TODO: implement feedback sending
-        return Single.just(entity.id)
+        val id: Id<FeedbackDto> = Id(ThreadLocalRandom.current().nextInt(Integer.MAX_VALUE).toString())
+        return Single.just(id) // mock succeed
     }
 
     override fun update(entity: FeedbackDto): Completable {
@@ -30,5 +32,4 @@ object FeedbackRepository : MutableRepository<FeedbackDto>() {
     override fun delete(id: Id<FeedbackDto>): Completable {
         throw UnsupportedOperationException();
     }
-
 }

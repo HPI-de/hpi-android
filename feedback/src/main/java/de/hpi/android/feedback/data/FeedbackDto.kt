@@ -7,17 +7,27 @@ import java.io.File
 import java.net.URI
 
 data class FeedbackDto(
-    override val id: Id<FeedbackDto> = Id(""), // TODO: generate ID
     val message: String,
     val meta: Metadata
 ) : Dto<FeedbackDto> {
+    override val id: Id<FeedbackDto> = Id("") // empty, server creates the id
 
     data class Metadata(
         val screenUri: URI,
-        val author: String, // TODO: replace with User reference
+        val author: String?, // TODO: replace with User reference
         val screenshot: File? = null,
-        val log: String? = null
+        val log: File? = null
     ) {
         val timestamp: ZonedDateTime = ZonedDateTime.now()
+
+        override fun toString(): String {
+            return "FeedbackMeta(" +
+                    "timestamp=$timestamp, " +
+                    "screenUri=$screenUri, " +
+                    "author=$author, " +
+                    "screenshotPath=${screenshot?.absolutePath}, " +
+                    "log=${log?.absolutePath}" +
+                    ")"
+        }
     }
 }

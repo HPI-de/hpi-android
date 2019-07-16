@@ -5,13 +5,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.navigation.ui.NavigationUI
-import de.hpi.android.core.presentation.base.BaseBottomSheetDialogFragment
+import de.hpi.android.core.presentation.base.BaseBottomSheepDialogFragment
 import de.hpi.android.core.presentation.utils.viewModel
 import de.hpi.android.databinding.AppBottomsheetNavigationBinding
 import kotlinx.android.synthetic.main.app_bottomsheet_navigation.*
 
 class NavigationDrawerFragment :
-    BaseBottomSheetDialogFragment<AppBottomsheetNavigationBinding, NavigationDrawerViewModel>() {
+    BaseBottomSheepDialogFragment<AppBottomsheetNavigationBinding, NavigationDrawerViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = viewModel()

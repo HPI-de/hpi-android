@@ -24,12 +24,17 @@ abstract class ObservableUseCase<in P, R : Any> : BaseUseCase<P, R>() {
     protected abstract fun execute(params: P): Observable<Result<R>>
 }
 
-abstract class SingleUseCase<in P, R : Any> : BaseUseCase<P, R>() {
-    override fun executeObservable(params: P): Observable<Result<R>> =
-        execute(params)
-            .toObservable()
+abstract class SingleUseCase<in P, R : Any> {
+    // TODO: fix code duplication and rethink design
+    protected abstract val subscribeScheduler: Scheduler
+    protected open val observeScheduler = AndroidSchedulers.mainThread()
 
-    protected abstract fun execute(params: P): Single<Result<R>>
+    operator fun invoke(params: P): Single<R> =
+        execute(params)
+            .subscribeOn(subscribeScheduler)
+            .observeOn(observeScheduler)
+
+    protected abstract fun execute(params: P): Single<R>
 }
 
 abstract class CompletableUseCase<in P> : BaseUseCase<P, Unit>() {
