@@ -51,8 +51,9 @@ class FeedbackDialogFragment : BaseBottomSheepDialogFragment<FeedbackDialogFeedb
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): FeedbackDialogFeedbackBinding {
-        return FeedbackDialogFeedbackBinding.inflate(inflater, container, false)
-            .also { it.viewModel = viewModel }
+        return FeedbackDialogFeedbackBinding.inflate(inflater, container, false).also {
+            it.viewModel = viewModel
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -68,11 +69,8 @@ class FeedbackDialogFragment : BaseBottomSheepDialogFragment<FeedbackDialogFeedb
         })
 
         message.addTextChangedListener { text -> viewModel.validateMessage(text?.toString()) }
-        viewModel.isInvalid.observe(this, Observer { invalid ->
-            if (invalid)
-                messageWrapper.error = getString(R.string.feedback_message_blank)
-            else
-                messageWrapper.error = null
+        viewModel.isMessageInvalid.observe(this, Observer { invalid ->
+            messageWrapper.error = if (invalid) getString(R.string.feedback_message_blank) else null
         })
     }
 }

@@ -1,8 +1,8 @@
 <resources>
 
     <string name="feedback_title">Feedback</string>
-    <string name="feedback_message">Nachricht</string>
-    <string name="feedback_message_blank">Das Nachrichtenfeld sollte nicht leer sein!</string>
+    <string name="feedback_message">Deine Nachricht</string>
+    <string name="feedback_message_blank">Bitte gib eine Nachricht ein!</string>
     <string name="feedback_includeUser">Nutzernamen anhängen</string>
     <string name="feedback_includeDebugData">Logs und Screenshot anhängen</string>
     <string name="feedback_send">Senden</string>
