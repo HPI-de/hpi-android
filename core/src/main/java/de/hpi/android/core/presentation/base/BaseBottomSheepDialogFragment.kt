@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
+import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -33,7 +34,7 @@ abstract class BaseBottomSheepDialogFragment<B : ViewDataBinding, VM : BaseViewM
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return onCreateBinding(inflater, container, savedInstanceState).also {
             binding = it
-            it.setLifecycleOwner(this)
+            it.lifecycleOwner = this
         }.root
     }
 
@@ -43,5 +44,7 @@ abstract class BaseBottomSheepDialogFragment<B : ViewDataBinding, VM : BaseViewM
         super.onDestroy()
         job.cancel()
     }
-    // endregion0
+    // endregion
+
+    fun show(manager: FragmentManager) = super.show(manager, tag)
 }

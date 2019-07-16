@@ -12,8 +12,8 @@ import java.net.URL
 object ArticleRepository : Repository<ArticleDto>() {
     private val articles = listOf(
         ArticleDto(
-            id = "1",
-            sourceId = "hpi",
+            id = Id("1"),
+            sourceId = Id("hpi"),
             link = URL("https://hpi.de/news/jahrgaenge/2019/die-schul-cloud-fuer-brandenburg-bildungsministerin-britta-ernst-unterzeichnet-absichtserklaerung-zur-nutzung-der-hpi-schul-cloud.html"),
             title = "Die Schul-Cloud für Brandenburg: Bildungsministerin Britta Ernst unterzeichnet Absichtserklärung zur Nutzung der HPI Schul-Cloud",
             authors = emptySet(),
@@ -33,43 +33,43 @@ object ArticleRepository : Repository<ArticleDto>() {
             cover = URL("https://hpi.de/fileadmin/user_upload/hpi/bilder/teaser_news/2019/HPI_Schul_Cloud_2019_1020x420.jpg")
         ),
         ArticleDto(
-            id = "2",
-            sourceId = "hpi-mgzn",
+            id = Id("2"),
+            sourceId = Id("hpi-mgzn"),
             link = URL("https://hpimgzn.de/2019/von-wurmmehlkeksen-bis-hin-zu-kompostieranlagen/"),
             title = "Von Wurmmehlkeksen bis hin zu Kompostieranlagen",
             authors = setOf("Lilith Diringer"),
             date = LocalDateTime.of(2019, 2, 15, 18, 49, 8),
             teaser = "Am 16.12 hat der Nachhaltigkeitsklub seinen ersten Workshop angeboten. Von Bokashianlagenbau bis hin zur Herstellung selbstgemachter Weihnachtsgeschenke. Lest hier mehr.",
             content = """
-                        „Wollt ihr auch einmal Heuschrecken kosten?“ Diese Frage kursiert am 16.12. im HPI Hauptgebäude. Woher sie kommt? Aus Richtung der Teeküche, in der sich für den heutigen Tag eine Mischung aus Nachhaltigkeitsklubmitgliedern und externen Interessierten eingefunden hat. Welcher Anlass? Unser erster Nachhaltigkeitsworkshoptag." +
+                        „Wollt ihr auch einmal Heuschrecken kosten?“ Diese Frage kursiert am 16.12. im HPI Hauptgebäude. Woher sie kommt? Aus Richtung der Teeküche, in der sich für den heutigen Tag eine Mischung aus Nachhaltigkeitsklubmitgliedern und externen Interessierten eingefunden hat. Welcher Anlass? Unser erster Nachhaltigkeitsworkshoptag.
 
-                        "Warum muss man immer alles kaufen? Heute wollen wir selbst Hand anlegen. Und so geht es gleich mit den ersten selbst gemachten Müsliriegeln los. Schon bald wird das Erdgeschoss des Hauptgebäudes mit Müsliriegelduft durchströmt. Aus dem Ofen können wir nach einiger Backzeit nicht nur ansehnliche, sondern auch sehr leckere Müslischnitten entnehmen." +
+                        Warum muss man immer alles kaufen? Heute wollen wir selbst Hand anlegen. Und so geht es gleich mit den ersten selbst gemachten Müsliriegeln los. Schon bald wird das Erdgeschoss des Hauptgebäudes mit Müsliriegelduft durchströmt. Aus dem Ofen können wir nach einiger Backzeit nicht nur ansehnliche, sondern auch sehr leckere Müslischnitten entnehmen.
 
-                        "Die Nachwärme der Herdplatte, den wir zum Nüsserösten verwendet haben, nutzen wir gleich weiter, um etwas anderes zu rösten: Heuschrecken und Mehlwürmer, sowie Buffalowürmer. Als diese fertig sind, können wir diese etwas ungewöhnliche Proteinquelle verspeisen sowie die von einer Teilnehmerin mitgebrachten Buffalomehlkekse probieren. Interessant!" +
-
-
-                        "Natürlich gibt es zwischendurch auch etwas Leckeres zu essen – unter anderem Biogemüse." +
-                        "Der Workshop geht weiter mit der Herstellung von Badekugeln und Waschmittel, sowie dem Bau einer Bokashi-Anlage – einem Innenkomposter. Für alle, die Lust haben davon etwas nachzumachen gibt es die Anleitungen hier." +
+                        Die Nachwärme der Herdplatte, den wir zum Nüsserösten verwendet haben, nutzen wir gleich weiter, um etwas anderes zu rösten: Heuschrecken und Mehlwürmer, sowie Buffalowürmer. Als diese fertig sind, können wir diese etwas ungewöhnliche Proteinquelle verspeisen sowie die von einer Teilnehmerin mitgebrachten Buffalomehlkekse probieren. Interessant!
 
 
-                        "Einer dieser Innenkomposter steht inzwischen auch in der Teeküche für euch bereit. Ihr seid herzlich dazu eingeladen, eure Bioabfälle in diesem zu entsorgen und auch, ab in ca. zwei Wochen, wenn der erste Dünger entstanden sein sollte, euch daran zu bedienen – eure Küchenpflanzen werden sich freuen." +
+                        Natürlich gibt es zwischendurch auch etwas Leckeres zu essen – unter anderem Biogemüse.
+                        Der Workshop geht weiter mit der Herstellung von Badekugeln und Waschmittel, sowie dem Bau einer Bokashi-Anlage – einem Innenkomposter. Für alle, die Lust haben davon etwas nachzumachen gibt es die Anleitungen hier.
 
 
-                        "Bei der Herstellung unserer Kompostieranlagen hat uns die Kreativität gepackt." +
+                        Einer dieser Innenkomposter steht inzwischen auch in der Teeküche für euch bereit. Ihr seid herzlich dazu eingeladen, eure Bioabfälle in diesem zu entsorgen und auch, ab in ca. zwei Wochen, wenn der erste Dünger entstanden sein sollte, euch daran zu bedienen – eure Küchenpflanzen werden sich freuen.
+
+
+                        Bei der Herstellung unserer Kompostieranlagen hat uns die Kreativität gepackt.
 
 
 
-                        "Geplant ist es, auch in Zukunft, einmal monatlich einen Workshoptag anzubieten. Dabei werden wir Trinkschokoladensticks sowie vegane Milchalternativen selbst herstellen, Shampoo produzieren, das Stricken von Hausschuhen erlernen…" +
+                        Geplant ist es, auch in Zukunft, einmal monatlich einen Workshoptag anzubieten. Dabei werden wir Trinkschokoladensticks sowie vegane Milchalternativen selbst herstellen, Shampoo produzieren, das Stricken von Hausschuhen erlernen…
 
-                        "Besonders sollen diese Workshops als Austauschplattform und zum Ausprobieren von Alternativen dienen, sowie Freiräume zum Diskutieren bieten." +
+                        Besonders sollen diese Workshops als Austauschplattform und zum Ausprobieren von Alternativen dienen, sowie Freiräume zum Diskutieren bieten.
 
-                        "Kommt bei Ideen einfach auf uns zu oder schreibt uns an:" +
-                        "Lilith.Diringer@student.hpi.de" +
-                        "Malte.Barth@student.hpi.de
+                        Kommt bei Ideen einfach auf uns zu oder schreibt uns an:
+                        Lilith.Diringer@student.hpi.de
+                        Malte.Barth@student.hpi.de
                     """.trimIndent(),
-            categories = setOf("allgemein", "klubs", "klubs/nachhaltigkeitsklub"),
+            categories = setOf(Id("allgemein"), Id("klubs"), Id("klubs/nachhaltigkeitsklub")),
             cover = URL("https://hpimgzn.de/wp-content/uploads/2018/12/photo_2018-12-16_20-19-43.jpg"),
-            tags = setOf("nachhaltigkeitsklub", "essen", "selbstgemacht"),
+            tags = setOf(Id("nachhaltigkeitsklub"), Id("essen"), Id("selbstgemacht"), Id("nachhaltigkeit"), Id("workshop")),
             viewCount = 107
         )
     )

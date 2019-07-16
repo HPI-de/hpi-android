@@ -10,7 +10,7 @@ data class FeedbackDto(
     val message: String,
     val meta: Metadata
 ) : Dto<FeedbackDto> {
-    override val id: Id<FeedbackDto> = "" // empty, server creates the id
+    override val id: Id<FeedbackDto> = Id("") // empty, server creates the id
 
     data class Metadata(
         val screenUri: URI,

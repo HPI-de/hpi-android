@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item
+        android:id="@+id/news_articleList"
+        android:checkable="true"
+        android:icon="@drawable/news_icon"
+        android:title="@string/news_title" />
+
+    <item
+        android:id="@+id/course_courseList"
+        android:checkable="true"
+        android:icon="@drawable/course_icon"
+        android:title="@string/course_title" />
+
+    <item
+        android:id="@+id/course_courseSeriesList"
+        android:checkable="true"
+        android:icon="@drawable/course_icon"
+        android:title="@string/course_courseSeries_title" />
+
+    <item
+        android:id="@+id/menu_restaurantList"
+        android:checkable="true"
+        android:icon="@drawable/menu_icon"
+        android:title="@string/menu_title" />
+
+</menu>

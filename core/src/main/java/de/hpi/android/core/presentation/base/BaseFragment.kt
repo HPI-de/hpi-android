@@ -27,12 +27,13 @@ abstract class BaseFragment<B : ViewDataBinding, VM : BaseViewModel> : Fragment(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         job = Job()
+//        ArticleDetailFragmentArgs
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return onCreateBinding(inflater, container, savedInstanceState).also {
             binding = it
-            it.setLifecycleOwner(this)
+            it.lifecycleOwner = this
         }.root
     }
 

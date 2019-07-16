@@ -6,4 +6,4 @@ interface Dto<D : Dto<D>> {
     val id: Id<D>
 }
 
-typealias Id<@Suppress("UNUSED_TYPEALIAS_PARAMETER") T> = String
+inline class Id<D : Dto<D>>(val value: String)

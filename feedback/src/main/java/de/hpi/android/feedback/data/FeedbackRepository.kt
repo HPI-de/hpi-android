@@ -21,7 +21,7 @@ object FeedbackRepository : MutableRepository<FeedbackDto>() {
     override fun create(entity: FeedbackDto): Single<Id<FeedbackDto>> {
         Timber.i(entity.toString())
         //TODO: implement feedback sending
-        val id: Id<FeedbackDto> = ThreadLocalRandom.current().nextInt(Integer.MAX_VALUE).toString()
+        val id: Id<FeedbackDto> = Id(ThreadLocalRandom.current().nextInt(Integer.MAX_VALUE).toString())
         return Single.just(id) // mock succeed
     }
 
