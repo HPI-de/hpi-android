@@ -1,9 +1,8 @@
 package de.hpi.android.core.data
 
-import de.hpi.android.core.domain.Result
-import de.hpi.android.core.domain.map
-import de.hpi.android.core.domain.merge
-import de.hpi.android.core.domain.success
+import de.hpi.android.core.BuildConfig
+import de.hpi.android.core.domain.*
+import io.grpc.okhttp.OkHttpChannelBuilder
 import io.reactivex.Completable
 import io.reactivex.Observable
 
@@ -16,6 +15,23 @@ abstract class Repository<E : Dto<E>> {
         else Observable.combineLatest(ids.map { get(it) }) { array ->
             @Suppress("UNCHECKED_CAST")
             array.map { it as Result<E> }.merge().map { it.toSet() }
+        }
+    }
+}
+
+abstract class GrpcRepository<E : Dto<E>>(port: Int) : Repository<E>() {
+    protected val channel = OkHttpChannelBuilder
+        .forAddress(BuildConfig.hpiCloudUrl, port)
+        .usePlaintext()
+        .build()
+
+    protected fun <T : Any> grpcCall(call: () -> Result<T>): Observable<Result<T>> {
+        return Observable.fromCallable {
+            return@fromCallable try {
+                call()
+            } catch (e: Exception) {
+                e.error()
+            }
         }
     }
 }

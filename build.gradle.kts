@@ -24,6 +24,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url = uri("https://dl.bintray.com/hpi/hpi-cloud-mvn") }
     }
 }
 

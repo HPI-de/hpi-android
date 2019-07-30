@@ -30,7 +30,4 @@ android {
 
 dependencies {
     implementation(project(":core"))
-    implementation("com.google.protobuf:protobuf-java:3.6.1")
-    implementation("io.grpc:grpc-stub:1.18.0")
-    implementation("io.grpc:grpc-protobuf:1.18.0")
 }

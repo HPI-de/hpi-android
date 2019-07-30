@@ -21,6 +21,8 @@ android {
         versionName = rootProject.extra["versionName"] as String
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "hpiCloudUrl", "\"172.18.132.7\"")
     }
 
     buildTypes {
@@ -46,13 +48,23 @@ dependencies {
     api("io.reactivex.rxjava2:rxandroid:2.1.1")
     api("io.reactivex.rxjava2:rxkotlin:2.3.0")
 
-    // Network
-    api("io.grpc:grpc-okhttp:1.18.0")
-    api("io.grpc:grpc-stub:1.18.0")
+    // Server
+    api("com.google.protobuf:protobuf-java:3.8.0")
+    api("io.grpc:grpc-protobuf:1.21.0")
+    api("io.grpc:grpc-okhttp:1.21.0")
+    api("io.grpc:grpc-stub:1.21.0")
+    api("de.hpi.cloud:hpi-cloud:0.0.2") {
+        exclude(group = "io.grpc", module = "grpc-netty")
+    }
 
-    // Data
+    // DB
+    implementation("androidx.room:room-runtime:2.2.0-alpha01")
+    kapt("androidx.room:room-compiler:2.2.0-alpha01")
+    implementation("androidx.room:room-ktx:2.2.0-alpha01")
+    implementation("androidx.room:room-rxjava2:2.2.0-alpha01")
+
+    // Mapping
     api("com.google.code.gson:gson:2.8.5")
-    api("com.google.protobuf:protobuf-java:3.6.1")
 
     // AndroidX
     api("androidx.appcompat:appcompat:1.0.2")
