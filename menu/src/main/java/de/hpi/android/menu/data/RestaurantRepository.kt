@@ -9,8 +9,8 @@ import io.reactivex.Observable
 
 object RestaurantRepository : Repository<RestaurantDto>() {
     private val restaurants = listOf(
-        RestaurantDto(Id("mensa"), "Mensa Griebnitzsee"),
-        RestaurantDto(Id("ulf"), "Ulf's Café")
+        RestaurantDto("mensa", "Mensa Griebnitzsee"),
+        RestaurantDto("ulf", "Ulf's Café")
     )
 
     override fun get(id: Id<RestaurantDto>): Observable<Result<RestaurantDto>> {

@@ -9,10 +9,10 @@ import io.reactivex.Observable
 
 object LabelRepository : Repository<LabelDto>() {
     private val labels = listOf(
-        LabelDto(Id("chicken"), "Huhn"),
-        LabelDto(Id("beef"), "Rind"),
-        LabelDto(Id("pork"), "Schwein"),
-        LabelDto(Id("vegetarian"), "Vegetarisch")
+        LabelDto("chicken", "Huhn"),
+        LabelDto("beef", "Rind"),
+        LabelDto("pork", "Schwein"),
+        LabelDto("vegetarian", "Vegetarisch")
     )
 
     override fun get(id: Id<LabelDto>): Observable<Result<LabelDto>> {

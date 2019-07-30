@@ -1,6 +1,5 @@
 package de.hpi.android.menu.domain
 
-import de.hpi.android.core.data.Id
 import de.hpi.android.core.domain.*
 import de.hpi.android.menu.data.*
 import io.reactivex.Observable

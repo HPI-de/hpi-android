@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="de.hpi.android.core.presentation.utils.FormattingUtilsKt" />
+        <import type="de.hpi.android.myhpi.presentation.list.InfoBitAdapter" />
+
+        <variable
+            name="infoBit"
+            type="de.hpi.android.myhpi.domain.InfoBit" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/core_space_m"
+        android:layout_marginEnd="@dimen/core_space_m"
+        android:layout_marginBottom="@dimen/core_space_m">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/core_space_m"
+                android:layout_marginTop="@dimen/core_space_m"
+                android:layout_marginEnd="@dimen/core_space_m"
+                android:text="@{infoBit.title}"
+                android:textAppearance="?textAppearanceHeadline5"
+                tools:text="Die Schul-Cloud für Brandenburg: Bildungsministerin Britta Ernst unterzeichnet Absichtserklärung zur Nutzung der HPI Schul-Cloud" />
+
+            <TextView
+                android:id="@+id/teaser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/core_space_m"
+                android:layout_marginTop="@dimen/core_space_s"
+                android:layout_marginEnd="@dimen/core_space_m"
+                android:text="@{infoBit.text}"
+                android:textAppearance="?textAppearanceBody1"
+                android:textColor="?colorOnSurfaceMediumEmphasis"
+                tools:text="Künftig sollen viel mehr Schulen in Brandenburg die HPI Schul-Cloud nutzen können. …" />
+
+            <!--android:text="@{@string/news_list_item_sourceAndDateFormat(source.title, FormattingUtilsKt.formatDateTimeRelative(context, article.date))}"-->
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/tags"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/core_space_xs"
+                android:padding="@dimen/core_space_m"
+                app:chips="@{InfoBitAdapter.formatActions(infoBit.actions)}" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

@@ -2,11 +2,11 @@ package de.hpi.android.menu.domain
 
 import de.hpi.android.core.data.Id
 import de.hpi.android.core.domain.Entity
-import de.hpi.android.menu.data.MenuDto
 import org.threeten.bp.LocalDate
+import java.util.*
 
 data class Menu(
-    override val id: Id<MenuDto>,
+    override val id: Id<Menu>,
     val date: LocalDate,
     val restaurant: Restaurant,
     val title: String,
@@ -14,4 +14,4 @@ data class Menu(
     val price: Float, // TODO: Implement better data type for prices.
     val counter: String?,
     val labels: Set<Label>
-) : Entity<Menu, MenuDto>
+) : Entity<Menu>

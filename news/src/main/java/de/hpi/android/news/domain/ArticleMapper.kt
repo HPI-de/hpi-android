@@ -1,6 +1,5 @@
 package de.hpi.android.news.domain
 
-import de.hpi.android.core.data.Id
 import de.hpi.android.core.domain.*
 import de.hpi.android.news.data.*
 import io.reactivex.Observable

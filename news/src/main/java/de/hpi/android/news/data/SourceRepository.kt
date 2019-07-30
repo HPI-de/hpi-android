@@ -11,12 +11,12 @@ import java.net.URL
 object SourceRepository : Repository<SourceDto>() {
     private val sources = listOf(
         SourceDto(
-            id = Id("hpi"),
+            id = "hpi",
             link = URL("https://hpi.de/medien/presseinformationen/news.html"),
             title = "HPI News"
         ),
         SourceDto(
-            id = Id("hpi-mgzn"),
+            id = "hpi-mgzn",
             link = URL("https://hpimgzn.de/"),
             title = "HPImgzn"
         )

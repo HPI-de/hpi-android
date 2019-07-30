@@ -3,7 +3,6 @@ package de.hpi.android.core.presentation.base
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import de.hpi.android.core.R
 import kotlin.properties.Delegates
 
 abstract class BaseAdapter<T : Any, VH : BaseViewHolder<T, B>, out B : ViewDataBinding> : RecyclerView.Adapter<VH>() {

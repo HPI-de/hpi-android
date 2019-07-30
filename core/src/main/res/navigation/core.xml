@@ -58,4 +58,10 @@
         android:name="de.hpi.android.menu.presentation.list.RestaurantListFragment"
         tools:layout="@layout/menu_fragment_restaurant_list" />
 
+    <!-- MyHPI -->
+    <fragment
+        android:id="@id/myhpi_infoBitsList"
+        android:name="de.hpi.android.myhpi.presentation.list.InfoBitsFragment"
+        tools:layout="@layout/myhpi_fragment" />
+
 </navigation>

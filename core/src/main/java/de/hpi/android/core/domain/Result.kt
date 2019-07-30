@@ -87,4 +87,14 @@ fun <T : Any, R : Any> Observable<Result<T>>.flatMapResult(mapper: (T) -> Observ
         }
     }
 }
+
+fun <T : Any, R : Any> Observable<Result<T>>.switchMapResult(mapper: (T) -> Observable<Result<R>>): Observable<Result<R>> {
+    return switchMap { res ->
+        when (res) {
+            is Result.Success -> mapper(res.data)
+            is Result.Loading -> res.data?.let { mapper(it) } ?: Observable.just(loading<R>())
+            is Result.Error -> Observable.just(res)
+        }
+    }
+}
 // endregion
