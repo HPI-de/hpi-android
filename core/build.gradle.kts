@@ -58,10 +58,9 @@ dependencies {
     }
 
     // DB
-    implementation("androidx.room:room-runtime:2.2.0-alpha01")
-    kapt("androidx.room:room-compiler:2.2.0-alpha01")
-    implementation("androidx.room:room-ktx:2.2.0-alpha01")
-    implementation("androidx.room:room-rxjava2:2.2.0-alpha01")
+    api("androidx.room:room-runtime:2.2.0-alpha01")
+    api("androidx.room:room-ktx:2.2.0-alpha01")
+    api("androidx.room:room-rxjava2:2.2.0-alpha01")
 
     // Mapping
     api("com.google.code.gson:gson:2.8.5")

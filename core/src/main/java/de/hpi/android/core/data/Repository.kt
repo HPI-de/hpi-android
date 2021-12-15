@@ -36,6 +36,39 @@ abstract class GrpcRepository<E : Dto<E>>(port: Int) : Repository<E> {
     }
 }
 
+interface RoomRepository<E : Dto<E>> : Repository<E> {
+    companion object {
+        private const val EMPTY_TIMEOUT = 300L
+    }
+
+    override fun get(id: Id<E>): Observable<Result<E>> {
+        return getRaw(id).map {
+            if (it.isEmpty())
+                ItemNotFoundException(id).error()
+            else
+                it.first().success()
+        }
+        //        return Observable.timer(EMPTY_TIMEOUT, TimeUnit.MILLISECONDS)
+        //            .ambWith(getRaw(id).firstOrError().map { 1L }.toObservable())
+        //            .flatMap {
+        //                var observable = getRaw(id).map<Result<E>> { it.success() }
+        //                if (it == 1L)
+        //                    observable = observable.startWith(ItemNotFoundException(id).error())
+        //                observable.startWith(loading<E>())
+        //            }
+    }
+
+    fun getRaw(id: Id<E>): Observable<List<E>>
+
+    override fun getAll(): Observable<Result<List<E>>> {
+        return getAllRaw()
+            .map<Result<List<E>>> { it.success() }
+            .startWith(loading<List<E>>())
+    }
+
+    fun getAllRaw(): Observable<List<E>>
+}
+
 interface MutableRepository<E : Dto<E>> : Repository<E> {
     abstract fun create(entity: E): Observable<Id<E>>
     abstract fun update(entity: E): Completable

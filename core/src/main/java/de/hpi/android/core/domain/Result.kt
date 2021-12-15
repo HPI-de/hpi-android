@@ -1,6 +1,6 @@
 package de.hpi.android.core.domain
 
-import de.hpi.android.core.R
+import de.hpi.android.core.data.Id
 import de.hpi.android.core.utils.checkAllMatched
 import io.reactivex.Observable
 
@@ -66,6 +66,10 @@ fun <T : Any> Set<Result<T>>.merge(): Result<Set<T>> {
     }
 }
 
+
+// region Common Errors
+class ItemNotFoundException(id: Id<Any>) : Exception("Item with ID $id not found")
+// endregion
 
 // region Observable
 fun <T : Any, R : Any> Observable<Result<T>>.mapResult(mapper: (T) -> Result<R>): Observable<Result<R>> {

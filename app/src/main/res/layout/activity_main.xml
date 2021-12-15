@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/resources"
-        android:name="de.hpi.android.course.presentation.list.CourseListFragment"
+        android:name="de.hpi.android.news.presentation.list.ArticleListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

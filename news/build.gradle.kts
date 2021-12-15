@@ -30,4 +30,6 @@ android {
 
 dependencies {
     implementation(project(":core"))
+
+    kapt("androidx.room:room-compiler:2.2.0-alpha01")
 }
