@@ -7,7 +7,7 @@ import de.hpi.android.core.domain.error
 import de.hpi.android.core.domain.success
 import io.reactivex.Observable
 
-object TagRepository : Repository<TagDto>() {
+object TagRepository : Repository<TagDto> {
     private val tags = listOf(
         TagDto(
             id = "essen",

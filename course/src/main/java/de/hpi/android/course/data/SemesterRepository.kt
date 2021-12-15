@@ -7,7 +7,7 @@ import de.hpi.android.core.domain.error
 import de.hpi.android.core.domain.success
 import io.reactivex.Observable
 
-object SemesterRepository : Repository<SemesterDto>() {
+object SemesterRepository : Repository<SemesterDto> {
 
     private val semesters = listOf(
         SemesterDto(

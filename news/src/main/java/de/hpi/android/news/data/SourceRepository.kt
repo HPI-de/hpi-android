@@ -8,7 +8,7 @@ import de.hpi.android.core.domain.success
 import io.reactivex.Observable
 import java.net.URL
 
-object SourceRepository : Repository<SourceDto>() {
+object SourceRepository : Repository<SourceDto> {
     private val sources = listOf(
         SourceDto(
             id = "hpi",

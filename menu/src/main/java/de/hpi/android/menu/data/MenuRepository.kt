@@ -8,7 +8,7 @@ import de.hpi.android.core.domain.success
 import io.reactivex.Observable
 import org.threeten.bp.LocalDate
 
-object MenuRepository : Repository<MenuDto>() {
+object MenuRepository : Repository<MenuDto> {
     private val restaurants = listOf(
         MenuDto(
             id = "mensa1",

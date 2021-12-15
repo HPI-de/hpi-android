@@ -7,7 +7,7 @@ import de.hpi.android.core.domain.error
 import de.hpi.android.core.domain.success
 import io.reactivex.Observable
 
-object RestaurantRepository : Repository<RestaurantDto>() {
+object RestaurantRepository : Repository<RestaurantDto> {
     private val restaurants = listOf(
         RestaurantDto("mensa", "Mensa Griebnitzsee"),
         RestaurantDto("ulf", "Ulf's Café")

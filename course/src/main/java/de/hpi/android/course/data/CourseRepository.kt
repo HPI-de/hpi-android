@@ -8,7 +8,7 @@ import de.hpi.android.core.domain.success
 import de.hpi.android.course.domain.Course
 import io.reactivex.Observable
 
-object CourseRepository : Repository<CourseDto>() {
+object CourseRepository : Repository<CourseDto> {
     private val courses = listOf(
         CourseDto(
             id = "2019ss-pt2",

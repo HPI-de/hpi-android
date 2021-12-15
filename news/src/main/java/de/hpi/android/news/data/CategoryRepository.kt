@@ -7,7 +7,7 @@ import de.hpi.android.core.domain.error
 import de.hpi.android.core.domain.success
 import io.reactivex.Observable
 
-object CategoryRepository : Repository<CategoryDto>() {
+object CategoryRepository : Repository<CategoryDto> {
     private val categories = listOf(
         CategoryDto(
             id = "allgemein",

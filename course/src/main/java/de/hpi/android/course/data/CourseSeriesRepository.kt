@@ -9,7 +9,7 @@ import de.hpi.android.course.domain.CourseSeries
 import io.reactivex.Observable
 import kotlin.IllegalArgumentException
 
-object CourseSeriesRepository : Repository<CourseSeriesDto>() {
+object CourseSeriesRepository : Repository<CourseSeriesDto> {
     private val series = listOf(
         CourseSeriesDto(
             id = "pt2",

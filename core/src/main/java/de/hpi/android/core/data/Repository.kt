@@ -6,9 +6,9 @@ import io.grpc.okhttp.OkHttpChannelBuilder
 import io.reactivex.Completable
 import io.reactivex.Observable
 
-abstract class Repository<E : Dto<E>> {
-    abstract fun get(id: Id<E>): Observable<Result<E>>
-    abstract fun getAll(): Observable<Result<List<E>>>
+interface Repository<E : Dto<E>> {
+    fun get(id: Id<E>): Observable<Result<E>>
+    fun getAll(): Observable<Result<List<E>>>
 
     fun get(ids: Set<Id<E>>): Observable<Result<Set<E>>> {
         return if (ids.isEmpty()) Observable.just(emptySet<E>().success())
@@ -19,7 +19,7 @@ abstract class Repository<E : Dto<E>> {
     }
 }
 
-abstract class GrpcRepository<E : Dto<E>>(port: Int) : Repository<E>() {
+abstract class GrpcRepository<E : Dto<E>>(port: Int) : Repository<E> {
     protected val channel = OkHttpChannelBuilder
         .forAddress(BuildConfig.hpiCloudUrl, port)
         .usePlaintext()
@@ -36,7 +36,7 @@ abstract class GrpcRepository<E : Dto<E>>(port: Int) : Repository<E>() {
     }
 }
 
-abstract class MutableRepository<E : Dto<E>> : Repository<E>() {
+interface MutableRepository<E : Dto<E>> : Repository<E> {
     abstract fun create(entity: E): Observable<Id<E>>
     abstract fun update(entity: E): Completable
     abstract fun delete(id: Id<E>): Completable

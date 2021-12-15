@@ -7,7 +7,7 @@ import de.hpi.android.core.domain.error
 import de.hpi.android.core.domain.success
 import io.reactivex.Observable
 
-object LabelRepository : Repository<LabelDto>() {
+object LabelRepository : Repository<LabelDto> {
     private val labels = listOf(
         LabelDto("chicken", "Huhn"),
         LabelDto("beef", "Rind"),
